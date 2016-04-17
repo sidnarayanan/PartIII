@@ -89,8 +89,8 @@
 \newcommand{\Mme}{\mathcal{M}}
 \newcommand{\La}{\mathcal{L}}
 \newcommand{\Jc}{\mathcal{J}}
-\newcommand{\E}{\vec{E}}
-\newcommand{\B}{\vec{B}}
+\newcommand{\E}{\ensuremath{\vec{E}}}
+\newcommand{\B}{\ensuremath{\vec{B}}}
 \newcommand{\Dp}{\frac{d^3p}{(2\pi)^3}}
 \newcommand{\Dk}{\frac{d^3k}{(2\pi)^3}}
 \newcommand{\Lv}{\mathbf{L}}
@@ -156,6 +156,7 @@
 \newcommand{\nm}{\text{nm}}
 \newcommand{\ns}{\text{ns}}
 \newcommand{\mum}{\mu\text{m}}
+\newcommand{\mus}{\mu\text{s}}
 \newcommand{\mm}{\text{mm}}
 \newcommand{\cm}{\text{cm}}
 \newcommand{\m}{\text{m}}
@@ -179,13 +180,13 @@
     $\mathfrak{THE~END}$
     \end{center}
 }
-\newcommand{\el}{e^{-}}
-\newcommand{\pos}{e^{+}}
-\newcommand{\ord}[1]{\mathcal{O}(#1)}
+\newcommand{\el}{\ensuremath{e^{-}}}
+\newcommand{\pos}{\ensuremath{e^{+}}}
+\newcommand{\ord}[1]{\ensuremath{\mathcal{O}(#1)}}
 \newcommand{\thus}{$~\Rightarrow~$}
 \newcommand{\embedimg}[1]{\begin{center}\includegraphics[width=0.48\textwidth]{#1}\end{center}}
 \newcommand{\embedimgw}[2]{\begin{center}\includegraphics[width=#2\textwidth]{#1}\end{center}}
-\newcommand{\lrad}{L_\text{rad}}
+\newcommand{\lrad}{\ensuremath{L_\text{rad}}}
 \setcounter{section}{-1}
 \nonstopmode
 \begin{document}
@@ -668,7 +669,319 @@ where $A$ is the atomic mass
 \end{itemize}
 
 \subsection{Multiwire proportional chamber}
+\embedimgw{figs/mwpc_config.png}{.8}
+\begin{itemize}
+  \item Cathode planes are separated by $\sim 10~\mm$ and the wires are spaced $\sim 2~\mm$ apart
+  \begin{itemize}
+    \item Spatial resolution is $\sim 1/2$ of wire spacing
+  \end{itemize}
+  \item The efficiency of a particle creating a signal is typically $\sim 99\%$
+  \item Free $\el$/ions drift towards nearest anode wire/cathode wall
+  \item Upon getting close to the anode, $\el$ can induce avalanche
+  \item Ions from avalanche induce negative voltage difference on anode (same as proportional counter)
+  \item Also induces a small \emph{positive} signal on adjacent anodes
+  \item Can align many MWPCs (with alternating layers at right angles) to determine trajectory
+  \begin{itemize}
+    \item With sufficiently many such layers, can get 3D particle trajectory reconstruction
+  \end{itemize}
+  \embedimgw{figs/mwpc_xy.png}{.8}
+  \item Since each anode wire is a separate detector, MWPCs can detect multiple particles, as long as they do not overlap
+  \item Magic gas: $75\%$ Ar, $24.5\%$ isobutane, $.5\%$ freon \thus gains up to $\sim 10^7$
+  \begin{itemize}
+    \item Argon is used because noble gases require smallest $\E$-field for avalanche
+    \item Above gains of $\sim10^3$, argon atoms will become excited and then de-excite by releasing a $\gamma$ \thus can release photoelectric $\el$ in cathode
+    \item Add a quenching gas (isobutane) to absorb $\gamma$s and dissipate energy thermally
+    \item Freon is added to kill any remaining dark current (i.e. electrons escaping from cathode due to high $\E$-field). Freon is very electronegative and therefore can capture low-energy $\el$s
+  \end{itemize}
+  \item If magic gas is used:
+  \begin{itemize}
+    \item The signals are saturated and independent of energy \thus can be used for position tracking
+    \item High gain \thus signal from $\el$s is measurable. This is much faster than the ion signal, giving better timing resolution $\sim25\text{-}30~\ns$
+  \end{itemize}
+  \item Multiple firings 
+  \embedimgw{figs/mwpc_multiple.png}{.8}
+  \begin{itemize}
+    \item The first and last ionizations in the diagram above will give delayed signals (wrt the second and third ionizations) because of the $\el$ drift time
+    \item Typically use this timing info to get the signal localized to one or two anode wires
+  \end{itemize}
+\end{itemize}
 
+\subsection{Drift chamber}
+\begin{itemize}
+  \item Similar to proportional counter. Uses many ``field wires'' held at constant potential to ensure uniform $\E$-field
+  \item Uniform $\E$-field \thus constant drift velocity
+  \embedimgw{figs/drift1.png}{.8}
+  \item Operation:
+  \begin{itemize}
+    \item Particle sets off scintillator. Timer starts
+    \item Particle ionizes an atom in chamber. \el drifts to anode
+    \item \el reaches (near) anode, inducing a signal through avalanche. Timer stops
+    \item Using $\Delta t$ and constant drift velocity of $\el$, position in $z$ can be determined
+  \end{itemize}
+  \item Spatial resolution is now determined by timing resolution of scintillator and anode signal
+  \begin{itemize}
+    \item \thus no longer need high wire density (like MWPCs)
+  \end{itemize}
+  \item Max counting rate is $\sim 10^4$/(s$\cdot$mm)/wire
+  \begin{itemize}
+    \item Same as MWPCs, but fewer wires \thus smaller flux can be handled
+  \end{itemize}
+  \embedimgw{figs/drift2.png}{.8}
+  \item Cylindrical drift chambers used at collider detectors
+  \item Drift chamber is much more sensitive to gas composition, pressure, impurities, because all these things affect constant drift velocity assumption
+  \item Correction needs to be made to account for presence of a $\B$-field
+  \item Drift velocity of $\el$ is $\sim 5~\cm/\mus$ in Ar
+  \item Higher drift velocity \thus lower uncertainty from diffusion
+\end{itemize}
+
+\subsection{Time projection chamber}
+\begin{center}
+  \includegraphics[width=0.6\textwidth,valign=t]{figs/tpc1.png}
+  \includegraphics[width=0.38\textwidth,valign=t]{figs/tpc2.png}
+\end{center}
+\begin{itemize}
+  \item Combines principles of a MWPC and drift tube, as well as giving info on particle momentum and $dE/dx$
+  \item Constant \E-field \thus electron drift velocity is constant
+  \item \B-field has two purposes:
+  \begin{itemize}
+    \item Curves tracks of charged particles
+    \item Ensures \el diffusion (multiple scattering) is always helical towards endcap of TPC
+  \end{itemize}
+  \item 3D reconstruction:
+  \begin{itemize}
+    \item 1D from which anode wire gets a signal
+    \item 1D from which cathode pads get charge on them
+    \item 1D from drift time
+  \end{itemize}
+  \item Typically add a grid held at ground potential right before endcap
+  \begin{itemize}
+    \item Traps positive ions before they drift back to central cathode
+  \end{itemize}
+  \item Charge/signal on cathode pads/anode wires is $\propto$ energy of drift \el \thus gives $dE/dx$ of particle
+  \item Curvature of charged particle gives the momentum
+  \item Anode wire spacing is $\sim1~\cm$
+  \item Scintillation (i.e. for LAr TPC)
+  \begin{itemize}
+    \item Liquid argon better for number of reasons
+    \begin{itemize}
+      \item Higher density than gas (good for low $\sigma$ interactions like $\nu N$)
+      \item Scintillator
+      \item Very low electronegativity
+    \end{itemize}
+    \item If the gas (or liquid) is a scintillator, can add photodetectors to measure position along $z$ axis
+    \item Can use this info to know where the ionization occured (instead of relying on drift time)
+  \end{itemize}
+\end{itemize}
+
+\section{Scintillators}
+\begin{itemize}
+  \item Particle excites an atom/molecule, which then de-excites by releasing a $\gamma$
+  \item Emitted light is picked up by a photodetector
+  \item Features
+  \begin{itemize}
+    \item Above energy threshold, scintillator response is $N_\gamma \propto E$. Since photomultipliers have $N_e\propto N_\gamma$, the total response is linear in $E$
+    \item Very short deadtime, very fast response
+    \item Can distinguish particle type based on pulse shape
+  \end{itemize}
+  \item If $N(t)$ is the number of photons emitted at time $t$, it can be approximated as the sum of a fast and slow components:
+  \begin{equation}
+    N = A\exp \left[-\frac{t}{\tau_f}\right] + B\exp \left[-\frac{t}{\tau_{s\vphantom{f}}}\right]
+  \end{equation}
+  \embedimgw{figs/scint_response.png}{.8}
+  The values of $A$ and $B$ depend on the material and particle type (can be used for particle ID)
+  \item Note that the above formula ignores the rise time (typically very short relative to the decay, so can be ignored).
+  \item Desirable features:
+  \begin{itemize}
+    \item High efficiency from energy lost to radiation
+    \item Transparency to radiation (so it can reach PMTs)
+    \item Emission range is in operating range of PMT
+    \item Short decay time $\tau$
+  \end{itemize}
+  \item Scintillators can be used as liquids or solids
+  \item Liquid scintillators can be \emph{loaded} with other things for specific purposes (e.g. Gd or B for high neutron capture $\sigma$)
+  \item Energy loss ranges from $20$ to $500$ eV/photon
+\end{itemize}
+
+\subsection{Organic scintillators}
+\begin{itemize}
+  \item Response time: $\leq$ few ns
+  \item Molecules get excited
+  \item Can have singlet ($S_0$) or triplet ($T_0$) spin ground state
+  \embedimgw{figs/scint_energies.png}{0.8}
+  \item $S^*$ and $S^{**}$ are electron excitations
+  \item Excitation mechanism:
+  \begin{enumerate}
+    \item Excitation goes from $S_0$ to $S^{**}$ (or one of its vibrational excitations).
+    \item Then, internal degradation to $S^{**}$ (no $\gamma$ released)
+    \item Then, fluorescence  to vibrational excitation of $S_0$ (or $S_0$ itself)
+    \item Since bulk of atoms are in $S_0$, photons from de-excitation to vibrational excitation of $S_0$ will not be re-absorbed
+  \end{enumerate}
+  \item Similar story for triplet states, but $T_0\rightarrow S_0$ is suppressed. Instead have $T_0+T_0 \rightarrow S^*+S_0~+$ phonons
+  \item Liquids have a response time of $\tau\sim 3-4~\ns$
+  \item Plastics 
+  \begin{itemize}
+    \item Organic apparently
+    \item Very fast response \thus rise time cannot be ignored
+    \item $\tau\sim 2-3~\ns$
+  \end{itemize}
+\end{itemize}
+
+\subsection{Inorganic crystals}
+\begin{itemize}
+  \item Much slower $\tau\sim 500~\ns$
+  \item Main advantage is high stopping power because of high density and $Z$
+  \item Higher light response (2-10$\times$) than organics
+  \begin{itemize}
+    \item \thus better energy resolution
+    \item Useful for high energy $\gamma$ or $e^\pm$
+  \end{itemize}
+  \item Ex: NaI or PbWO$_4$
+  \item Scintillation mechanism:
+  \begin{itemize}
+    \item \el can be excited from valence band to excitation or conduction bands
+    \item If excitation band, the \el-hole pair is in a bound state (exciton) that moves through the crystal
+    \item If the exciton hits an impurity, the \el is absorbed by the impurity \thus just a hole left behind
+    \item Then, an \el passing by (from a higher energy state than the hole) will fill the hole, radiating a $\gamma$ 
+    \embedimgw{figs/scint_inorganic.png}{.6}
+  \end{itemize}
+\end{itemize}
+
+\subsection{Gas}
+\begin{itemize}
+  \item Very fast $\tau\sim 1~\ns$
+  \item Emits in UV range
+\end{itemize}
+
+\subsection{Pulse shape discrimination for particle ID}
+\begin{itemize}
+  \item Fast and slow components of decay depend on $dE/dx$
+  \item The components correspond to different de-excitations with different $\Delta E$ wrt ground state
+  \begin{itemize}
+    \item Which excitations are populated is therefore dependent on $dE/dx$
+  \end{itemize}
+  \embedimgw{figs/scint_psd.png}{.6}
+\end{itemize}
+
+\subsection{Quenching}
+\begin{itemize}
+  \item Energy lost through de-excitations that do not radiate a $\gamma$ 
+  \begin{itemize}
+    \item e.g. through phonons or if the atom is ionized and the \el is recaptured later
+  \end{itemize}
+  \item Issue for heavy ions and $\alpha$s, which heavily ionize
+  \begin{itemize}
+    \item Inorganic scintillators used in this case, as they have a higher light output
+  \end{itemize}
+  \item Quenching \thus lower light output
+\end{itemize}
+
+\subsection{Electron detection}
+\begin{itemize}
+  \item ``Efficiency'' close to 100\%
+  \item \emph{However} if scintillator is high $Z$, may backscatter out of detector before depositing full energy
+  \begin{itemize}
+    \item The 100\% therefore refers to particles being counted, not energy measurement
+  \end{itemize}
+  \item For low-to-medium $e^\pm$ energies, use low $Z$ organic scintillators
+  \item High $Z$ inorganics good at high energy (facilitates EM shower production, depositing full energy)
+\end{itemize}
+
+\subsection{Photon detection}
+\begin{itemize}
+  \item Want photoelectric and pair production ($\gamma$ absorbed) to dominate Compton ($\gamma$ scattered)
+  \item $\sigma_\text{photo}\propto Z^5,~\sigma_\text{pair}\propto Z^2,~\sigma_\text{Compton}\propto Z$
+  \item \thus high $Z$ is better for $\gamma$s
+\end{itemize}
+
+\subsection{Neutron detection}
+\begin{itemize}
+  \item High energy: look for recoil in $A+n\rightarrow B+p$
+  \begin{itemize}
+    \item Organics good for this
+    \item Pulse shape to reject $\gamma$-backgrounds
+  \end{itemize}
+  \item Thermal: use $A+n\rightarrow B+\gamma/\alpha$
+  \begin{itemize}
+    \item Use things that have neutron capture $\sigma$: Li, B, Gd
+  \end{itemize}
+\end{itemize}
+
+\section{Photomultipliers}
+\embedimgw{figs/pmt.png}{.6}
+\begin{itemize}
+  \item Operation principle:
+  \begin{enumerate}
+    \item $\gamma$ hits cathode, ejects \el through photoelectric effect
+    \item \el is accelerated to first dynode, where it knocks out multiple \el s
+    \item These are accelerated to the next dynode, each knocking out multiple \el s, and so on
+    \item Number of electrons reaching anode is roughly constant per photon
+  \end{enumerate}
+  \item Photon must typically be in narrow energy range (i.e. from scintillator)
+\end{itemize}
+
+\subsection{Photocathode}
+\begin{itemize}
+  \item Quantum efficiency:
+  \begin{equation}
+    n(\lambda) = \frac{\text{\# of photoelectrons released}}{\text{\# of incident photons with wavelength $\lambda$}}
+  \end{equation}
+  \item Typically, semiconductors are used instead of metals (higher QE)
+  \begin{itemize}
+    \item Suppose an \el absorbs a $\gamma$ and is traveling to the surface of the material
+    \item If material is metal, many interactions with free \el s \thus high $dE/dx$ \thus energy when it reaches surface may be too low to overcome potential barrier
+    \item Semiconductor \el s are typically in valence bands or tightly bound \thus low $dE/dx$
+  \end{itemize}
+\end{itemize}
+
+\subsection{Multiplier dynodes}
+\begin{itemize}
+  \item Dynodes are made of insulator coating a conductor
+  \item Typically 10-14 dynodes/tube
+  \item Gains of $10^6$-$10^7$
+\end{itemize}
+
+\subsection{Gain and voltage supply}
+\begin{itemize}
+  \item Let $V_d$ be the voltage between adjacent dynodes. The gain in $N_\el$ is $\delta = K V_d$, for some factor $K$
+  \item The total gain, given $N$ dynodes, is $G = (KV_d)^N$, assuming the same $V_d$ for all dynode pairs
+\end{itemize}
+
+\subsection{Pulse shape}
+\begin{itemize}
+  \item We assume the input photon distribution is from a scintillator with exponentially decaying response
+  \item Then, the current is also exponentially decaying: $I = dQ/dt$, $Q = N_e\propto N_\gamma$
+  \embedimgw{figs/pmt_pulse.png}{.7}
+\end{itemize}
+
+\subsection{Time resolution and response}
+\subsubsection{Geometry of PMT}
+\begin{itemize}
+  \item Electrons from different parts of the cathode take different amounts of time to reach first dynode
+  \item Spread in transit time is $\Delta t\sim 0.5~\ns$. The transit time itself is $\sim 0.2$-$0.5~\ns$
+  \item Above values are reached by using non-uniform \E-field between cathode and first dynode
+\end{itemize}
+\subsubsection{Noise}
+\begin{itemize}
+  \item Dark current and after pulsing
+  \begin{itemize}
+    \item DC is mostly from thermal noise
+    \item DC is exponential in $-\phi$ (work function); materials with $\phi<0$ (good for PE effect) have high DC
+    \item Two sources of after pulses:
+    \begin{itemize}
+      \item $\gamma$ released from dynode when \el hits. It can go back and release another \el from the cathode
+      \item Ions created when \el travelling through tube hits residual gas molecules. Ion travels back to cathode, release \el
+    \end{itemize}
+  \end{itemize}
+  \item Statistical noise
+  \begin{itemize}
+    \item Due to statistical nature of PE effect
+    \item Fluctuations in the electron multiplier system
+    \begin{itemize}
+      \item Statistical fluctuations in secondary emission
+      \item Difference in \el transit times between dynodes
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
 
 \begin{appendices}
 \section{Bibliography}
