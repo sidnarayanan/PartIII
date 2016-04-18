@@ -8,6 +8,7 @@
 \usepackage{footnote,url}
 \usepackage{calc}
 \usepackage{caption}
+\usepackage{xspace}
 \usepackage[export]{adjustbox}
 \usepackage{subcaption}
 \usepackage[margin=.5in,top=1in]{geometry}
@@ -155,6 +156,7 @@
 \newcommand{\ev}{\text{eV}}
 \newcommand{\nm}{\text{nm}}
 \newcommand{\ns}{\text{ns}}
+\newcommand{\s}{\text{s}}
 \newcommand{\mum}{\mu\text{m}}
 \newcommand{\mus}{\mu\text{s}}
 \newcommand{\mm}{\text{mm}}
@@ -180,8 +182,8 @@
     $\mathfrak{THE~END}$
     \end{center}
 }
-\newcommand{\el}{\ensuremath{e^{-}}}
-\newcommand{\pos}{\ensuremath{e^{+}}}
+\newcommand{\el}{\ensuremath{e^{-}}\xspace}
+\newcommand{\pos}{\ensuremath{e^{+}}\xspace}
 \newcommand{\ord}[1]{\ensuremath{\mathcal{O}(#1)}}
 \newcommand{\thus}{$~\Rightarrow~$}
 \newcommand{\embedimg}[1]{\begin{center}\includegraphics[width=0.48\textwidth]{#1}\end{center}}
@@ -982,6 +984,132 @@ where $A$ is the atomic mass
     \end{itemize}
   \end{itemize}
 \end{itemize}
+
+\section{Semiconductor detectors}
+\subsection{Basic principles}
+\embedimgw{figs/bandstructure.png}{.8}
+\begin{itemize}
+  \item Energy ``bands'' are actually many close, discrete energy levels \thus treat them as continuous
+  \begin{itemize}
+    \item Arise from degenerate latice energy levels breaking into many close discrete levels (due to Pauli principle)
+  \end{itemize}
+  \item Below the valence band are tightly-bound \el s
+  \item Conduction band: free to roam in lattice
+  \item Valence band: more tightly bound to individual atoms
+  \item In an insulator, the bands are far apart. Im a semiconductor, the band gap is $\sim 1~\ev$
+  \item When a voltage is applied:
+  \begin{itemize}
+    \item Insulator: valence \el s are stuck \thus no current
+    \item Metal: Thermally excited \el s are in the conduction band \thus current flows
+    \item Semiconductor: only a few \el s in the conduction band, so a small current is observed. As $T\rightarrow 0$, the current decreases
+  \end{itemize}
+  \item Charge carriers in semiconductors
+  \begin{itemize}
+    \item Thermal excitation: \el jumps to conduction band, leaving hole behind
+    \begin{itemize}
+      \item Conduction band \el can move freely \thus one current
+      \item Valence band can also move freely \thus another source of current
+      \item Hole current is due to \el s moving around to fill holes
+      \item In contrast, metals only have one type of current (free \el)
+    \end{itemize}
+    \item Number of \el/hole pairs is $\propto T^{3/2}\exp \left[-E_g/2kT\right] $, where $E_g$ is the energy gap size at 0 K
+  \end{itemize}
+  \item Recombination
+  \begin{itemize}
+    \item Process of \el+hole$\rightarrow$phonon
+    \item Expect \el/hole lifetime $\sim1~\s$
+    \begin{itemize}
+      \item Long because in order for recombination to occur, \el and hole must be in specific energy/momentum configuration
+    \end{itemize}
+    \item Experimentally, find $\tau\sim 1~\mus$-$100~\mus$ \thus some other mechanism of destroying pairs
+    \item Impurities can add energy levels in the energy gap
+    \embedimgw{figs/impurities.png}{.7}
+    \begin{itemize}
+      \item These intermediate states can capture an \el and later capture a hole (or vice versa), causing recombination
+      \item Very efficient process
+      \item Bad for detection, as it reduces charge carrier lifetime (i.e. recomb. occurs before the charges can be collected)
+      \item Detectors need $<10^{10}$ impurities/cm$^3$
+    \end{itemize}
+    \item Trapping
+    \begin{itemize}
+      \item Similar to recombination impurities, except the extra energy states are charge-specific (i.e. only \el or holes, but not both)
+      \item Charge is then released after some characteristic time
+      \begin{itemize}
+        \item If the capture time is longer than charge collection time, signal can be lost to trapping centers
+      \end{itemize}
+    \end{itemize}
+    \item Recomb. and trapping effects can arise from structural defects in lattice as well
+  \end{itemize}
+\end{itemize}
+
+\subsection{Doped semiconductors}
+\begin{itemize}
+  \item A semiconductor can be doped when a lattice atom is replaced with an atom with:
+  \begin{itemize}
+    \item An extra \el \thus donor (n-type) impurity
+    \item A missing \el \thus acceptor (p-type) impurity
+  \end{itemize}
+  \item For example, if the semiconductor is Si or Ge (quadravalent atoms), a donor would have 5 valence \el (e.g. P), and an acceptor would have 3 valence \el (e.g. Al)
+  \embedimgw{figs/doping.png}{.8}
+  \item n-type (i.e. extra \el)
+  \begin{itemize}
+    \item Valence band is filled up, so extra \el creates an energy level in the gap
+    \item The $\Delta E$ between the impurity state and the conduction band is $\ord{0.01}~\ev$
+    \item This extra \el is very easily thermally excited into conduction band \thus better conductivity
+    \item Extra \el will also drop down to fill holes \thus hole current is somewhat suppressed
+  \end{itemize}
+  \item p-type (i.,e. missing \el)
+  \begin{itemize}
+    \item Essentially everything said about n-type, but $\el \longleftrightarrow~$hole.
+    \item Impurity level is very close to valence band (i.e. location of hole current)
+  \end{itemize}
+  \item Let $p,n$ be the concentrations of positive, negative (i.e. holes, free \el) charges respectively; $N_D,N_A$ be the concentrations of donor, acceptor impurities. Then, electric neutrality implies:
+  \begin{equation}
+    N_D+p = N_A+n
+  \end{equation}
+  \item Note that donors are positively charged: extra \el is not in valence band (so it is counted as part of $n$). Inverse is true for acceptors
+\end{itemize}
+
+\subsection{The np junction and depletion zone}
+\embedimgw{figs/npjunc.png}{.8}
+\begin{itemize}
+  \item Basic concept: p-type semiconductor next to n-type material (actual fabrication is more complicated)
+  \item n- and p-sides start neutral, but then:
+  \begin{itemize}
+    \item \el flow from n to p, filling holes
+    \item Holes from p to n, accepting \el
+    \item \thus result: p-side has static negative charge; n-side has static positive charge
+    \item Static charge distributions are localized near boundary
+  \end{itemize}
+  \item Generates an \E-field from n to p. {\bf IMPORTANT}: sign of \E-field in above diagram (from Leo) is incorrect
+  \item The \E-field is equiv to a potential difference across junction ($V_0 \sim 1$ V)
+  \item Non-zero \E-field pushes the energy levels up (down) on the p (n) side
+  \begin{itemize}
+    \item Remember: \el move against \E
+    \item More negative static charges on p-side \thus \el energy levels go up
+    \item More positive static charges on n-side \thus \el energy levels go down
+  \end{itemize}
+  \item Capacitance: the electrostatic configuration resembles a plate capacitor with $C\sim \text{pF/mm}^2$
+  \item Depletion zone
+  \begin{itemize}
+    \item Area in which there are no free charges
+    \item Depth of n- and p-sides (calculation is below):
+    \begin{equation}
+      x_n = \sqrt{\frac{2\epsilon V_0}{e N_D(1+N_D/N_A)}}, \quad x_p = \sqrt{\frac{2\epsilon V_0}{eN_A(1+N_A/N_D)}}
+    \end{equation}
+    \item \thus if one side is more heavily doped than the other, the depletion zone extends further into the lightly-doped side
+    \item Depth calculation:
+  \end{itemize}
+\end{itemize}
+
+\noindent Assume the charge density is constant:
+\begin{equation}
+  \rho(x) = \begin{cases} - eN_D & 0 < x < x_n \\ - eN_A & -x_p < x < 0 \end{cases}
+\end{equation}
+Charge conservation implies $x_n N_D = x_p N_A$.  Using Poisson's equation:
+\begin{equation}
+  \phi''(x) = -\rho(x)/\epsilon
+\end{equation}
 
 \begin{appendices}
 \section{Bibliography}
