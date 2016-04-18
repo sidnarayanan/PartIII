@@ -519,6 +519,11 @@ where $A$ is the atomic mass
       \item $F=1$ \thus purely Poissonian (e.g. scintillators in which only part of the energy is deposited)
       \item $F<1$ \thus better (semiconductors, gases, scintillators which stop the particle)
     \end{itemize}
+    \item Resolution can be defined two ways:
+    \begin{itemize}
+      \item $\text{FWHM} = 2.35 \dfrac{\sigma}{J} = 2.35\sqrt{\dfrac{FW}{E}}$
+      \item Deviation divided by mean: $\dfrac{\sigma}{\mu} = \dfrac{\sigma}{J} = \sqrt{\dfrac{FW}{E}}$
+    \end{itemize}
   \end{itemize}
 \end{itemize}
 
@@ -1110,6 +1115,48 @@ Charge conservation implies $x_n N_D = x_p N_A$.  Using Poisson's equation:
 \begin{equation}
   \phi''(x) = -\rho(x)/\epsilon
 \end{equation}
+Integrating twice and choosing constants:
+\begin{equation}
+  \phi(x) = \begin{cases} - \frac{eN_D}{\epsilon} \left(\frac{x^2}{2}-x_n x\right) & x\in n \\ \frac{eN_A}{\epsilon} \left(\frac{x^2}{2}+x_px\right) & x\in p \end{cases}
+\end{equation}
+Imposing $\phi(-x_p)=0$ and $\phi(x_n)=V_0$ allows us to solve for the depths.
+
+\subsection{Semiconductors as detectors}
+\begin{itemize}
+  \item Principle: constant \E-field in depletion zone carries away charges from ionizaton
+  \begin{itemize}
+    \item Holes go to p-side
+    \item \el go to n-side
+  \end{itemize}
+  \item Average energy to create \el/hole pair is $3~\ev$
+  \begin{itemize}
+    \item Can contrast with gases $\sim30~\ev$
+    \item Scintillators are $\sim300~\ev$
+  \end{itemize}
+  \item For light particles ($m\lesssim m_p$), energy per ionization $w$ is independent of particle type
+  \begin{itemize}
+    \item Therefore, given a collection efficiency $n$, particle of energy $E$, and assuming the particle is stopped in the semiconductor:
+    \begin{equation}
+      Q = \frac{nE}{w}
+    \end{equation}
+    \item Not quite true for heavier ions $\alpha,\dots$
+  \end{itemize}
+  \item What is measured is a voltage difference induced by charge collected $Q$ \thus $V=Q/C$
+\end{itemize}
+
+\subsubsection{Reverse bias}
+\embedimgw{figs/reversebias.png}{.8}
+\begin{itemize}
+  \item Normal depletion zone is rather small and \E-field is relatively weak
+  \item Fix both issues by adding an additional bias voltage $V_B\gg V_0$
+  \item Note: $V_B$ is maintained and $V_B\gg V_0$, so changing $V_0$ due to individual ionizations is negligible
+  \item Can get depletion zones of $\sim1~\mm$
+\end{itemize}
+
+\subsubsection{Detector characteristics}
+\begin{itemize}
+  \item Fano factor is $\sim 0.12$ \thus energy resolution for a $5~\mev$ particle is $\sim 0.07\%$
+\end{itemize}
 
 \begin{appendices}
 \section{Bibliography}

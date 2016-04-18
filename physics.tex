@@ -269,6 +269,7 @@
     \item Wu and collaborators found that the flux of electrons emitted in the same hemisphere as $\vec\mu$ (i.e. $\vec\mu\cdot \vec p_e>0$) is much lower than the flux of electrons emitted in the opposite hemisphere
     \item Under parity, $P:\vec p \mapsto - \vec p$. But since $\vec B,\vec \mu$ are axial vectors, they are invariant under parity. Therefore, the asymmetry represents violation of parity invariance.
   \end{itemize}
+  \embedimgw{figs/wu.png}{.4}
 \end{itemize}
 \subsubsection{$V-A$ structure}
 \begin{itemize}
@@ -334,7 +335,7 @@
     \item If we assume $m_\nu = 0$, a right-handed (chirality) $\nubar$ must also be right-handed (helicity)
     \item Since the decay products are back-to-back, the $\ell$ must also be right-handed (helicity) to be in the spin-singlet state
   \end{itemize}
-  \embedimgw{figs/piondecay.png}{.8}
+  \embedimgw{figs/piondecay.png}{.6}
   \item If $m_\ell = 0$, this decay would be forbidden, since only the left-handed (chirality) $\ell$ couples to the weak current. Since this is not the case, there is a small overlap between the right-handed (helicity) and left-handed (chirality) $\ell$ states
   \item The matrix-element of this decay is suppressed due to this small overlap:
   \begin{equation}
@@ -351,11 +352,12 @@
   \end{equation}
   So $\Gamma(e)/\Gamma(\mu) \sim 10^{-4}$
   \item Note that this example shows that the weak interaction violates $P$ and $C$, but not $CP$. Consider $\pi^-\rightarrow \nubar_\mu \mu^-$, where the $\nubar_\mu$ is RH (chirality). The muon is as discussed above
-  \begin{itemize}
-    \item If $P$ is applied, the neutrino direction flips but the spin does not (axial vector). Therefore, the neutrino becomes LH (helicity$\approx$chirality). This decay is forbidden
-    \item If $C$ is applied, the RH (chirality) neutrino becomes a RH (chirality) antineutrino. This decay is forbidden
-    \item If $CP$ is applied, the RH (chirality) neutrino becomes a LH (chirality) antineutrino. This decay is allowed
-  \end{itemize}
+  \embedimgw{figs/pioncp.png}{.6}
+  % \begin{itemize}
+  %   \item If $P$ is applied, the neutrino direction flips but the spin does not (axial vector). Therefore, the neutrino becomes LH (helicity$\approx$chirality). This decay is forbidden
+  %   \item If $C$ is applied, the RH (chirality) neutrino becomes a RH (chirality) antineutrino. This decay is forbidden
+  %   \item If $CP$ is applied, the RH (chirality) neutrino becomes a LH (chirality) antineutrino. This decay is allowed
+  % \end{itemize}
 \end{itemize}
 
 \section{Weak interactions of leptons}
@@ -429,10 +431,12 @@
     \item NC: there is $\gamma/Z$ interference at high $Q^2$ which is constructive for $\el p$ and destructive for $\pos p$
   \end{itemize}
 \end{itemize}
+\embedimgw{figs/weakdis.png}{.4}
 
 \section{Neutrinos and oscillations}
 \begin{itemize}
-  \item We know that there are different flavors of neutrinos by searching for $\mu \rightarrow W^- \nu \rightarrow \el \rightarrow \el\gamma$, where the intermediate $\el$ is off-shell
+  \item We know that there are different flavors of neutrinos by searching for:
+  \embedimgw{figs/mu2e.png}{.3}
   \begin{itemize}
     \item Experiment puts $\text{Br}(\mu\rightarrow\el\gamma)<10^{-11}$
   \end{itemize}
@@ -534,7 +538,7 @@
   \begin{itemize}
     \item i.e. satisfy $i \partial_t\nu_k = E\nu_k$ for $k=1,2,3$
   \end{itemize}
-  \item So a Feynman diagram with an internal $\nu_\ell$ line is really the coherent addition of three diagrams with internal $\nu_k$ lines. If $k=1,2$: 
+  \item So a Feynman diagram with an internal $\nu_\ell$ line is really the coherent addition of three diagrams with internal $\nu_k$ lines. If $k=1,2,3$: 
   \embedimgw{figs/internalnulines.png}{.6}
   \item Can define the $\nu_\ell$ states as linear combinations of the particle states:
   \begin{equation}
@@ -542,9 +546,12 @@
   \end{equation}
   \item The $W$ interaction vertex consequently must be written in terms of the mass eigenstates:
   \begin{equation}
-    -i \frac{g_W}{\sqrt{2}} \bar\ell \gamma^\mu \frac{1}{2} (1-\gamma^5) U_{\ell k} \nu_k
+    \left(-i U_{\ell k} \frac{g_W}{\sqrt{2}}\right) \bar\ell \gamma^\mu \frac{1}{2} (1-\gamma^5) \nu_k
   \end{equation}
-  Note it is identical to the expression used before, with the addition of the $U_{\ell k}$ factor
+  \begin{itemize}
+    \item For interactions involving an outgoing $\nu$ or incoming $\nubar$, $U^*$ is in the vertex factor (i.e. the spinor is in the adjoint rep)
+    \item If there is an incoming $\nu$ or outgoing $\nubar$, the spinor is in the fund. rep and $U$ is used
+  \end{itemize}
 \end{itemize}
 
 \subsubsection{Example: oscillation between two flavors}
@@ -622,6 +629,7 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
   \end{gather*}
   \begin{itemize}
     \item The sign of $\Delta m_{32}^2$ is unknown. $m_3>m_2$ is the normal hierarchy; the inverse is the inverted hierarchy.
+    \embedimgw{figs/nuhierarchy.png}{.6}
     \item $\Delta m_{31}^2$ has not been measured independently.
   \end{itemize}
 \end{itemize}
