@@ -37,11 +37,12 @@
 \newcommand{\p}{\mathbf{p}}
 \newcommand{\pop}{\hat{p}}
 \newcommand{\x}{\vec{x}}
+\newcommand{\vr}{\mathbf{r}}
 \newcommand{\xop}{\hat{x}}
 \newcommand{\w}{\mathbf{w}}
 \newcommand{\z}{\mathbf{z}}
 \newcommand{\y}{\vec{y}}
-\newcommand{\qq}{\vec{q}}
+\newcommand{\vq}{\mathbf{q}}
 \newcommand{\tv}{\tilde{\ve}}
 \newcommand{\vL}{\vec{L}}
 \newcommand{\vS}{\vec{S}}
@@ -158,6 +159,7 @@
 \newcommand{\mum}{\mu\text{m}}
 \newcommand{\mus}{\mu\text{s}}
 \newcommand{\mm}{\text{mm}}
+\newcommand{\fm}{\text{fm}}
 \newcommand{\cm}{\text{cm}}
 \newcommand{\m}{\text{m}}
 \newcommand{\km}{\text{km}}
@@ -247,7 +249,7 @@
     \item The final orbital angular momentum is $l=0$
     \item This decay is forbidden, since parity is violated: $P(\eta) \neq P(\pi^+)P(\pi^-)(-1)^l = 1$
   \end{itemize}
-  \item Importantly, parity is not conserved in the weak interaction
+  \item \thus parity is not conserved in the weak interaction
 \end{itemize}
 
 \subsection{$CPT$}
@@ -258,6 +260,271 @@
   \end{itemize}
 \end{itemize}
 
+\section{Electron-positron annihilation}
+
+\begin{equation}
+  R(s) = \frac{\sigma(\el\pos\rightarrow \text{hadrons})}{\sigma(\el\pos\rightarrow \mu^-\mu^+)}
+\end{equation}
+
+\embedimgw{figs/ee_xsec.png}{.8}
+
+\section{Electron-proton scattering (elastic)}
+\embedimgw{figs/epranges.png}{.5}
+\begin{itemize}
+  \item The structure probed by the EM interaction depends on the energy of the \el (which determines the $Q^2$ of the interaction)
+  \begin{itemize}
+    \item At non-relativistic energies, the proton can be described as a point charge
+    \item If $1/E_\gamma \sim r_p \sim 1~\fm$, the proton is an extended charge with non-zero $\mu$
+    \item At $1/E_\gamma < r_p$, the valence quarks of the proton are probed
+    \item And in the limit $1/E_\gamma \ll r_p$, the sea of quarks and gluons is probed
+  \end{itemize}
+  \item Rutherford scattering
+  \begin{itemize}
+    \item Non-relativistic limit of \el
+    \item If $T_e$ is the kinetic energy of the electron:
+    \begin{equation}
+      \dd\sigma\Omega = \dfrac{\alpha^2}{16 T_e^2\sin^4(\theta/2)}
+    \end{equation}
+  \end{itemize}
+  \item Mott scattering
+  \begin{itemize}
+    \item The electron is relativistic, but not so high energy that we need to consider proton recoil, extended charge, etc
+    \item $m_e < E_e < m_p$
+    \begin{equation}
+      \dd\sigma\Omega = \dfrac{\alpha^2}{4E_e^2\sin^4(\theta/2)}\cos^2\frac\theta 2
+    \end{equation}
+  \end{itemize}
+\end{itemize}
+
+\subsection{Form factors}
+\begin{itemize}
+  \item As $E_\gamma$ increases, we need to account for the extended charge distribution
+  \item Write the charge distribution as $Q\rho(\vr')$. Then, the (classical) electric form factor is the Fourier transform of the charge distribution:
+  \begin{equation}
+    F(\vq^2) = \int d^3r~\rho(\vr) e^{i\vq\cdot\vr}
+  \end{equation}
+  \item The differential cross-section becomes:
+  \begin{equation}
+    \left(\dd\sigma\Omega\right)_\text{Mott} \rightarrow \left(\dd\sigma\Omega\right)_\text{Mott} \times \left(F(\vq^2)\right)^2
+  \end{equation}
+\end{itemize}
+
+\subsection{The Rosenbluth formula}
+\begin{itemize}
+  \item We now write down the relativistic, leading-order, $\el p$ elastic scattering cross-section:
+  \begin{equation}
+    \dd\sigma\Omega = \frac{\alpha^2}{4E_1^2\sin^4(\theta/2)}\frac{E_3}{E_1} \left(\frac{G_E^2+\tau G_M^2}{1+\tau}\cos^2\frac\theta 2 + 2\tau G_M^2\sin^2\frac\theta 2\right), \quad \tau = \frac{Q^2}{4m_p^2}
+  \end{equation}
+  Recall $Q^2 = -q^2$
+  \item The form factors $G_E(Q^2)$ and $G_M(Q^2)$ account for the extended charge and magnetic moment distributions inside the proton
+  \item As discussed below, the anomalous magnetic moment of the proton is
+  \begin{equation}
+    \bm\mu = 2.79 \frac{e}{m_p}\Se
+  \end{equation}
+  so naively, we can guess $G_M(Q^2) = 2.79 G_E(Q^2)$
+  \item The $G$s can be measured experimentally. 
+  \begin{itemize}
+    \item $G_E$ as a function of $Q^2$ can be extracted by measuring the differential cross-section at low $Q^2$ and dividing by the expectation from the Mott formula:
+    \begin{equation}
+      \dd\sigma\Omega\Big/ \left(\dd\sigma\Omega\right)_\text{Mott} \approx G_E^2 \text{ at low }Q^2
+    \end{equation}
+    \item Similarly, $G_M$ can be extracted:
+    \begin{equation}
+      \dd\sigma\Omega\Big/ \left(\dd\sigma\Omega\right)_\text{Mott} \approx \left(1+2\tau\tan^2\frac\theta 2\right) G_M^2 \text{ at high }Q^2
+    \end{equation}
+    \item Experiment verifies $G_M \approx 2.79 G_E$
+  \end{itemize}
+  \item By taking the Fourier transform of $G_E(Q^2)$ at low $Q^2$, we can extract the charge distribution:
+  \begin{equation}
+    \rho(\vr) \approx \rho_0 e^{-r/a}, ~ a = 0.24~\fm
+  \end{equation}
+  which gives a RMS of $0.8~\fm$
+  \item At high $Q^2$, the cross-section goes as:
+  \begin{equation}
+    \left(\dd\sigma\Omega\right)_\text{elastic} \propto \frac{1}{Q^6} \left(\dd\sigma\Omega\right)_\text{Mott}
+  \end{equation}
+  so elastic scattering is very suppressed. This is because the proton has finite size and the form factors fall at high $Q^2$. In inelastic scattering, the photon interacts with point particles, which do not have form factors.
+\end{itemize}
+
+\section{Electron-proton scattering (inelastic)}
+\begin{center}
+  \includegraphics[width=0.3\textwidth]{figs/disfeyn.png}
+  \includegraphics[width=0.6\textwidth]{figs/epxsec.png}
+\end{center}
+\subsection{Lorentz-invariant kinematic variables}
+\begin{itemize}
+  \item $Q^2$ is the energy transfer squared
+  \begin{equation}
+    Q^2 = -q^2
+  \end{equation}
+  The DIS regime is $Q^2\gtrsim \text{ few}~\gev$
+  \item Bjorken $x$ is a measure of the elasticity
+  \begin{equation}
+    x = \frac{Q^2}{2p_2\cdot q}, ~ x\in [0,1]
+  \end{equation}
+  Note $x=1$ is the fully elastic scenario (the scattering is probing the proton as a whole)
+  \item $W$ is the mass of the hadronic final state
+  \begin{equation}
+    W^2 = p_4^2 \geq m_p^2
+  \end{equation}
+  The inequality is because the final state hadronic system must include at least one baryon, and the proton is the lightest baryon
+  \item Inelasticity $y$:
+  \begin{equation}
+    y = \frac{p_2\cdot q}{p_2\cdot p_1}, ~ y\in [0,1]
+  \end{equation}
+  \item $\nu$
+  \begin{equation}
+    \nu = \frac{p_2\cdot q}{m_p}
+  \end{equation}
+  \item The above quantities are obviously not all independent. Knowing two of them specifies the rest. 
+\end{itemize}
+
+\subsection{Structure functions}
+\begin{itemize}
+  \item Can write the DIS cross-section as
+  \begin{equation}
+    \dd{^2\sigma}{xdQ^2} = \frac{4\pi\alpha^2}{Q^4} \left[(1-y)\frac{F_2(x,Q^2)}{x}+y^2F_1(x,Q^2)\right]
+  \end{equation}
+  where $F_i$ are the structure functions
+  \item The double-differential cross-section can be measured easily at an fixed-target $\el~p$ scattering experiment, since $Q^2,x,y$ are all determined by $E_1, E_3,\theta$ of the electron 
+  \begin{itemize}
+    \item Can also be done at non-fixed-target experiments; kinematics are just simpler in this case
+    \item $F_1(x,Q^2),F_2(x,Q^2)$ are extracted by looking events at fixed $x,Q^2$, and varying $y$. The structure functions can then be extracted from the double-differential cross-section
+  \end{itemize}
+\end{itemize}
+
+\subsection{Bjorken scaling and the Callan-Gross relation}
+\begin{itemize}
+  \item Experiments at SLAC did systematic study of $F_i$ as functions of $x,Q^2$
+  \begin{itemize}
+    \item \el beam (5-20 GeV) fired at liquid hydrogen target
+    \item Used movable \el spectrometer to scan $\theta$
+  \end{itemize}
+  \item Bjorken scaling is the observation:
+  \begin{equation}
+    F_1(x,Q^2) \sim F_1(x),\quad F_2(x,Q^2)\sim F_2(x)
+  \end{equation}
+  \begin{itemize}
+    \item That is, the structure functions have weak $Q^2$ dependence
+    \item Implies that whatever the photon is probing is point-like \thus evidence for quark model
+    \item Scaling is violated at very high $Q^2$ (discussed below) \thus quark-gluon interactions
+    \begin{itemize}
+      \item At high $Q^2$, higher-order QCD interactions become relevant, for example $q\rightarrow qg \rightarrow q$ loops
+    \end{itemize}
+  \end{itemize}
+  \item The same experiments gave the Callan-Gross relation:
+  \begin{equation}
+    F_2(x) = 2xF_1(x)
+  \end{equation}
+  \begin{itemize}
+    \item Holds true in the DIS regime for $Q^2$
+    \item Implies that fundamental interaction is elastic scattering of spin-half particles (i.e. $\el q\rightarrow \el q$)
+  \end{itemize}
+\end{itemize}
+
+\subsection{Quarks and partons}
+\begin{itemize}
+  \item The Bjorken $x$ is the fraction of momentum carried by a parton in the ``infinite momentum'' frame.
+  \begin{itemize}
+    \item In this frame, the proton momentum is $p^\mu = (p,p,0,0)$ (i.e. can ignore the mass)
+    \item Let $\xi$ be the fraction of momentum held by the parton. The scattering process is:
+    \begin{equation}
+      \xi p^\mu \rightarrow \xi p^\mu + q^\mu
+    \end{equation}
+    \item Since the parton is on-shell before and after:
+    \begin{equation}
+      (\xi p)^2 =  m_q^2
+    \end{equation}
+    \begin{equation}
+      (\xi p + q)^2 = \xi p^2 + 2\xi p\cdot q + q^2 = m_q^2
+    \end{equation}
+    \item Equating and solving for $\xi$ gives:
+    \begin{equation}
+      \xi = \frac{-q^2}{2p\cdot q} = \frac{Q^2}{2p\cdot q} = x
+    \end{equation}
+  \end{itemize}
+  \item The scattering off a spin-half point particle $\el q \rightarrow \el q$ can be written in terms of $y$ and the parton's charge $Q_q$:
+  \begin{equation}
+    \dd\sigma{Q^2} = \frac{4\pi\alpha^2Q_q^2}{Q^4} \left[(1-y) + \frac{y^2}{2}\right]
+  \end{equation}
+\end{itemize}
+
+\subsubsection{Parton distribution functions}
+\begin{itemize}
+  \item Let $q_i^p(x)$ be the probability distribution function of the momentum fraction $x$ held by quarks of flavor $q_i$ in a proton
+  \embedimgw{figs/pdfs.png}{.7}
+  \item The total $ep$ scattering cross-section is gotten by convoluting the above formula for $d\sigma/dQ^2$ with the PDFs:
+  \begin{equation}
+    \dd{^2\sigma^{ep}}{xdQ^2} = \frac{4\pi \alpha^2}{Q^4} \left[(1-y)+\frac{y^2}{2}\right] \sum_q Q_i^2 q_i^p(x)
+  \end{equation}
+  \item We can recover the structure functions from this:
+  \begin{equation}
+    F_2^{ep}(x,Q^2) = 2xF_1^{ep}(x,Q^2) = x\sum_i Q_i^2 q_i^p(x)
+  \end{equation}
+  Note that this directly predicts Bjorken scaling and the Callan-Gross relation
+  \item Using isospin symmetry, we can define the PDFs for neutrons:
+  \begin{gather*}
+    u^p(x) = d^n(x) \equiv u(x)\\
+    d^p(x) = u^n(x) \equiv d(x)\numberthis
+  \end{gather*}
+  and similarly for $\ubar(x),\dbar(x)$
+  \item Define
+  \begin{equation}
+    f_q = \int dx~x[q(x)+\qbar(x)]
+  \end{equation}
+  $f_u,f_d$ can be determined by measuring $F_2^{ep},F_2^{en}$ (neutron scattering is done on deuterium). We find:
+  \begin{equation}
+    f_u \approx 0.36,~f_d \approx 0.18
+  \end{equation}
+  in the proton. Therefore, nearly half of the momentum is held in gluons
+\end{itemize}
+
+\subsubsection{Sea quarks}
+\begin{itemize}
+  \item The above discussion only considered $uud$ ($udd$) in protons (neutrons). It can be extended to include sea quarks (considering only $u,d$ now)
+  \item First, define:
+  \begin{equation}
+    q(x) = q_V(x) + q_S(x), \quad \qbar(x) = \qbar_S(x)
+  \end{equation}
+  \item Since sea quarks are produced in pairs from gluon splitting, we can assume $q_S = \qbar_S$. Since the masses of the $u$ and $d$ are close enough on the DIS energy scale, we can also assume $u_S \approx d_S$
+  \item We expect that at very low $x$, sea quarks will dominate the PDFs. In this case:
+  \begin{equation}
+    \lim_{x\rightarrow 0} \frac{F_2^{en}(x)}{F_2^{ep}(x)} = 1
+  \end{equation}
+  which was verified at SLAC
+\end{itemize}
+
+\subsection{HERA}
+  \begin{center}  \includegraphics[height=0.7\textwidth,angle=90]{figs/hera.png} \end{center}
+\begin{itemize}
+  \item $27.5~\gev$ \el/\pos beam colliding with a $820$ or $920$~\gev proton beam
+  \item Detector is ``forward'' in the direction of the proton beam
+  \item Measured parameters were \el energy and scattering angle \thus sufficient to determine $Q^2,x,y$
+  \begin{itemize}
+    \item Hadron shower used for trigger only
+  \end{itemize}
+  \item Huge range of $x,Q^2$ was probed. 
+  \item Very powerful evidence of Bjorken scaling 
+  \begin{itemize}
+    \item There is a violation at low/high $Q^2$, but not consistent across $x$ 
+    \item \thus quark radius is $< hc/Q \sim 10^{-18}~\m$
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Violation of Bjorken scaling}
+\embedimgw{figs/scaleviol.png}{.7}
+\begin{itemize}
+  \item At high $Q^2$, the photon probes quarks at lower $x$, arising from diagrams like $q\rightarrow qg\rightarrow q$
+  \item So at low $x$, the structure function goes up at high $Q^2$; at high $x$, the structure function goes down at high $Q^2$
+\end{itemize}
+
+\subsubsection{Global PDF fits}
+\embedimgw{figs/pdf_global.png}{.5}
+\begin{itemize}
+  \item Fit is done with information from multiple experiments
+  \item Hadron colliders \thus gluon PDF
+  \item Can use $\nu N$ experiments to isolate interactions with $u,d$ (depending on $\nu/\nubar$)
+\end{itemize}
 
 \section{The weak interaction}
 \subsection{Parity violation and the $V-A$ structure}
@@ -755,11 +1022,17 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
     \item $\sin^2(2\theta_{13}) > 0.10$
   \end{itemize}
   \item The CP violating phase $\delta$ is not constrained at all
+  \item Best measurement is:
+  \begin{equation}
+    \begin{pmatrix} \nu_e \\ \nu_\mu \\ \nu_\tau \end{pmatrix} = \begin{pmatrix} 0.82 & 0.54 & 0.15 \\ 0.35 & 0.70 & 0.62 \\ 0.44 & 0.45 & 0.77 \end{pmatrix}\begin{pmatrix} \nu_1 \\ \nu_2 \\ \nu_3 \end{pmatrix}
+  \end{equation}
 \end{itemize}
 
 
 \begin{appendices}
 \section{Bibliography}
+
+\noindent PDG Particle Review, \emph{Plots of cross sections and related quantities}. 2015
 
 \vspace{5mm}
 
@@ -774,7 +1047,7 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
 \noindent Thomson M., \emph{Modern Particle Physics} and online lecture notes (\url{http://www.hep.phy.cam.ac.uk/~thomson/partIIIparticles/welcome.html})
 \vspace{5mm}
 
-\noindent Klute M., Lecture notes from 8.811
+\noindent Klute M., \emph{Lecture notes from 8.811}. Fall 2015
 
 \end{appendices}
 
