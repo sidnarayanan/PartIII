@@ -8,6 +8,7 @@
 \usepackage{footnote,url}
 \usepackage{calc}
 \usepackage{caption}
+\usepackage{xspace}
 \usepackage[export]{adjustbox}
 \usepackage{subcaption}
 \usepackage[margin=.5in,top=1in]{geometry}
@@ -158,6 +159,7 @@
 \newcommand{\ev}{\text{eV}}
 \newcommand{\nm}{\text{nm}}
 \newcommand{\ns}{\text{ns}}
+\newcommand{\s}{\text{s}}
 \newcommand{\mum}{\mu\text{m}}
 \newcommand{\mus}{\mu\text{s}}
 \newcommand{\mm}{\text{mm}}
@@ -184,8 +186,9 @@
     $\mathfrak{THE~END}$
     \end{center}
 }
-\newcommand{\el}{\ensuremath{e^{-}}}
-\newcommand{\pos}{\ensuremath{e^{+}}}
+\newcommand{\CP}{\ensuremath{CP}\xspace}
+\newcommand{\el}{\ensuremath{e^{-}}\xspace}
+\newcommand{\pos}{\ensuremath{e^{+}}\xspace}
 \newcommand{\ord}[1]{\ensuremath{\mathcal{O}(#1)}}
 \newcommand{\thus}{\ensuremath{~\Rightarrow~}}
 \newcommand{\embedimg}[1]{\begin{center}\includegraphics[width=0.48\textwidth]{#1}\end{center}}
@@ -467,11 +470,105 @@
   \end{equation}
 \end{itemize}
 
+\section{QCD and $\SU(3)$}
+\begin{itemize}
+  \item QCD is the QFT of the strong interaction
+    \item Mediated by gluons, which are massless gauge bosons corresponding to a local $\SU(3)$ symmetry
+    \item Quarks lie in the fundamental rep of $\SU(3)$. The three basis vectors are labeled red, blue, green, and the generators are the usual Gell-Mann matrices:
+    \begin{equation}
+      T^a = \frac{1}{2}\lambda_a
+    \end{equation}
+    \item Antiquarks are in the adjoint rep and the basis vectors are $\bar r,\bar g, \bar b$
+    \item Because $\SU(3)$ is non-Abelian, there are gluon self-interactions:
+    \embedimgw{figs/qcdvertices.png}{.6}
+    \item There are 8 physical gluon states, corresponding to the 8 Gell-Mann matrices
+    \begin{itemize}
+      \item 6 are of the form $c\cbar'$, where $c,c'$ are distinct colors
+      \item The other two correspond to $\lambda_3,\lambda_8$ and are $\frac{1}{\sqrt2}(r\bar r-g\bar g)$ and $\frac{1}{\sqrt6}(r\bar r + g\bar g + 2b\bar b)$
+    \end{itemize}
+\end{itemize}
+
+\subsection{Color confinement}
+\begin{itemize}
+  \item Particles must always exist in color singlet states 
+  \item Has not been proven theoretically, but a qualitative argument can be made:
+  \begin{itemize}
+    \item Unlike the $\E$-field of two charges being pulled apart, the strong field lines do not spread apart in space, due to gluon self-interaction:
+    \embedimgw{figs/qcdfieldlines.png}{.6}
+    \item Therefore, the energy grows linearly with the distance (experimentally $\sim 1~\gev/\fm$)
+    \item Gluons split into quarks, making color singlet states
+  \end{itemize}
+  \item Implies gluons cannot travel over macroscopic distances, as they carry color
+  \item As with flavor $\SU(3)$ symmetry, can define two quantum numbers $T_3^c,Y^c$ to characterize color $\SU(3)$ symmetry.
+  \begin{itemize}
+    \item Adding two quarks together gives an octuplet and a singlet:
+    \embedimgw{figs/mesoncolor.png}{0.6}
+    \item Similarly, adding three quarks (or three antiquarks) gives a decuplet, two octuplets, and a singlet:
+    \embedimgw{figs/baryoncolor.png}{0.6}
+    \item Only the singlet states correspond to physical states
+  \end{itemize}
+  \item Hadronization
+  \begin{itemize}
+    \item If two quarks are produced (say $\gamma\rightarrow q\qbar$) and the quarks have high energy, they will fly apart
+    \item However, the interaction of the gluon field between them has a high energy density ($1~\gev/fm$), and so the gluons split into quarks
+    \item This process repeats until all of the quarks are bound in, color singlet states
+  \end{itemize}
+\end{itemize}
+
+\subsection{Running of $\alpha_S$}
+\begin{itemize}
+  \item Coupling constants run due to higher order corrections made to boson propagators
+  \begin{itemize}
+    \item The size of these corrections is necessarily dependent on $q^2$
+    \item We absorb this $q^2$ dependence into the coupling constant, e.g. $\alpha\rightarrow\alpha(q^2)$, $\alpha_S\rightarrow \alpha_S(q^2)$
+  \end{itemize}
+  \item At low energies, $\alpha_S \sim \ord1$
+  \item Because of the non-Abelian structure of gluon interactions, the $q^2$ evolution of $\alpha_S$ depends on 
+  \begin{equation}
+    B = \frac{11N_c-2N_f}{12\pi}
+  \end{equation}
+  In the SM, $B>0$ \thus $\alpha_S$ decreases as a function of $q^2$
+  \item This is in contrast with QED, which gets stronger at short distances/high energies:
+  \begin{center}
+    \includegraphics[width=0.32\textwidth]{figs/alpharun.png}\hspace{5mm}
+    \includegraphics[width=0.3\textwidth]{figs/alphaSrun.png}
+  \end{center}
+  \item At $q\sim 100~\gev$, QCD enters a perturbative regime
+  \item Asymptotic freedom
+  \begin{itemize}
+    \item Explains why quarks in DIS experiments can be treated as free particles
+  \end{itemize}
+  \item Running can be measured by looking at jet production at colliders
+  \begin{itemize}
+    \item e.g. if the $\el\pos\rightarrow q\qbar$ and $\el\pos\rightarrow q\qbar g$ diagrams are included when calculating $R$ (described next section), we get:
+    \begin{equation}
+      R \rightarrow  \left(1+\frac{\alpha_S(q^2)}{\pi}\right) \times 3\sum_i Q_{q_i}^2
+    \end{equation}
+    giving a very precise measurement of $\alpha_S(q^2)$
+  \end{itemize}
+\end{itemize}
+
 \section{Electron-positron annihilation}
 
-\begin{equation}
-  R(s) = \frac{\sigma(\el\pos\rightarrow \text{hadrons})}{\sigma(\el\pos\rightarrow \mu^-\mu^+)}
-\end{equation}
+\begin{itemize}
+  \item First, the inclusive cross-sections for annihilation are (below the $Z$-peak):
+  \begin{equation}
+    \sigma(\el\pos\rightarrow\mu^-\mu^+) = \frac{4\pi\alpha^2}{s},\quad\sigma(\el\pos\rightarrow q\qbar) = \frac{4\pi\alpha^2}{s}\times 3Q_q^2
+  \end{equation}
+  \item The inclusive cross-section to hadrons is gotten by summing over all quark flavors satisfying $2m_q < \sqrt{s}$:
+  \begin{equation}
+    \sigma(\el\pos\rightarrow\text{hadrons}) = \quad\sigma(\el\pos\rightarrow q\qbar) = \frac{4\pi\alpha^2}{s}\times 3\sum_i Q_{q_i}^2
+  \end{equation}
+  \item Dividing, we get the ratio:
+  \begin{equation}
+    R(s) = \frac{\sigma(\el\pos\rightarrow \text{hadrons})}{\sigma(\el\pos\rightarrow \mu^-\mu^+)} = 3\sum_i Q_{q_i}^2
+  \end{equation}
+  For example, $R((2~\gev)^2) = 3\times \left(\frac{3}{9}+\frac{1}{9}+\frac{1}{9}\right) = 2 $
+  \item A plot at low values of $\sqrt s$ is:
+  \embedimgw{figs/r_thomson.png}{.7}
+  The discrete jumps correspond to $\sqrt s = 2m_{q_i}$. The resonances are to $J^P = 1^-$ mesons (needs to be the same as the photon)
+\end{itemize}
+
 
 
 \embedimgw{figs/ee_xsec.png}{.8}
@@ -1110,7 +1207,7 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
   \end{itemize}
 \end{itemize}
 
-\subsubsection{CP violation}
+\subsubsection{$CP$ violation}
 \begin{itemize}
   \item Recall that QED and QCD conserve $C$ and $P$ separately, so they cannot lead to $CP$ violation. Weak interactions could be a source of $CP$ violation.
   \item Two ways of determining if $CP$ violation occurs in the PMNS matrix:
@@ -1217,7 +1314,7 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
   \end{itemize}
 \end{itemize}
 
-\subsubsection{Global picture}
+\subsection{Global picture}
 \begin{itemize}
   \item Mass differences measured to within $5\%$:
   \begin{itemize}
@@ -1237,16 +1334,191 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
   \end{equation}
 \end{itemize}
 
+\section{Weak interactions of quarks}
+\subsection{$CP$ violation and baryogenesis}
+\begin{itemize}
+  \item If there was no \CP violation in the early universe, we would expect $n_B = n_{\bar{B}}$
+  \begin{itemize}
+    \item Early universe was in thermal equilibrium with $\gamma+\gamma \leftrightarrow B+\bar{B}$ occurring at equal rates
+    \item As universe cooled and $k_BT< 2 m_B$, the forward process stopped, freezing $n_B,n_{\bar{B}}$
+  \end{itemize}
+  \item Experimentally, we measure:
+  \begin{equation}
+    \xi = \frac{n_B- n_{\bar{B}}}{n_\gamma} \approx \frac{n_B}{n_\gamma} \sim 10^{-9}
+  \end{equation}
+  \item Can be explained by very small asymmetry in early universe
+  \begin{itemize}
+    \item For example, if $n_{\bar{B}} = 10^9$ and $n_B = 10^9+1$ in the early universe
+    \item If the baryons and antibaryons annihilated, today $n_{\bar{B}} = 0, n_B = 1, n_\gamma \sim 10^9$, giving the observed value of $\xi$
+  \end{itemize}
+  \item Three conditions need to be met to make this mechanism work:
+  \begin{itemize}
+    \item $A = n_B - n_{\bar{B}}$ is not constant
+    \item $C$ and \CP must be violated. If \CP is conserved and there is a process that increases $A$, there would be a \CP conjugate process decreasing it
+    \item Lack of thermal equilibrium. If the universe remained at thermal equilibrium, then any process that increases $A$ would be canceled by the reverse process
+  \end{itemize}
+\end{itemize}
+
+\subsection{Cabbibo mixing and the weak interaction}
+\begin{itemize}
+  \item Let us start by assuming that the coupling of the weak interaction to \emph{quark weak eigenstates} is universal. It turns out this is in agreement with observation
+  \item Consider for now that there are only two generators of quarks
+  \item As is the case for neutrinos, the down-type quark weak eigenstates are not the same as the mass eigenstates. Let $q'$ be the weak eigenstates. Then:
+  \begin{equation}
+    \begin{pmatrix} d' \\ s' \end{pmatrix}
+     = \begin{pmatrix} \cos\theta_C & \sin\theta_C \\ -\sin\theta_C & \cos\theta_C \end{pmatrix}
+    \begin{pmatrix} d \\ s \end{pmatrix}
+  \end{equation}
+  where $\theta_C\approx 13^o$ is the Cabbibo angle ($\cos\theta_C \approx 0.97$)
+  \item The weak interaction vertices are modified accordingly. For example, the vertex factor for $W^+\rightarrow \dbar c$ is $-\frac{g_W}{\sqrt2}\sin\theta_C$ (note $\dbar$ refers to the \emph{mass} eigenstate and $-\sin\theta_C$ is the overlap between $d$ and $s'$)
+  \item The exact value of $\cos\theta_C$ can be extracted from the rate of nuclear $\beta$ decay, for example
+  \item Kaon decay and GIM mechanism
+  \embedimgw{figs/kLdecay.png}{.6}
+  \begin{itemize}
+    \item Consider the decay $K_L \rightarrow \mu^+\mu^-$. It can proceed through the box diagram on the left in the figure above. The matrix element is proportional to:
+    \begin{equation}
+      \Mme \propto g_W^4\cos\theta_C\sin\theta_C
+    \end{equation}
+    \item However, the observed BR is much \emph{smaller} than would be expected from this one diagram. When this was observed, the $c$ quark had not been discovered.
+    \item However, if we include the $c$ quark and use the Cabbibo mixing matrix, then we get the diagram on the right. The matrix element is:
+    \begin{equation}
+      \Mme \propto -g_W^4\cos\theta_C\sin\theta_C
+    \end{equation}
+    Note the minus sign is from the $d,s'$ element of the matrix
+    \item Adding these matrix elements leads to a cancellation. The cancellation is not exact because the matrix element includes kinematic factors (which are slightly different for a virtual $u$ and $c$)
+  \end{itemize}
+\end{itemize}
+
+  \subsection{The CKM matrix}
+  \begin{itemize}
+    \item We can extend the above argument to three generations using the CKM matrix:
+    \begin{equation}
+      \begin{pmatrix} d' \\ s' \\ b' \end{pmatrix} = 
+      \begin{pmatrix} V_{ud} & V_{us} & V_{ub}\\
+      V_{cd} & V_{cs} & V_{cb}\\
+      V_{td} & V_{ts} & V_{tb} \end{pmatrix}
+      \begin{pmatrix} d \\ s \\ b \end{pmatrix}
+    \end{equation}
+    \item Vertex factors are modified accordingly. If the up-type quark is leaving the interaction, use $V$; otherwise use $V^*$
+    \item Like the PMNS matrix, the CKM matrix is parametrized by three angles ($\phi_{12},\phi_{23},\phi_{13}$) and a phase shift ($\delta'$)
+    \item The magnitude of each element of $V$ can be measured independently:
+    \begin{itemize}
+      \item $V_{ud}$: superallowed $0^+\rightarrow 0^+$ nuclear $\beta$ decays
+      \item $V_{us}$: decay rate of $K_L^0(d\sbar) \rightarrow \pi^-(d\ubar) + \pos\nu_e$
+      \item $V_{ub}$: decay rate of $B^0(d\bbar)\rightarrow  \pi^-(d\ubar) + \pos\nu_e$
+      \item $V_{cd}$: cross-section of $\nu_\mu d \rightarrow \mu^- c$, where the $c$ is identified by its decay to $s \mu^+ \nu_\mu$.
+      \item $V_{cs}$: decay rate of $D^+_s(c\sbar)\rightarrow \mu^+\nu_\mu$
+      \item $V_{cb}$: decay rate of B mesons to final states with charm
+      \item $V_{td}$ and $V_{ts}$: oscillation rate of $B^0\leftrightarrow \bar B^0$ 
+      \item $V_{tb}$: decay rate of $t\rightarrow bW$ (large uncertainties)
+    \end{itemize}
+    \item The observed magnitudes are:
+    \begin{equation}
+      |V| = \begin{pmatrix} 0.974 & 0.225 & 0.004\\
+      0.225 & 0.973 & 0.041\\
+      0.009 & 0.040 & 0.999 \end{pmatrix}
+    \end{equation}
+  \end{itemize}
+
+  \subsection{Neutral kaon system}
+  \begin{itemize}
+    \item Neutral kaons ($d\sbar$ and $s\dbar$) can be produced strongly:
+    \begin{align*}
+      \pi^-(d\ubar) + p(uud) &\rightarrow \Lambda(uds)+K^0(d\sbar)\\
+      p(uud)+\bar p(\ubar\ubar\dbar) &\rightarrow K^+(u\sbar) + \bar K^0 (s\dbar) + \pi^-(d\ubar)\numberthis
+    \end{align*}
+    Thus, $K^0,\bar K^0$ are strong (flavor) eigenstates
+    \item Neutral kaons are the lightest charged bound states, so they must decay weakly.
+    \begin{itemize}
+      \item For mass reasons, the decay must be leptonically or to pions
+      \item Neutral kaons can also mix with each other:
+      \embedimgw{figs/kaonmixing.png}{.7}
+    \end{itemize}
+    \item Therefore, the physical states are not $K^0, \bar K^0$: if a $K^0$ is produced, it will not stay a $K^0$. Physical states only evolve through phase rotations
+    \item The real physical states are linear combinations of $K^0,\bar K^0$. Call them $K_S,K_L$. It turns out their masses are quite close ($\sim 498~\mev$), but their lifetimes are quite different:
+    \begin{equation}
+      \tau_{K_S} \sim 10^{-9}~\s ~< ~\tau_{K_L} \sim 10^{-7}~\s
+    \end{equation}
+  \end{itemize}
+
+  \subsubsection{Kaon \CP eigenstates}
+  \begin{itemize}
+    \item On the road to constructing $K_S,K_L$, let us first figure out the \CP eigenstates of the system
+    \item The action of \CP is:
+    \begin{equation}
+      \CP \begin{pmatrix} K^0 \\ \bar K^0 \end{pmatrix} = \begin{pmatrix} \bar K^0 \\ K^0 \end{pmatrix}
+    \end{equation}
+    implying that the \CP eigenstates are:
+    \begin{equation}
+      K_1 = \frac{K^0 + \bar K^0}{\sqrt2},\quad K_2 = \frac{K^0 - \bar K^0}{\sqrt2}
+    \end{equation}
+    \item The \CP of $K_1$ ($K_2$) is $+1$ ($-1$)
+    \item If \CP were conserved, $K_S,K_L$ would be the same as $K_1,K_2$. However, due to a weak \CP violation, this equality is close but not exact
+  \end{itemize}
+
+  \subsubsection{Kaon decays to pions}
+  \begin{itemize}
+    \item It is observed that $K_S$ decays to two neutral pions much faster than it decays to three neutral pions; the converse is true for $K_S$
+    \item $K_{S,L}\rightarrow \pi^0\pi^0$ or $\pi^+\pi^-$
+    \begin{itemize}
+      \item Since neutral kaons and pions are $J^P = 0^-$, the angular momentum of the final state must be $l=0$
+      \item \thus \CP of the final state is +1 (true for either final state)
+    \end{itemize}
+    \item $K_{S,L} \rightarrow \pi^0\pi^0\pi^0$ or $\pi^+\pi^-\pi^0$
+    \begin{itemize}
+      \item Similar arguments can be made to show the final state is $\CP = -1$
+    \end{itemize}
+    \item If \CP were conserved (which it almost is):
+    \begin{itemize}
+      \item The only way to get to the two-pion (\CP-even) final state is to start with $K_1$
+      \item The only way to get to the three-pion (\CP-odd) final state is to start with $K_2$
+    \end{itemize}
+    \item The decay to two pions is obviously favored for mass reasons, so $K_1$ decays much faster than $K_2$
+    \begin{equation}
+      m_K - 2m_\pi = 220~\mev ~ > ~ m_K - 3m_\pi = 80~\mev
+    \end{equation}
+    \item Because \CP is slightly violated, the decays $K_L\rightarrow \pi\pi$ and $K_S \rightarrow \pi\pi\pi$ are not forbidden, just very suppressed
+  \end{itemize}
+
+  \subsubsection{\CP violation in kaons}
+  \begin{itemize}
+    \item Can be detected in the following way (\`a la Cronin and Fitch):
+    \begin{itemize}
+      \item Start with a beam of pure $K^0$ (or $\bar K^0$). Can be achieved in $p\bar p$ collisions as described above
+      \item Allow the beam to travel for a distance $L\gg c\tau_S$, so that all the $K_S$ have decayed
+      \item Look for two-pion decays in the remaining beam of $K_L$
+      \item Found to be $\sim 0.3\%$ (inclusive)
+    \end{itemize}
+    \item Two ways of introducing \CP violation: in the mixing of $K^0\leftrightarrow \bar K^0$ or in the decay of the \CP eigenstate itself
+    \item \CP violation in kaon mixing
+    \begin{itemize}
+      \item This turns out to be the dominant effect and is due to \CP violation in the CKM matrix
+      \item The mass eigenstates are:
+      \begin{equation}
+        K_S = \frac{K_1 + \epsilon K_2}{\sqrt{1+|\epsilon|^2}},\quad K_L = \frac{\epsilon K_1 +  K_2}{\sqrt{1+|\epsilon|^2}}
+      \end{equation}
+      for a small complex parameter $\epsilon$
+    \end{itemize}
+    \item \CP violation in kaon decay
+    \begin{itemize}
+      \item Also due to \CP-violating phase in CKM matrix
+      \item Parametrized by $\epsilon'$. NA48 and KTeV measure:
+      \begin{equation}
+        \mathfrak{Re} \frac{\epsilon'}{\epsilon} \sim 10^{-3}
+      \end{equation}
+    \end{itemize}
+  \end{itemize}
 
 \begin{appendices}
 \section{Bibliography}
-
-\noindent PDG Particle Review, \emph{Plots of cross sections and related quantities}. 2015
-\bibspace Universitat Heidelberg, \emph{Solar neutrino problem}. \url{http://www.kip.uni-heidelberg.de/tt_detektoren/neutrinos.php?lang=en}
+~
+\bibspace Klute M., \emph{Lecture notes from 8.811}. Fall 2015
+\bibspace PDG Particle Review, \emph{Plots of cross sections and related quantities}. 2015
+\bibspace PDG Particle Review, \emph{CKM quark-mixing matrix}. 2015
 \bibspace Tapper A., \emph{High $Q^2$ neutral current cross sections in $\el p$ DIS}. \url{http://www.hep.ph.imperial.ac.uk/~tapper/talks/dis04.pdf}
 \bibspace Thomson M., \emph{Modern Particle Physics}
 \bibspace Thomson M., \emph{Online lecture notes} (\url{http://www.hep.phy.cam.ac.uk/~thomson/partIIIparticles/welcome.html})
-\bibspace Klute M., \emph{Lecture notes from 8.811}. Fall 2015
+\bibspace Universitat Heidelberg, \emph{Solar neutrino problem}. \url{http://www.kip.uni-heidelberg.de/tt_detektoren/neutrinos.php?lang=en}
 
 \end{appendices}
 
