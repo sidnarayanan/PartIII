@@ -62,6 +62,7 @@
 \newcommand{\psibar}{\bar{\psi}}
 \newcommand{\Psibar}{\bar{\Psi}}
 \newcommand{\ubar}{\bar{u}}
+\newcommand{\sbar}{\bar{s}}
 \newcommand{\nubar}{{\bar{\nu}}}
 \newcommand{\vbar}{\bar{v}}
 \newcommand{\qbar}{{\bar{q}}}
@@ -129,6 +130,7 @@
 \DeclareMathOperator{\Li}{Li}
 \DeclareMathOperator{\U}{U}
 \DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\su}{\mathfrak{su}}
 \DeclareMathOperator{\hc}{h.c.}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\csch}{csch}
@@ -149,7 +151,7 @@
 \newcommand{\difft}[2]{\dfrac{d^3#1~d^3#2}{(2\pi)^{3}(2\omega_{#1})^{1/2}(2\omega_{#2})^{1/2}}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\df}[2]{\dfrac{\delta #1}{\delta #2}}
-\newcommand{\T}{\mathcal{T}}
+\newcommand{\T}{\mathbf{T}}
 \newcommand{\magpi}{|\vec p_i|}
 \newcommand{\magpf}{|\vec p_f|}
 \newcommand{\gev}{\text{GeV}}
@@ -185,10 +187,11 @@
 \newcommand{\el}{\ensuremath{e^{-}}}
 \newcommand{\pos}{\ensuremath{e^{+}}}
 \newcommand{\ord}[1]{\ensuremath{\mathcal{O}(#1)}}
-\newcommand{\thus}{$~\Rightarrow~$}
+\newcommand{\thus}{\ensuremath{~\Rightarrow~}}
 \newcommand{\embedimg}[1]{\begin{center}\includegraphics[width=0.48\textwidth]{#1}\end{center}}
 \newcommand{\embedimgw}[2]{\begin{center}\includegraphics[width=#2\textwidth]{#1}\end{center}}
 \newcommand{\lrad}{\ensuremath{L_\text{rad}}}
+\newcommand{\bibspace}{\vspace{5mm}\\\noindent}
 \setcounter{section}{-1}
 \nonstopmode
 \begin{document}
@@ -260,11 +263,216 @@
   \end{itemize}
 \end{itemize}
 
+\section{Flavor symmetry and the quark model}
+
+\subsection{Isospin and flavor symmetry}
+\begin{itemize}
+  \item The nuclear force (i.e. residual strong force) is approximately charge-independent:
+  \begin{equation}
+    V_{pp} \sim V_{np} \sim V_{nn}
+  \end{equation}
+  \begin{itemize}
+    \item The masses of the neutron and proton are very close
+    \item Motivates an approximate symmetry for the strong interaction, known as (nuclear) isospin rotations. Define the proton as the isospin-up state and the neutron as the isospin-down state
+  \end{itemize}
+  \item The same idea can be extended to quarks
+  \begin{itemize}
+    \item If we assume that the EM strength for quarks in baryons is much weaker than the strong interaction, then we can impose an (approximate) symmetry for rotations in $q = \begin{pmatrix} u \\ d \end{pmatrix}$ space
+    \item Symmetry is approximate even if we drop the EM interaction since $m_u\neq m_d$
+    \item This is the isospin $\T = \frac{1}{2}\bm\sigma$. The Hamiltonian is invariant under rotations by $\exp[i\bm\alpha\cdot\T]$, for a real vector $\bm\alpha$. 
+    \item $T_i$ therefore generate the $\su(2)$ Lie algebra
+  \end{itemize}
+  \item We know bound states must consist of 2 or 3 quarks
+  \begin{itemize}
+    \item Adding two isospin-half states gives an isospin triplet $(T=1)$ and an isospin singlet ($T=0$)
+    \item Adding three isospin-half states gives an isospin quadruplet ($T=3/2$) and \emph{two} isospin doublets ($T=1/2$). Note that the doublets are not states of definite symmetry
+    \begin{itemize}
+      \item However, one of the isospin doublets is symmetric under $1\leftrightarrow2$ (the $1,2$ system has isospin $1$), so call it $\phi_S\left(\frac{1}{2},T_3\right)$
+      \item The other isospin doublet is antisymmetric under $1\leftrightarrow2$ (the $1,2$ system has isospin $0$), so call it $\phi_A\left(\frac{1}{2},T_3\right)$
+    \end{itemize}
+    \item Spin states also decompose in the same way (since spin is also $\SU(2)$)
+  \end{itemize}
+  \item Antiquark isospin
+  \begin{itemize}
+    \item Want to define an antiquark vector $\qbar$ such that it transforms in the same way as $q$. That is:
+    \begin{equation}
+      q \rightarrow U q \thus \qbar \rightarrow U \qbar
+    \end{equation}
+    \item This is done by defining $\qbar = \begin{pmatrix} - \dbar \\ \ubar \end{pmatrix}$.
+    \item The ability to put $q,\qbar$ in the same representation is special to $\SU(2)$
+  \end{itemize}
+\end{itemize}
+
+\subsection{Building baryons and mesons}
+\subsubsection{Baryons ($ud$) in the ground state}
+\begin{itemize}
+  \item The total wavefunction looks like:
+  \begin{equation}
+    \psi = \text{flavor}\times\text{spin}\times\text{color}\times\text{space}
+  \end{equation}
+  \item It can be shown that the color wavefunction is always antisymmetric. If we only consider the $L=0$ ground state, then the space wavefunction is symmetric ($(-1)^l$). Therefore, flavor$~\times~$spin must be symmetric, since the quarks are identical fermions (assuming the flavor symmetry)
+  \item Ways of building symmetric $\phi_\text{flavor}\chi_\text{spin}$:
+  \begin{itemize}
+    \item Symmetric $\phi$ ($T=3/2$) and symmetric $\chi$ ($S=3/2$). This gives four distinct baryons (note $\ni$ is used to describe the quark content without writing down the full wavefunction):
+    \begin{equation}
+      \Delta^- = ddd,\quad
+      \Delta^0 \ni udd,\quad
+      \Delta^+ \ni uud,\quad
+      \Delta^{++} = uuu
+    \end{equation}
+    \item Using the symmetrized wavefunctions 
+    \begin{equation}
+    \dfrac{1}{\sqrt2}\left[\phi_S\left(\frac{1}{2},T_3\right)\chi_S\left(\frac{1}{2},S_3\right)+\phi_A\left(\frac{1}{2},T_3\right)\chi_A\left(\frac{1}{2},S_3\right)\right]
+    \end{equation}
+    The choice of $T_3$ gives two baryons:
+    \begin{equation}
+      p \ni uud, \quad n \ni udd
+    \end{equation}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Mesons}
+\begin{itemize}
+  \item Bound state of a quark and antiquark \thus four possible isospin states
+  \item The $T=1$ states are the pions:
+  \begin{equation}
+    \pi^- = d\ubar,\quad \pi^0 = \frac{1}{\sqrt2} (u\ubar-d\dbar),\quad \pi^+ = u\dbar
+  \end{equation}
+\end{itemize}
+
+\subsection{$\SU(3)$ flavor symmetry}
+\begin{itemize}
+  \item $ud$ symmetry can be extended to include strange quark
+  \begin{itemize}
+    \item $m_s - m_{u/d}\sim100~\mev$, which is not insignificant, but is small relative to binding energies of baryons $\sim\gev$
+    \item Strong hamiltonian is still invariant under $uds$, but the kinetic terms are less invariant than they were under the $ud$ symmetry
+    \item Needs to be treated as an \emph{approximate} symmetry
+  \end{itemize}
+  \item Define the generators as $T_i = \frac{1}{2}\lambda_i$, where $\lambda_i$ are the Gell-Mann matrices
+  \begin{itemize}
+    \item $\lambda_{1,2,3}$ are the Pauli $\sigma_{1,2,3}$ matrices for the first two dimensions (i.e. $u,d$) \thus $T_3$ is still the third component of isospin. $T_3s = 0$
+    \item $\lambda_{4,5,6,7}$ are (some of) the Pauli matrices for rotations between the other dimensions (i.e $u,s$ and $d,s$)
+    \item Turns out that the $9$ generators of the three $\SU(2)$ subgroups of $\SU(3)$ are not all independent. We allow $u,d$ to retain all three of its generators and define $\lambda_8$ as a linear combination of the third generator for the other two subgroups
+  \end{itemize}
+  \item Since $[T_3,T_8]=0$, we define two (simultaneous) quantum numbers:
+  \begin{equation}
+    T_3 = \frac{1}{2}\lambda_3,\quad Y = \frac{1}{\sqrt3}\lambda_8
+  \end{equation}
+  where $Y$ is the flavor hypercharge
+  \item The remaining generators can be used to define ladder operators that step between $u\leftrightarrow d$, $d\leftrightarrow s$, $u\leftrightarrow s$
+  \item The values of $T_3,Y$ for the quarks and antiquarks make a triangle:
+  \embedimgw{figs/su3_t3y.png}{.6}
+\end{itemize}
+
+\subsection{Light $uds$ mesons}
+\begin{itemize}
+  \item This diagram shows a cute way of writing down all $q\qbar$ combinations and getting their $T_3,Y$:
+  \embedimgw{figs/mesons1.png}{.6}
+  \begin{itemize}
+    \item Note that the three states in the middle are not physical (i.e. definite isospin)
+    \item To get the physical states (linear combinations of $u\ubar,d\dbar,s\sbar$), we can act the raising/lowering operators on the edge states. This, however, only gives two linearly independent states
+    \item Therefore, one of the linear combinations must be in a different rep of $\SU(3)$. It turns out the rep is the $T^2=0$ rep (here $\T$ refers to the vector of $\SU(3)$ generators). The wavefunction is what one would expect:
+    \begin{equation}
+      \frac{1}{\sqrt3} \left(u\ubar+d\dbar+s\sbar\right)
+    \end{equation}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{$l=0$}
+\begin{itemize}
+  \item We now play the game of constructing the meson wavefunction (as was done for baryons). Note there are no Fermi statistics to deal with in this case
+  \item We assume $l=0$
+  \item There are two possible spin states $s=0,1$. Since $l=0$, we can say $J=0,1$.
+  \item The parity of the meson is:
+  \begin{equation}
+    P(q\qbar') = +1\times -1 \times (-1)^{l=0} = -1
+  \end{equation}
+  We therefore refer to $J^P = 0^-$ mesons as pseudoscalars and $J^P = 1^-$ as vectors (recall vectors have $P=-1$)
+  \item The mesons are shown, split up by pseudoscalars (left) and vectors (right):
+  \embedimgw{figs/mesons2.png}{.6}
+  \item The $\pi^0$ is as identified in $\SU(2)$: $\frac{1}{\sqrt{2}}(u\ubar-d\dbar)$. The $\eta'$ has a high mass ($\sim1~\gev$) and corresponds to the singlet state identified above. Finally, the $\eta$ is the remaining orthogonal state. Note these three physical states in reality have very different masses (which the $\SU(3)$ theory does not predict) since $m_s \neq m_{u,d}$
+  \item The prediction gets worse for the vector $T_3 = Y = 0$ states. We get (experimentally) the physical states:
+  \begin{equation}
+    \rho^0 = \frac{1}{\sqrt2} (u\ubar - d\dbar), \quad \omega = \frac{1}{\sqrt2}(u\ubar+d\dbar), \quad \phi = s\sbar
+  \end{equation}
+  Note the $\rho^0$ is kind of an excited state of the $\pi^0$
+\end{itemize}
+
+\begin{center}
+  \begin{tabular}{l|c}
+   $J^P = 0^-$ meson & Mass [MeV]\\ \hline
+   $\pi^0$ & 135 \\
+   $\pi^\pm$ & 140 \\
+   $K^\pm$ & 494 \\
+   $K^0,\bar K^0$ & 498 \\
+   $\eta$ & 548 \\
+   $\eta'$ & 958 \\
+  \end{tabular}\quad
+  \begin{tabular}{l|c}
+   $J^P = 1^-$ meson & Mass [MeV]\\ \hline
+   $\rho^0$ & 775 \\
+   $\rho^\pm$ & 775 \\
+   $K^{*\pm}$ & 892 \\
+   $K^{*0},\bar K^{*0}$ & 896 \\
+   $\omega$ & 783 \\
+   $\phi$ & 1020 \\
+  \end{tabular}
+\end{center}  
+
+\subsection{Light $uds$ baryons}
+\begin{itemize}
+  \item Once again, we assume $l=0$
+  \item Note that the parity for baryons is $+1 = (+1)^3\times (-1)^{l=0}$
+  \item The possible values of $J^P$ therefore are $\frac{1}{2}^+, \frac{3}{2}^+$
+  \item We can construct the following irreps by applying the $\SU(3)$ ladder operators to $\SU(2)$ extremal states:
+  \begin{itemize}
+    \item A decuplet (which contains the deltas). It contains symmetric states. $T = 5/2$
+    \item Two octuplets of mixed symmetry. $T = 3/2$
+    \item A singlet which is totally antisymmetric. $T = 1/2$. Note: the state contains $uds$, so it cannot be created from a $\SU(2)$ extremal state. 
+  \end{itemize}
+  \item Physical states must be antisymmetric in the quarks. Recall we need flavor$~\times~$spin to be symmetric. The result is:
+  \begin{itemize}
+    \item A decuplet from the isospin decuplet
+    \item An octuplet formed from linear combinations of states in the two isospin octuplets
+    \item This exhausts everything except the isospin singlet state. However, there is no way to form a totally antisymmetric spin state out of three spin-half particles, so it does not correspond to a physical state
+  \end{itemize}
+\end{itemize}
+  \embedimgw{figs/baryons_uds.png}{.6}
+  \begin{center}\begin{tabular}{c|lc|lc}
+  $s$ quarks & Octet & Mass [GeV] & Decuplet & Mass [GeV]\\\hline
+  0 & $p,n$ & 0.94 & $\Delta$ & 1.2\\
+  1 & $\Sigma$ & 1.2 & $\Sigma^*$ & 1.4\\
+  1 & $\Lambda$ & 1.1 \\
+  2 & $\Xi$ & 1.3 & $\Xi^*$ & 1.5 \\
+  3 &&& $\Omega$ & 1.7
+  \end{tabular}\end{center}
+
+\subsubsection{Baryon magnetic moment}
+\begin{itemize}
+  \item Define the nuclear magneton:
+  \begin{equation}
+    \mu_N = \frac{e\hbar}{2m_p}
+  \end{equation}
+  \item The magnetic moments for a baryon $b$ is calculated by writing out the wavefunction $|b\uparrow\ra$ in terms of the up/down states of the constituent quarks and computing:
+  \begin{equation}
+    \la b\uparrow | \mu_z | b\uparrow\ra
+  \end{equation}
+  The quark magnetic moments are computed as:
+  \begin{equation}
+    \mu_q = \la q\uparrow | \mu_z | q\uparrow\ra = - \la q\downarrow | \mu_z | q\downarrow\ra
+  \end{equation}
+  \item The moments for protons and neutrons are:
+  \begin{equation}
+    \mu_p = 2.79\mu_N,\quad \mu_n = -1.9\mu_N
+  \end{equation}
+\end{itemize}
+
 \section{Electron-positron annihilation}
 
 \begin{equation}
   R(s) = \frac{\sigma(\el\pos\rightarrow \text{hadrons})}{\sigma(\el\pos\rightarrow \mu^-\mu^+)}
 \end{equation}
+
 
 \embedimgw{figs/ee_xsec.png}{.8}
 
@@ -516,6 +724,7 @@
 \begin{itemize}
   \item At high $Q^2$, the photon probes quarks at lower $x$, arising from diagrams like $q\rightarrow qg\rightarrow q$
   \item So at low $x$, the structure function goes up at high $Q^2$; at high $x$, the structure function goes down at high $Q^2$
+  \item DGLAP equations describes $Q^2$-dependence
 \end{itemize}
 
 \subsubsection{Global PDF fits}
@@ -1033,21 +1242,11 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
 \section{Bibliography}
 
 \noindent PDG Particle Review, \emph{Plots of cross sections and related quantities}. 2015
-
-\vspace{5mm}
-
-\noindent Universitat Heidelberg, \emph{Solar neutrino problem}. \url{http://www.kip.uni-heidelberg.de/tt_detektoren/neutrinos.php?lang=en}
-
-\vspace{5mm}
-
-\noindent Tapper A., \emph{High $Q^2$ neutral current cross sections in $\el p$ DIS}. \url{http://www.hep.ph.imperial.ac.uk/~tapper/talks/dis04.pdf}
-
-\vspace{5mm}
-
-\noindent Thomson M., \emph{Modern Particle Physics} and online lecture notes (\url{http://www.hep.phy.cam.ac.uk/~thomson/partIIIparticles/welcome.html})
-\vspace{5mm}
-
-\noindent Klute M., \emph{Lecture notes from 8.811}. Fall 2015
+\bibspace Universitat Heidelberg, \emph{Solar neutrino problem}. \url{http://www.kip.uni-heidelberg.de/tt_detektoren/neutrinos.php?lang=en}
+\bibspace Tapper A., \emph{High $Q^2$ neutral current cross sections in $\el p$ DIS}. \url{http://www.hep.ph.imperial.ac.uk/~tapper/talks/dis04.pdf}
+\bibspace Thomson M., \emph{Modern Particle Physics}
+\bibspace Thomson M., \emph{Online lecture notes} (\url{http://www.hep.phy.cam.ac.uk/~thomson/partIIIparticles/welcome.html})
+\bibspace Klute M., \emph{Lecture notes from 8.811}. Fall 2015
 
 \end{appendices}
 
