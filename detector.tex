@@ -156,6 +156,7 @@
 \newcommand{\ev}{\text{eV}}
 \newcommand{\nm}{\text{nm}}
 \newcommand{\ns}{\text{ns}}
+\newcommand{\ps}{\text{ps}}
 \newcommand{\s}{\text{s}}
 \newcommand{\mum}{\mu\text{m}}
 \newcommand{\mus}{\mu\text{s}}
@@ -1156,6 +1157,19 @@ Imposing $\phi(-x_p)=0$ and $\phi(x_n)=V_0$ allows us to solve for the depths.
 \subsubsection{Detector characteristics}
 \begin{itemize}
   \item Fano factor is $\sim 0.12$ \thus energy resolution for a $5~\mev$ particle is $\sim 0.07\%$
+  \item Response is very fast $\sim 10~\ns$, and timing resolution can get down to $\sim 10~\ps$
+\end{itemize}
+
+\subsection{Silicon strip detectors}
+\begin{itemize}
+  \item Same basic principle as the detectors described above, just in a different geometry
+  \embedimgw{figs/strips.png}{.4}
+  \item p-type strips embedded in n-type bulk
+  \item Thickness is typically $\sim 300~\mum$. Can get much larger depletion zone
+  \item Spatial resolution is better than spacing of strips: can use the amount of charge deposited on each strip to interpolate where the ionization happened
+  \begin{itemize}
+    \item \thus $\sigma \sim 5~\mum$ if the spacing is $20~\mum$
+  \end{itemize}
 \end{itemize}
 
 \begin{appendices}

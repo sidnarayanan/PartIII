@@ -92,8 +92,8 @@
 \newcommand{\Mme}{\mathcal{M}}
 \newcommand{\La}{\mathcal{L}}
 \newcommand{\Jc}{\mathcal{J}}
-\newcommand{\E}{\vec{E}}
-\newcommand{\B}{\vec{B}}
+\newcommand{\E}{\ensuremath{\vec{E}}}
+\newcommand{\B}{\ensuremath{\vec{B}}}
 \newcommand{\Dp}{\frac{d^3p}{(2\pi)^3}}
 \newcommand{\Dk}{\frac{d^3k}{(2\pi)^3}}
 \newcommand{\Lv}{\mathbf{L}}
@@ -299,7 +299,7 @@
   \begin{itemize}
     \item Want to define an antiquark vector $\qbar$ such that it transforms in the same way as $q$. That is:
     \begin{equation}
-      q \rightarrow U q \thus \qbar \rightarrow U \qbar
+      q \rightarrow U q\thus \qbar \rightarrow U \qbar
     \end{equation}
     \item This is done by defining $\qbar = \begin{pmatrix} - \dbar \\ \ubar \end{pmatrix}$.
     \item The ability to put $q,\qbar$ in the same representation is special to $\SU(2)$
@@ -336,7 +336,7 @@
 
 \subsubsection{Mesons}
 \begin{itemize}
-  \item Bound state of a quark and antiquark \thus four possible isospin states
+  \item Bound state of a quark and antiquark\thus four possible isospin states
   \item The $T=1$ states are the pions:
   \begin{equation}
     \pi^- = d\ubar,\quad \pi^0 = \frac{1}{\sqrt2} (u\ubar-d\dbar),\quad \pi^+ = u\dbar
@@ -353,7 +353,7 @@
   \end{itemize}
   \item Define the generators as $T_i = \frac{1}{2}\lambda_i$, where $\lambda_i$ are the Gell-Mann matrices
   \begin{itemize}
-    \item $\lambda_{1,2,3}$ are the Pauli $\sigma_{1,2,3}$ matrices for the first two dimensions (i.e. $u,d$) \thus $T_3$ is still the third component of isospin. $T_3s = 0$
+    \item $\lambda_{1,2,3}$ are the Pauli $\sigma_{1,2,3}$ matrices for the first two dimensions (i.e. $u,d$)\thus $T_3$ is still the third component of isospin. $T_3s = 0$
     \item $\lambda_{4,5,6,7}$ are (some of) the Pauli matrices for rotations between the other dimensions (i.e $u,s$ and $d,s$)
     \item Turns out that the $9$ generators of the three $\SU(2)$ subgroups of $\SU(3)$ are not all independent. We allow $u,d$ to retain all three of its generators and define $\lambda_8$ as a linear combination of the third generator for the other two subgroups
   \end{itemize}
@@ -527,7 +527,7 @@
   \begin{equation}
     B = \frac{11N_c-2N_f}{12\pi}
   \end{equation}
-  In the SM, $B>0$ \thus $\alpha_S$ decreases as a function of $q^2$
+  In the SM, $B>0$\thus $\alpha_S$ decreases as a function of $q^2$
   \item This is in contrast with QED, which gets stronger at short distances/high energies:
   \begin{center}
     \includegraphics[width=0.32\textwidth]{figs/alpharun.png}\hspace{5mm}
@@ -711,8 +711,8 @@
   \end{equation}
   \begin{itemize}
     \item That is, the structure functions have weak $Q^2$ dependence
-    \item Implies that whatever the photon is probing is point-like \thus evidence for quark model
-    \item Scaling is violated at very high $Q^2$ (discussed below) \thus quark-gluon interactions
+    \item Implies that whatever the photon is probing is point-like\thus evidence for quark model
+    \item Scaling is violated at very high $Q^2$ (discussed below)\thus quark-gluon interactions
     \begin{itemize}
       \item At high $Q^2$, higher-order QCD interactions become relevant, for example $q\rightarrow qg \rightarrow q$ loops
     \end{itemize}
@@ -804,7 +804,7 @@
 \begin{itemize}
   \item $27.5~\gev$ \el/\pos beam colliding with a $820$ or $920$~\gev proton beam
   \item Detector is ``forward'' in the direction of the proton beam
-  \item Measured parameters were \el energy and scattering angle \thus sufficient to determine $Q^2,x,y$
+  \item Measured parameters were \el energy and scattering angle\thus sufficient to determine $Q^2,x,y$
   \begin{itemize}
     \item Hadron shower used for trigger only
   \end{itemize}
@@ -828,7 +828,7 @@
 \embedimgw{figs/pdf_global.png}{.5}
 \begin{itemize}
   \item Fit is done with information from multiple experiments
-  \item Hadron colliders \thus gluon PDF
+  \item Hadron colliders\thus gluon PDF
   \item Can use $\nu N$ experiments to isolate interactions with $u,d$ (depending on $\nu/\nubar$)
 \end{itemize}
 
@@ -917,7 +917,7 @@
   where $m_\pi = 140~\mev$
   \item Since $m_\mu/m_e \sim 200$, the decay to muons is heavily favored.
   \begin{itemize}
-    \item Note that $m_e \ll m_\pi$ is what really drives the suppression, since the electron must be highly relativistic due to the mass difference \thus right-handed (helicity) is almost entirely right-handed (chirality)
+    \item Note that $m_e \ll m_\pi$ is what really drives the suppression, since the electron must be highly relativistic due to the mass difference\thus right-handed (helicity) is almost entirely right-handed (chirality)
   \end{itemize}
   \item The decay rate is proportional to:
   \begin{equation}
@@ -985,7 +985,7 @@
   \begin{itemize}
     \item Also a $\nu_\mu$ beam at a bubble chamber detector
     \item Both nucleon DIS and electron scattering were looked for (hadronic shower and free $\el$, respectively)
-    \item Reject events with final-state $\mu$ \thus cannot be weak current
+    \item Reject events with final-state $\mu$\thus cannot be weak current
   \end{itemize}
 \end{itemize}
 
@@ -1026,7 +1026,7 @@
     _2^3\text{He}+_2^3\text{He}\rightarrow _2^4\text{He}+p+p \numberthis
   \end{gather*}
   \begin{itemize}
-    \item Binding energy of deuteron is only $2.2~\mev$ \thus $E_\nu < 0.5 ~\mev$
+    \item Binding energy of deuteron is only $2.2~\mev$\thus $E_\nu < 0.5 ~\mev$
     \item Difficult to detect ($\sigma_{\nu N} \propto E_\nu$) so not used in experiments
   \end{itemize}
   \item $\beta$-decay of $^8\text{B}$
@@ -1099,7 +1099,7 @@
     \item Results
     \begin{itemize}
       \item Again, confirms solar neutrino deficit
-      \item On the other hand, found that the \emph{total} neutrino flux from the Sun is equal to predicted $\nu_e$ flux \thus first indication of oscillations
+      \item On the other hand, found that the \emph{total} neutrino flux from the Sun is equal to predicted $\nu_e$ flux\thus first indication of oscillations
     \end{itemize}
   \end{itemize}
 \end{itemize}
@@ -1437,7 +1437,7 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
     \item Therefore, the physical states are not $K^0, \bar K^0$: if a $K^0$ is produced, it will not stay a $K^0$. Physical states only evolve through phase rotations
     \item The real physical states are linear combinations of $K^0,\bar K^0$. Call them $K_S,K_L$. It turns out their masses are quite close ($\sim 498~\mev$), but their lifetimes are quite different:
     \begin{equation}
-      \tau_{K_S} \sim 10^{-9}~\s ~< ~\tau_{K_L} \sim 10^{-7}~\s
+      \tau_{K_S} \sim 10^{-10}~\s ~< ~\tau_{K_L} \sim 10^{-7}~\s
     \end{equation}
   \end{itemize}
 
@@ -1495,23 +1495,290 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
       \item This turns out to be the dominant effect and is due to \CP violation in the CKM matrix
       \item The mass eigenstates are:
       \begin{equation}
-        K_S = \frac{K_1 + \epsilon K_2}{\sqrt{1+|\epsilon|^2}},\quad K_L = \frac{\epsilon K_1 +  K_2}{\sqrt{1+|\epsilon|^2}}
+        K_S = \frac{K_1 + \varepsilon K_2}{\sqrt{1+|\varepsilon|^2}},\quad K_L = \frac{\varepsilon K_1 +  K_2}{\sqrt{1+|\varepsilon|^2}}
       \end{equation}
-      for a small complex parameter $\epsilon$
+      for a small complex parameter $\varepsilon$
     \end{itemize}
     \item \CP violation in kaon decay
     \begin{itemize}
       \item Also due to \CP-violating phase in CKM matrix
-      \item Parametrized by $\epsilon'$. NA48 and KTeV measure:
+      \item Parametrized by $\varepsilon'$. NA48 and KTeV measure:
       \begin{equation}
-        \mathfrak{Re} \frac{\epsilon'}{\epsilon} \sim 10^{-3}
+        \mathfrak{Re} \frac{\varepsilon'}{\varepsilon} \sim 10^{-3}
       \end{equation}
     \end{itemize}
   \end{itemize}
 
+\subsection{Kaon oscillation}
+\begin{itemize}
+  \item Suppose we produce a beam of $K^0$. As noted above, it mixes with $\bar K^0$ (or equivalently, the $K_L,K_S$ components of the wavefunction evolve separately)
+  \item Let us assume for now that \CP is conserved (violation has a small effect on the oscillation)
+  \item Like neutrinos, we can compute the probabilities $P(K^0\rightarrow K^0), P(K^0\rightarrow \bar K^0)$
+  \begin{align*}
+    P(t;K^0\rightarrow K^0) &\propto e^{-\Gamma_S t} + e^{-\Gamma_L t} + 2 e^{-\frac{1}{2}(\Gamma_S+\Gamma_L)t} \cos (t \Delta m)\\
+    P(t;K^0\rightarrow \bar K^0) &\propto e^{-\Gamma_S t} + e^{-\Gamma_L t} - 2 e^{-\frac{1}{2}(\Gamma_S+\Gamma_L)t} \cos (t \Delta m)\numberthis
+  \end{align*}
+  The above equations neglect \CP violation (a small effect)
+  \begin{itemize}
+    \item Unlike neutrinos, these probabilities are \emph{not} sinusoidal and do not have to add to one
+    \item This is because the kaon may decay
+  \end{itemize}
+  \item The difference in widths $\Gamma_L,\Gamma_S$ is due to interference arising from decays of $K^0$ and $\bar K^0$ to the same final state
+  \begin{itemize}
+    \item Details in Thomson, equations 14.23 and 14.31
+  \end{itemize}
+  \item We find (experimentally, described below) that:
+  \begin{equation}
+    T_\text{osc} = \frac{2\pi\hbar}{\Delta m} \sim 10^{-9}~\s,\quad \Delta m = m_{K_L} - m_{K_S}
+  \end{equation}
+  which is one order of magnitude greater than $\tau_{K_S}$. Therefore, the $K_S$ component decays out before one oscillation is even completed, leaving a pure $K_L$ beam. Note that the intensity of $K^0$ and $\bar K^0$ is the same at this point, since $|\la K^0 | K_L \ra|^2 = |\la \bar K^0 | K_L \ra|^2$ (assuming no \CP violation):
+  \embedimgw{figs/kaonosc.png}{.4}
+\end{itemize}
+
+\subsubsection{CPLEAR detector}
+\begin{center}
+  \includegraphics[height=0.7\textwidth,rotate=90]{figs/cplear.png}
+\end{center}
+\begin{itemize}
+  \item Beam of antiprotons with momentum $200~\mev$ is aimed at a gaseous hydrogen target
+  \item We go through the detector components, from inside to outside:
+  \item 2 concentric cylindrical MWPCs
+  \begin{itemize}
+    \item Used for tracking and triggering on tracks from primary interaction or kaon decay
+    \item Drift gas has composition close to magic gas
+    \item Radii are $10~\cm$ and $13~\cm$
+  \end{itemize}
+  \item 6 concentric cylindrical drift chambers
+  \begin{itemize}
+    \item Main tracking detectors
+    \item Momentum resolution is $5\%$
+    \item Drift gas is  half-and-half ethane and argon
+  \end{itemize}
+  \item Two streamer tubes 
+  \begin{itemize}
+    \item Immediately outside drift chambers
+    \item Used to provide $z$-position measurement quickly online
+  \end{itemize}
+  \item Particle ID detectors
+  \begin{itemize}
+    \item Consists of 32 sectors: Cerenkov detector sandwiched between two layers of scintillators
+    \embedimgw{figs/cplear_pid.png}{.4}
+    \item Light collection is done by PMTs (different channels for the three components)
+    \item Inner scintillator is $3~\cm$ and outer is $1.4~\cm$. Both are plastic
+    \item Cerenkov detector is $8~\cm$ thick
+    \item Cerenkov light threshold is $\beta>0.84$ \thus non-relativistic kaons do not produce a signal
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Experimental discovery of neutral kaon oscillation}
+\begin{itemize}
+  \item CPLEAR used $p\bar p$ collisions to produce $K^- \pi^+ K^0$ and $K^+ \pi^- \bar K^0$
+  \begin{itemize}
+    \item Can use the charge of the charged kaon and pion to determine the state of the neutral kaon when it was produced
+    \begin{itemize}
+      \item $K^\pm$ is distinguished from $\pi^\mp$ because the $\pi$ will be relativistic\thus leaves signal in Cerenkov detector
+    \end{itemize}
+    \item Since the leptonic decays are $K^0 \rightarrow \pi^- \ell^-\nubar_\ell $ and $\bar K^0 \rightarrow \pi^+ \ell^+ \nu_\ell$, the charge of the lepton can be used to identify the state of the neutral kaon when it decayed
+  \end{itemize}
+  \item COM energy low enough that the kaons are produced close to rest 
+  \begin{itemize}
+    \item Low velocity\thus oscillation and decay can occur within the detector
+  \end{itemize}
+  \item In the neutral kaon $\rightarrow \pi \ell \nu$ decay, the charged pion and lepton leave curved tracks in the tracker
+  \begin{itemize}
+    \item Can find vertex of tracks to determine where the neutral kaon decayed
+    \item Distance from interaction point is the distance traveled $L$
+  \end{itemize}
+  \item Provides an experimental way of measuring the probabilities:
+  \begin{gather*}
+    P(t; K^0\rightarrow K^0), \quad P(t; K^0\rightarrow \bar K^0)\\
+    P(t; \bar K^0\rightarrow \bar K^0), \quad P(t; \bar K^0\rightarrow K^0)\numberthis
+  \end{gather*}
+  where we have switched from $L$ to $t$
+  \item Can extract the difference in mass eigenstates from the oscillation period, finding $\Delta m \sim 10^{-15}~\gev$
+\end{itemize}
+
+\subsubsection{Measurement of \CP violation}
+\begin{itemize}
+  \item $\varepsilon$ (the \CP violation parameter in the neutral kaon system) was extracted by CPLEAR by measuring the asymmetry:
+  \begin{equation}
+    A_{+-} = \frac{\Gamma(\bar K^0 \rightarrow \pi^+\pi^-)-\Gamma(K^0 \rightarrow \pi^+\pi^-)}{\Gamma(\bar K^0 \rightarrow \pi^+\pi^-)+\Gamma(K^0 \rightarrow \pi^+\pi^-)}
+  \end{equation}
+  finding:
+  \begin{equation}
+    \varepsilon = |\varepsilon|e^{i\phi}, \quad \varepsilon = 2.3 \times 10^{-3}, \quad \phi = 43^o
+  \end{equation}
+  \item Can also look at semileptonic decays of $K_L$ to measure $\varepsilon$:
+  \begin{equation}
+    \delta = \frac{\Gamma(K_L \rightarrow \pi^-e^+\nu_e)-\Gamma(K_L \rightarrow \pi^+e^-\nubar_e)}{\Gamma(K_L \rightarrow \pi^-e^+\nu_e)+\Gamma(K_L \rightarrow \pi^+e^-\nubar_e)}  \approx 2|\varepsilon|\cos\phi
+  \end{equation}
+  A beam of pure $K_L$ is achieved by simply waiting $t\gg \tau_S$
+\end{itemize}
+
+\subsection{$B$-meson physics}
+\begin{itemize}
+  \item Neutral meson oscillation also occurs for:
+  \begin{equation}
+    B^0(d\bbar) \leftrightarrow \bar B^0(b\dbar), \quad B_s^0(s\bbar) \leftrightarrow \bar B_s^0(b\sbar), \quad D^0(u\cbar) \leftrightarrow \bar D^0(c\ubar) 
+  \end{equation}
+  \item Here we consider $B^0$ oscillation
+  \item Can carry out a similar calculation what was done for kaons to find the physical states:
+  \begin{equation}
+    B_L = \frac{1}{\sqrt2} \left(B^0 + e^{-i2\beta} \bar B^0\right), \quad B_H = \frac{1}{\sqrt2} \left(B^0 - e^{-i2\beta} \bar B^0\right)
+  \end{equation}
+  where $\beta$ is the phase of $V_{td}$: $V_{td} = |V_{td}|e^{-i\beta}$.
+  \begin{itemize}
+    \item $L,H$ refer to the lighter, heavier states
+    \item In doing this calculation, only diagrams with virtual $t$ are considered since $|V_{tb}|\gg |V_{ts}|,|V_{td}|$:
+    \embedimgw{figs/Bmixing.png}{.6}
+    \item The difference in the masses of the two states is $\Delta m_d \propto |(V_{td}V_{tb}^*)^2|$. The masses are $\sim 5.3~\gev$
+    \item The lifetimes of the two states are very close ($\tau \sim 10^{-12}~\s$)
+    \begin{itemize}
+      \item The lifetimes are close because there is negligible interference in the decays of $B^0$ and $\bar B^0$
+    \end{itemize}
+    \item Note the lifetimes are much smaller than the kaon lifetimes because $m_B \gg m_K$, opening up the phase space for decays
+  \end{itemize}
+  \item The probabilities of oscillation are computed in a similar way as done for kaons
+    \begin{align*}
+      P(t;B^0\rightarrow B^0) &= e^{-\Gamma t}\cos^2 \left(\frac{\Delta m_d t}{2}\right)\\
+      P(t;B^0\rightarrow \bar B^0) &= e^{-\Gamma t}\sin^2 \left(\frac{\Delta m_d t}{2}\right)\numberthis
+    \end{align*}
+  \begin{itemize}
+    \item The results are a bit simpler since the two states have the same width
+    \item Note, we ignored \CP violation, as the effect is tiny
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{BaBar detector}
+\embedimgw{figs/babardetector.png}{.6}
+\begin{itemize}
+  \item Going through the detector components, from inside to out:
+  \item Silicon vertex tracker
+  \begin{itemize}
+    \item Used for tracking and position measurement
+    \begin{itemize}
+      \item Standalone tracking for particles with momentum $<120~\mev$
+    \end{itemize}
+    \item 5 layers of double-sided Si strips
+    \item Vertex resolution along $z$-axis is $<80~\mum$. In $x$-$y$ plane, it is $\sim 100~\mum$
+    \item Extend from $32$ to $144$ mm
+  \end{itemize}
+  \item Drift chamber
+  \begin{itemize}
+    \item Main tracking detector and can do PID through $dE/dx$
+    \item 40 layers of wires from $23.6$ to $80.9$ cm
+    \item Helium-based gas
+  \end{itemize}
+  \item Cerenkov detector
+  \begin{itemize}
+    \item Detects Cerenkov photons that are trapped in the crystal due to total internal reflection. Photons travel the length of the detector to PMTs in endcap that are outside the \B-field
+    \item $\theta_C$ is preserved in total internal reflection
+    \item $1.7$ cm thick detectors
+    \item Used to identify charged kaons, pions, and low-momentum muons ($<750~\mev$)
+    \begin{itemize}
+      \item Done using the Cerenkov angles
+    \end{itemize}
+  \end{itemize}
+  \item EM calorimeter
+  \begin{itemize}
+    \item Particle ID for \el, $\gamma$, charged hadrons
+    \item Scintillator crystals of CsI; light output to PMTs
+    \begin{itemize}
+      \item Rad length is $1.85~\cm$
+      \item Moli\`ere radius is $3.6~\cm$
+      \item $dE/dx$ for MIP is $5.6~\mev/\cm$
+      \item $\sim 4 \times 10^4$ photons per MeV
+      \item $\sigma_E/E \sim 1\%$
+    \end{itemize}
+    \item Thickness is $\sim 15 X_0$
+  \end{itemize}
+  \item Solenoid
+  \begin{itemize}
+    \item 1.5 T \B-field
+  \end{itemize}
+  \item Instrumented flux return
+  \begin{itemize}
+    \item Muon and neutral hadron ID
+    \item Also functions as magnet yoke for return field
+    \item Instrumented with resistive plate counters
+    \item Graded into $2$-$10$ cm segments of iron
+    \item Active volume is filled with mostly argon and freon, with a small anount of isobutane
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Experimental measurement of $B^0$ oscillation}
+\begin{itemize}
+  \item Belle and BaBar used $\el\pos$ beams with $\sqrt s = 10.58~\gev = m_{\Upsilon(4S)}$.
+  \item $\Upsilon(4S)$ is a $b\bbar$ resonance that decays to $B^+ B^-$ or $B^0 \bar B^0$
+  \begin{itemize}
+    \item Since $m_{\Upsilon(4S)} \sim 2 m_B$, the $B$ mesons are produced approximately at rest in the COM frame
+  \end{itemize}
+  \item The lifetime of the neutral $B$ meson ($\sim 10^{-12}~\s$) is rather short, so to extend the distance traveled before decay, the beams are asymmetric
+  \begin{itemize}
+    \item BaBar used $E_\el = 9~\gev$ and $E_\pos = 3.1~\gev$
+    \item The $\beta\gamma$ of the $\Upsilon(4S)$  (or $BB$ system) is $5.9/10.58 = 0.56$
+    \item Neutral $B$ mesons therefore travel $\sim \ord{100}~\mum$ before decaying
+  \end{itemize}
+  \item Leptonic decays were used because the sign of the lepton charge tags the flavor of the $B$ meson:
+  \begin{equation}
+    B^0(d\bbar)\rightarrow D^- (d\cbar)+\mu^+\nu_\mu,\quad \bar B^0 (b\dbar) \rightarrow D^+(c\dbar) + \mu^-\nubar_\mu
+  \end{equation}
+  \item A typical neutral $B$-meson event at Belle or BaBar looks like:
+  \embedimgw{figs/babar.png}{.6}
+  \item Here is what happens in an event:
+  \begin{enumerate}
+    \item The $\Upsilon(4S)$ is produced and decays to $B^0 \bar B^0$ system. 
+    \item The $B^0 \bar B^0$ system travels for a while as a coherent state. Until one of the $B$s decay, the mesons remain in a linear combination of the two flavor states
+    \item One of the mesons decays into a final state containing a $\mu^-$, therefore tagging it as $\bar B^0$. Call this time $t=0$. At $t=0$, the other meson must be a pure $B^0$ state, since the one that decayed collapsed into the $\bar B^0$ state
+    \item The $B^0$ then propagates, evolving as described previously. At some time $t=\Delta t$, a $\mu^-$ is detected, indicating that the $B^0$ has oscillated into a $\bar B^0$ and decayed
+  \end{enumerate}
+  \item By counting the number of such events as a function of the proper time $\Delta \tau = \Delta t/\gamma$, we get:
+  \begin{equation}
+    N (t+\delta t; B^0 \rightarrow \bar B^0)
+  \end{equation}
+  Note we have changed nomenclature $\Delta \tau \rightarrow t$ in the above equation to be consistent with what was done before. $\delta t$ is the binning used
+  \begin{itemize}
+    \item By doing the same thing, except flipping the sign of one or both muons, we get the number of each type of oscillation
+    \item By normalizing correctly, we get the oscillation probabilities. For example:
+    \begin{equation}
+      P(t;  B^0 \rightarrow \bar B^0)\delta t = \frac{ N (t+\delta t; B^0 \rightarrow \bar B^0) }{ N (t+\delta t; B^0 \rightarrow B^0) + N (t+\delta t; B^0 \rightarrow \bar B^0) }
+    \end{equation}
+  \end{itemize}
+  \item Extracting this as a function of $t$ allows us to extract $\Delta m_d$. Assuming $|V_{tb}|\sim 1$, we can extract $|V_{td}|$
+\end{itemize}
+
+\subsubsection{\CP violation in the neutral $B$ system}
+\begin{itemize}
+  \item There are three ways to introduce \CP violation in neutral $B$ mesons:
+  \begin{enumerate}
+    \item \CP violation in the decay $\Gamma(A\rightarrow X) \neq \Gamma(\bar A \rightarrow \bar X)$. This is what happens in $K^0\rightarrow 2\pi,3\pi$ vs $\bar K^0\rightarrow 2\pi,3\pi$
+    \item \CP violation in the mixing $B^0 \leftrightarrow \bar B^0$. This also happens for kaons
+    \item \CP violation in the interference between decays to a common final state, i.e. between $B^0\rightarrow f$ and $B^0\rightarrow \bar B^0\rightarrow f$
+  \end{enumerate}
+  \item It turns out only (3) has a significant contribution for $B$ mesons. In what follows, we omit all other sources of \CP violation
+  \item To isolate this effect, one can look at the $B\rightarrow J/\psi + K$ decay. In what follows, we label $J/\psi$ simply as $\psi$. The Feynman diagrams for the decay are:
+  \embedimgw{figs/bhadronic.png}{.6}
+  \item $\psi (1^-)$ and $K_S(0^-)$ are both $\CP=+1$. The final state must have $l=1$, since the $B$ mesons are $0^-$. Therefore, $\CP(\psi K_S) = -1$
+  \item Belle and BaBar looked for the following decay:
+  \embedimgw{figs/babarhadronic.png}{.6}
+  As with the measurement of the oscillation probabilities, we can use the flavor of the first lepton to determine the flavor of the $B$ mesons. 
+  \begin{itemize}
+    \item Note that we know the kaon is $K_S$ when it decays because $K_L$ would not decay within the detector
+  \end{itemize}
+  \item We can then calculate the asymmetry:
+  \begin{equation}
+    A^{K_S}_{CP} = \frac{\Gamma(\bar B^0 \rightarrow \psi K_S)-\Gamma(B^0 \rightarrow \psi K_S)}{\Gamma(\bar B^0 \rightarrow \psi K_S)+\Gamma(B^0 \rightarrow \psi K_S)} = \sin (t\Delta m_d) \sin(2\beta)
+  \end{equation}
+  and directly extract $\beta$
+\end{itemize}
+
 \begin{appendices}
 \section{Bibliography}
 ~
+\bibspace The BaBar Collaboration, \emph{The BABAR Physics Book}. \url{https://www.slac.stanford.edu/pubs/slacreports/reports19/slac-r-504.pdf}
+\bibspace The CPLEAR Collaboration, \emph{The CPLEAR-Experiment at CERN}. Nucl. Phys. B. 59 (1997) 76-100
+\bibspace The CPLEAR Collaboration, \emph{The CPLEAR detector at CERN}. Nucl. Inst. and Meth. 379 (1997) 182-191
+\bibspace The CPLEAR Collaboration, \emph{The CPLEAR Experiment}, \url{https://cplear.web.cern.ch/cplear/cplear/newtransparencies/}
 \bibspace Klute M., \emph{Lecture notes from 8.811}. Fall 2015
 \bibspace PDG Particle Review, \emph{Plots of cross sections and related quantities}. 2015
 \bibspace PDG Particle Review, \emph{CKM quark-mixing matrix}. 2015
