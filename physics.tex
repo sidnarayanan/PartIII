@@ -926,11 +926,6 @@
   So $\Gamma(e)/\Gamma(\mu) \sim 10^{-4}$
   \item Note that this example shows that the weak interaction violates $P$ and $C$, but not $CP$. Consider $\pi^-\rightarrow \nubar_\mu \mu^-$, where the $\nubar_\mu$ is RH (chirality). The muon is as discussed above
   \embedimgw{figs/pioncp.png}{.6}
-  % \begin{itemize}
-  %   \item If $P$ is applied, the neutrino direction flips but the spin does not (axial vector). Therefore, the neutrino becomes LH (helicity$\approx$chirality). This decay is forbidden
-  %   \item If $C$ is applied, the RH (chirality) neutrino becomes a RH (chirality) antineutrino. This decay is forbidden
-  %   \item If $CP$ is applied, the RH (chirality) neutrino becomes a LH (chirality) antineutrino. This decay is allowed
-  % \end{itemize}
 \end{itemize}
 
 \section{Weak interactions of leptons}
@@ -1772,13 +1767,153 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
   and directly extract $\beta$
 \end{itemize}
 
+\section{Electroweak unification}
+
+\subsection{$W$ boson properties}
+\begin{itemize}
+  \item Since the $W$ boson is a massive spin-1 boson, it has three polarizations (one longitudinal and two transverse)
+  \item The partial width of the decay to leptons is:
+  \begin{equation}
+    \Gamma (W^-\rightarrow \el \nubar_e) = \frac{g_W^2 m_W}{48\pi}
+  \end{equation}
+  \item The partial width to quarks must take into account the CKM matrix (discussed above):
+  \begin{equation}
+    \Gamma(W^+\rightarrow q_u \bar q_d) = 3|V_{q_u q_d}|^2 \Gamma_{e\nu_e}
+  \end{equation}
+  where $q_u,q_d$ are up-, down-type quarks respectively. Note $t\bar q_d$ is forbidden for mass reasons. The factor of $3$ accounts for multiple colors.
+  \item The total width to quarks is:
+  \begin{equation}
+    \Gamma(W^+\rightarrow q\bar q') = 6\Gamma_{e\nu_e}
+  \end{equation}
+  since unitarity implies $\sum_{q_d} |V_{uq_d}|^2 = \sum_{q_d} |V_{cq_d}|^2 = 1$
+  \item In principle, one can calculate the total width and branching fraction given this information:
+  \begin{equation}
+    \Gamma_W = (3+6)\times \Gamma_{e\nu_e}, \quad BR(W\rightarrow q\bar q') = \frac{6\Gamma_{e\nu_e}}{3\Gamma_{e\nu_e}+6\Gamma_{e\nu_e}}
+  \end{equation}
+  \item However, care has to be taken to account for higher-order QCD processes, such as $W\rightarrow q\bar q' g$. The quark decay matrix elements are therefore multiplied by:
+  \begin{equation}
+    \kappa_{QCD} = 1 + \frac{\alpha_S(m_W)}{\pi} \approx 1.04
+  \end{equation}
+  which implies:
+  \begin{equation}
+    \Gamma_W = (3+6\kappa_{QCD})\times \Gamma_{e\nu_e} = 2.1~\gev, \quad BR(W\rightarrow q\bar q') = \frac{6\kappa_{QCD}}{3+6\kappa_{QCD}} = 0.675
+  \end{equation}
+  \item Let us consider the process $\el\pos \rightarrow W^+ W^-$. There is a $t$-channel diagram with an exchanged $\nu_e$ and an $s$-channel through a $\gamma$. 
+  \begin{itemize}
+    \item However, it is found that $\sigma$ increases without bound as a function of $s$ if only these two diagrams are considered (breaks unitarity eventually)
+    \item In particular, $\Mme_\nu$ increases and the destructive interference between $\Mme_\nu$ and $\Mme_\gamma$ is not enough to cancel this increase
+    \item This can be fixed by adding an additional $s$-channel diagram through an additional ($Z$) boson
+  \end{itemize}
+\end{itemize}
+
+\subsection{The gauge structure: $\SU(2)_L$}
+\begin{itemize}
+  \item The weak interaction arises from an $\SU(2)$ symmetry. Left-handed particles (right-handed antiparticles) are in doublet representations of this symmetry:
+  \begin{equation}
+    \mathbf{T} = \frac{1}{2}\bm\sigma, \quad \begin{pmatrix} \nu_{e,L} \\ e^-_L \end{pmatrix}, \quad \begin{pmatrix} u_{L} \\ d_L \end{pmatrix}, \quad \cdots
+  \end{equation}
+  The top/bottom members of these doublets have $I_W^{(3)} = \pm \frac{1}{2}$. 
+  \item Right-handed particles (left-handed anti-particles) are in singlet representations: $\el_R, u_R, \nubar_{e,L},\dots$. These all have $I_W^{(3)} = 0$. 
+  \item The three gauge fields corresponding to the three generators are $W_\mu^{(i)}$ (corresponding to $T_i$)
+  \item The charged $W$ bosons are linear combinations of two bosons:
+  \begin{equation}
+    W_\mu^\pm = \frac{1}{\sqrt2} \left(W_\mu ^{(1)} \mp W_\mu ^{(2)}\right)
+  \end{equation}
+  and the corresponding currents are (using the example of the electron doublet):
+  \begin{equation}
+    j_\pm ^\mu = \frac{g_W}{\sqrt2} \begin{pmatrix} \nubar_e & \bar e \end{pmatrix} \gamma^\mu \frac{1}{2} (1-\gamma^5) \left[T_1\pm iT_2\right] \begin{pmatrix} \nu_e \\ e \end{pmatrix}
+  \end{equation}
+  \item We could identify the third gauge boson with the physical $Z$ boson, but it is observed that the $Z$ couples to both LH and RH chiral particles (but not equally). Therefore, the $Z$ is a linear combination of $W^{(3)}$ and something else. 
+\end{itemize}
+
+\subsection{Electroweak unification}
+\begin{itemize}
+  \item We add an additional $U(1)_Y$ symmetry to the model, which couples to fermions:
+  \begin{equation}
+    \psi(x) \rightarrow \exp \left[ig' \frac{Y_\psi}{2} \alpha(x)\right] \psi(x)
+  \end{equation}
+  where $Y_\psi$ is the hypercharge of particle $\psi$. The corresponding gauge field is labeled $B^\mu$
+  \item We then define the physical $Z$ and $A$ fields as:
+  \begin{align*}
+    A_\mu &= B_\mu \cos\theta_W + W_\mu^{(3)}\sin\theta_W\\
+    Z_\mu &= -B_\mu \sin\theta_W + W_\mu^{(3)}\cos\theta_W\numberthis
+  \end{align*}
+  where $\theta_W$ is the weak mixing angle. 
+\item To reproduce the observed QED charges/couplings, the following constraints must hold:
+\begin{equation}
+  e = g_W\sin\theta_W = g'\cos\theta_W, \quad Y = 2 \left(Q - I_W^{(3)}\right)
+\end{equation}
+\item The easiest way to measure the weak mixing angle is through $\el\pos \rightarrow Z \rightarrow f\bar{f}$, giving $\sin^2\theta_W = 0.23$
+\item The vertex factor for the $Z$ can be written in terms of couplings to the vector and axial components of the field:
+\begin{equation}
+  -i \frac{g_Z}{2} \gamma^\mu \left[c_V - c_A\gamma^5\right], \quad g_Z = \frac{g_W}{\cos\theta_W}
+\end{equation}
+The values of $c_V,c_A$ depend on the particle:
+\begin{align*}
+  c_V &= I_W^{(3)} - 2 Q\sin^2\theta_W\\
+  c_A &= I_W^{(3)} \numberthis
+\end{align*} 
+\item The partial width then is:
+\begin{equation}
+  \Gamma(Z\rightarrow f\bar f) = \frac{g_Z^2 m_Z}{4\pi} \left(c_V^2 + c_A^2\right) \thus \Gamma_Z \sim 2.5 ~\gev
+\end{equation}
+\item The branching ratios are:
+\begin{align*}
+  &BR(Z\rightarrow\nu\nubar) \sim 0.21\\
+  &BR(Z\rightarrow\ell\bar\ell) \sim 0.1\\
+  &BR(Z\rightarrow\text{hadrons}) \sim 0.69\numberthis
+\end{align*}
+\end{itemize}
+
+\subsection{Experimental measurements of electroweak theory}
+\subsubsection{Measurement of the $Z$ peak}
+\begin{itemize}
+  \item Done at LEP, using $\el \pos$ collisions, scanning $\sqrt s$ near $Z$ mass, allowing the resonance to be measured
+  \item Because the $Z$ has a finite lifetime, the propagator has to be modified:
+  \begin{equation}
+    \frac{1}{q^2-m_Z^2} \rightarrow \frac{1}{q^2-m_Z^2 + im_Z\Gamma_Z}
+  \end{equation}
+  The cross-section still peaks at $\sqrt s = m_Z$ (for the $s$-channel diagram), but it is a peak of finite width $\Gamma_Z$:
+  \begin{equation}
+    \sigma \propto \frac{1}{(s-m_Z^2)^2 + (m_Z\Gamma_Z)^2}
+  \end{equation}
+  \item The cross-section of $\el\pos\rightarrow Z \rightarrow f\bar f$ can be written as:
+  \begin{equation}
+    \sigma_{ff}(s) = \frac{12\pi s}{m_Z^2} \frac{\Gamma_{ee}\Gamma_{ff}}{(s-m_Z^2)^2 + (m_Z\Gamma_Z)^2}
+  \end{equation}
+  The partial widths are described in the previous section. Here we are ignoring the kinematic effects due to $m_f$ (i.e. assuming the final state fermions are massless)
+  \item Measuring $\sigma_{ff}(s)$ as a function of $s$ at LEP was slightly complicated by the effects of $\gamma$ ISR/FSR, which can change the kinematics quite a bit. Unlike QCD ISR/FSR, this can be calculated to high precision in QED, and the change in the shape of the $Z$-peak can be predicted accurately.
+  \item LEP measured:
+  \begin{equation}
+    m_Z = 91.1875 \pm 0.0021~\gev, \quad \Gamma_Z = 2.4952 \pm 0.0023 ~\gev
+  \end{equation}
+  \item The value of $\Gamma_Z$ can be used to constrain the number of neutrino generations lighter than $m_Z/2$ (assuming universal coupling). It is found to be $3$
+  \item The value of $\Gamma_{ff}$ can be extracted by measuring the cross-section of the decay to $f\bar f$ and using the equation:
+  \begin{equation}
+    \max_s \sigma_{ff}(s) = \frac{12\pi}{m_Z^2} \frac{\Gamma_{ee} \Gamma_{ff}}{\Gamma_Z^2}
+  \end{equation}
+  \item The weak mixing angle can be extracted from $c_V,c_A$:
+  \begin{equation}
+    c_V = I^3_W - 2Q\sin^2\theta_W, \quad c_A = I_W^3
+  \end{equation}
+  The vector and axial components have different angular dependencies, so one can look at the forward-backward asymmetry for a particular type of decay (such as leptons). Define $\sigma_F$ ($\sigma_B$) as the cross-section for $\el\pos \rightarrow Z \rightarrow \ell^+\ell^-$, where the $\ell^-$ is in the forward (backward) region of the detector. Then, one measures:
+  \begin{equation}
+    A_{FB} = \frac{\sigma_F - \sigma_B}{\sigma_F+\sigma_B}
+  \end{equation}
+  The measured value is:
+  \begin{equation}
+    \sin^2\theta_W = 0.12346\pm 0.00012
+  \end{equation}
+\end{itemize}
+
+
 \begin{appendices}
 \section{Bibliography}
 ~
 \bibspace The BaBar Collaboration, \emph{The BABAR Physics Book}. \url{https://www.slac.stanford.edu/pubs/slacreports/reports19/slac-r-504.pdf}
 \bibspace The CPLEAR Collaboration, \emph{The CPLEAR-Experiment at CERN}. Nucl. Phys. B. 59 (1997) 76-100
 \bibspace The CPLEAR Collaboration, \emph{The CPLEAR detector at CERN}. Nucl. Inst. and Meth. 379 (1997) 182-191
-\bibspace The CPLEAR Collaboration, \emph{The CPLEAR Experiment}, \url{https://cplear.web.cern.ch/cplear/cplear/newtransparencies/}
+\bibspace The CPLEAR Collaboration, \emph{The CPLEAR Experiment}, \\ \url{https://cplear.web.cern.ch/cplear/cplear/newtransparencies/}
 \bibspace Klute M., \emph{Lecture notes from 8.811}. Fall 2015
 \bibspace PDG Particle Review, \emph{Plots of cross sections and related quantities}. 2015
 \bibspace PDG Particle Review, \emph{CKM quark-mixing matrix}. 2015
