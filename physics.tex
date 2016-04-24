@@ -1,202 +1,10 @@
-\documentclass[11pt]{article}
-\usepackage{amssymb,amsmath,lmodern,slashed,cancel}
-\usepackage{array}
-\usepackage{bm}
-\usepackage{graphicx}
-\usepackage[hidelinks]{hyperref}
-\usepackage[toc,page]{appendix}
-\usepackage{footnote,url}
-\usepackage{calc}
-\usepackage{caption}
-\usepackage{xspace}
-\usepackage[export]{adjustbox}
-\usepackage{subcaption}
-\usepackage[margin=.5in,top=1in]{geometry}
-\usepackage{fancyhdr}
+\input{header.tex}
+
 \pagestyle{fancy}
 \lhead{Sid Narayanan}
 \rhead{MIT NUPAX Part III}
 \chead{\today}
-\renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\footrulewidth}{0.4pt}
-\newlength\dlf
-\newcommand\alignboxed[2]{
-  &
-  \begingroup
-  \settowidth\dlf{$\displaystyle #1$}
-  \addtolength\dlf{\fboxsep+\fboxrule}
-  \hspace{-\dlf}
-  \boxed{#1 #2}
-  \endgroup
-}
-\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
-\newcommand{\ve}{\mathbf{v}}
-\newcommand{\Se}{\mathbf{S}}
-\newcommand{\kk}{\vec{k}}
-\newcommand{\ue}{\bm{u}}
-\newcommand{\sgn}{\text{sgn}}
-\newcommand{\p}{\mathbf{p}}
-\newcommand{\pop}{\hat{p}}
-\newcommand{\x}{\vec{x}}
-\newcommand{\vr}{\mathbf{r}}
-\newcommand{\xop}{\hat{x}}
-\newcommand{\w}{\mathbf{w}}
-\newcommand{\z}{\mathbf{z}}
-\newcommand{\y}{\vec{y}}
-\newcommand{\vq}{\mathbf{q}}
-\newcommand{\tv}{\tilde{\ve}}
-\newcommand{\vL}{\vec{L}}
-\newcommand{\vS}{\vec{S}}
-\newcommand{\vso}{\vec{S}^{(1)}}
-\newcommand{\vst}{\vec{S}^{(2)}}
-\newcommand{\so}{S^{(1)}}
-\newcommand{\st}{S^{(2)}}
-\newcommand{\vJ}{\vec{J}}
-\newcommand{\vl}{\vL}
-\newcommand{\vj}{\vJ}
-\newcommand{\vjo}{\vec{J}^{(1)}}
-\newcommand{\vjt}{\vec{J}^{(2)}}
-\newcommand{\jo}{J^{(1)}}
-\newcommand{\jt}{J^{(2)}}
-\newcommand{\vs}{\vS}
-\newcommand{\proj}{\text{\proj}}
-\newcommand{\psibar}{\bar{\psi}}
-\newcommand{\Psibar}{\bar{\Psi}}
-\newcommand{\ubar}{\bar{u}}
-\newcommand{\sbar}{\bar{s}}
-\newcommand{\nubar}{{\bar{\nu}}}
-\newcommand{\vbar}{\bar{v}}
-\newcommand{\qbar}{{\bar{q}}}
-\newcommand{\fbar}{\bar{f}}
-\newcommand{\dbar}{\bar{d}}
-\newcommand{\bbar}{\bar{b}}
-\newcommand{\cbar}{\bar{c}}
-\newcommand{\ebar}{\bar{e}}
-\newcommand{\tr}{\text{Tr}}
-\newcommand{\spane}{\text{span}}
-\newcommand{\ra}{\rangle}
-\newcommand{\la}{\langle}
-\newcommand{\plus}{|+\ra}
-\newcommand{\sulp}{\la+|}
-\newcommand{\minu}{|-\ra}
-\newcommand{\unim}{\la-|}
-\newcommand{\pp}[2]{\dfrac{\partial #1}{\partial #2}}
-\newcommand{\ppt}[2]{\dfrac{\partial^2 #1}{\partial #2^2}}
-\newcommand{\dd}[2]{\dfrac{d #1}{d #2}}
-\newcommand{\fdd}[2]{\dfrac{\delta #1}{\delta #2}}
-\newcommand{\fddt}[2]{\dfrac{\delta^2 #1}{(\delta #2)^2}}
-\newcommand{\ddt}[2]{\dfrac{d^2 #1}{d #2^2}}
-\newcommand{\dre}{\dot{\re}}
-\newcommand{\vmu}{\vec{\mu}}
-\newcommand{\inv}{^{-1}}
-\newcommand{\Mme}{\mathcal{M}}
-\newcommand{\La}{\mathcal{L}}
-\newcommand{\Jc}{\mathcal{J}}
-\newcommand{\E}{\ensuremath{\vec{E}}}
-\newcommand{\B}{\ensuremath{\vec{B}}}
-\newcommand{\Dp}{\frac{d^3p}{(2\pi)^3}}
-\newcommand{\Dk}{\frac{d^3k}{(2\pi)^3}}
-\newcommand{\Lv}{\mathbf{L}}
-\newcommand{\Kv}{\mathbf{K}}
-\newcommand{\Lambdahalf}{\Lambda_{\frac{1}{2}}}
-\newcommand{\laout}{_\text{out}\la}
-\newcommand{\rain}{\ra_\text{in}}
-\newcommand{\bv}{\mathbf{b}}
-\newcommand{\ddk}{\dfrac{d^d k}{(2\pi)^d}}
-\newcommand{\dk}[1]{\dfrac{d^{#1} k}{(2\pi)^{#1}}}
-\newcommand{\ddl}{\dfrac{d^d l}{(2\pi)^d}}
-\newcommand{\dl}[1]{\dfrac{d^{#1} l}{(2\pi)^{#1}}}
-\newcommand{\kslash}{\slashed k}
-\newcommand{\nslash}{\slashed n}
-\newcommand{\pslash}{\slashed p}
-\newcommand{\qslash}{\slashed q}
-\newcommand{\lslash}{\slashed l}
-\newcommand{\vslash}{\slashed v}
-\newcommand{\Dslash}{\slashed D}
-\newcommand{\Aslash}{\slashed A}
-\newcommand{\eslash}{\slashed \epsilon}
-\newcommand{\cf}[2]{c_{#1}^{(#2)}}
-\newcommand{\gs}{\text{g.s.}}
-\newcommand{\g}[1]{\gamma^{#1}}
-\newcommand{\vac}{\text{vac}}
-\newcommand{\thetabar}{\bar{\theta}}
-\newcommand{\etabar}{\bar{\eta}}
-\newcommand{\hov}{\bar{h}}
-\newcommand{\Pv}{P_\vslash}
-\newcommand{\phicl}{\phi_\text{cl}}
-\newcommand{\Veff}{V_\text{eff}}
-\newcommand{\C}{\mathbb{C}}
-\DeclareMathOperator{\Tr}{Tr}
-\DeclareMathOperator{\Trd}{tr} %dirac trace
-\DeclareMathOperator{\Li}{Li}
-\DeclareMathOperator{\U}{U}
-\DeclareMathOperator{\SU}{SU}
-\DeclareMathOperator{\su}{\mathfrak{su}}
-\DeclareMathOperator{\hc}{h.c.}
-\DeclareMathOperator{\erf}{erf}
-\DeclareMathOperator{\csch}{csch}
-\DeclareMathOperator{\SO}{SO}
-\newcommand{\LIPS}{\mathrm{LIPS}}
-\newcommand{\F}{\mathcal{F}}
-\newcommand{\bigv}{\vphantom{\begin{pmatrix}a\\b\end{pmatrix}^T}}
-\newcommand{\fd}[1]{\left[d#1\right]}
-\newcommand{\J}{\mathcal{J}}
-\newcommand{\Y}{\mathcal{Y}}
-\newcommand{\dop}[1]{\Delta_{#1}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Op}{\mathcal{O}}
-\newcommand{\chibar}{\bar{\chi}}
-\newcommand{\Ham}{\mathcal{H}}
-\newcommand{\bipartial}{\barerset\leftrightarrow{\partial}}
-\newcommand{\diff}[1]{\dfrac{d^3#1}{(2\pi)^{3/2}(2\omega_{#1})^{1/2}}}
-\newcommand{\difft}[2]{\dfrac{d^3#1~d^3#2}{(2\pi)^{3}(2\omega_{#1})^{1/2}(2\omega_{#2})^{1/2}}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\df}[2]{\dfrac{\delta #1}{\delta #2}}
-\newcommand{\T}{\mathbf{T}}
-\newcommand{\magpi}{|\vec p_i|}
-\newcommand{\magpf}{|\vec p_f|}
-\newcommand{\gev}{\text{GeV}}
-\newcommand{\ev}{\text{eV}}
-\newcommand{\nm}{\text{nm}}
-\newcommand{\ns}{\text{ns}}
-\newcommand{\s}{\text{s}}
-\newcommand{\mum}{\mu\text{m}}
-\newcommand{\mus}{\mu\text{s}}
-\newcommand{\mm}{\text{mm}}
-\newcommand{\fm}{\text{fm}}
-\newcommand{\cm}{\text{cm}}
-\newcommand{\m}{\text{m}}
-\newcommand{\km}{\text{km}}
-\newcommand{\kev}{\text{keV}}
-\newcommand{\mev}{\text{MeV}}
-\newcommand{\tev}{\text{TeV}}
-\newcommand{\ba}{\text{b}}
-\newcommand{\nb}{\text{nb}}
-\newcommand{\pb}{\text{pb}}
-\newcommand{\gevp}{\text{GeV}/c}
-\newcommand{\gevm}{\text{GeV}/c^2}
-\newcommand{\msw}{\text{MSW}}
-\newcommand{\cnub}{\text{C$\nu$B}}
-\newcommand{\sun}{\text{Sun}}
-\newcommand{\earth}{\text{Earth}}
-\newcommand{\pow}[1]{\times 10^{#1}}
-\newcommand{\theend}[1]{
-    \begin{center}
-    \vspace{#1mm}
-    $\mathfrak{THE~END}$
-    \end{center}
-}
-\newcommand{\CP}{\ensuremath{CP}\xspace}
-\newcommand{\el}{\ensuremath{e^{-}}\xspace}
-\newcommand{\pos}{\ensuremath{e^{+}}\xspace}
-\newcommand{\ord}[1]{\ensuremath{\mathcal{O}(#1)}}
-\newcommand{\thus}{\ensuremath{~\Rightarrow~}}
-\newcommand{\embedimg}[1]{\begin{center}\includegraphics[width=0.48\textwidth]{#1}\end{center}}
-\newcommand{\embedimgw}[2]{\begin{center}\includegraphics[width=#2\textwidth]{#1}\end{center}}
-\newcommand{\lrad}{\ensuremath{L_\text{rad}}}
-\newcommand{\bibspace}{\vspace{5mm}\\\noindent}
 \setcounter{section}{-1}
-\nonstopmode
 \begin{document}
 
 \title{Notes for MIT NUPAX Oral Exam}
@@ -1828,7 +1636,7 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
 
 \subsection{Electroweak unification}
 \begin{itemize}
-  \item We add an additional $U(1)_Y$ symmetry to the model, which couples to fermions:
+  \item We add an additional $\U(1)_Y$ symmetry to the model, which couples to fermions:
   \begin{equation}
     \psi(x) \rightarrow \exp \left[ig' \frac{Y_\psi}{2} \alpha(x)\right] \psi(x)
   \end{equation}
@@ -1902,10 +1710,185 @@ The values of $c_V,c_A$ depend on the particle:
   \end{equation}
   The measured value is:
   \begin{equation}
-    \sin^2\theta_W = 0.12346\pm 0.00012
+    \sin^2\theta_W = 0.23146\pm 0.00012
   \end{equation}
 \end{itemize}
 
+\subsubsection{Measurement of $W$ properties}
+\begin{itemize}
+  \item The energy at LEP was raised up to $\sqrt s > 161~\gev$ to facilitate $\el\pos \rightarrow W^+W^-$ production
+  \item Branching fractions can be evaluated by looking at full-hadronic decays
+  \begin{itemize}
+    \item In doing so, we assume that the $W$s are on-shell (ignoring the width)
+    \item The measured branching fraction is:
+    \begin{equation}
+      BR(W\rightarrow q\bar q') = 67.41 \pm 0.27\%
+    \end{equation}
+  \end{itemize}
+  \item To measure $m_W,\Gamma_W$, we need to assume the $W$s are virtual:
+  \begin{equation}
+    |\Mme|^2 \propto \frac{1}{(q_1^2-m_W^2)^2+(m_W\Gamma_W)^2}\times\frac{1}{(q_2^2-m_W^2)^2+(m_W\Gamma_W)^2}
+  \end{equation}
+  \begin{itemize}
+    \item LEP looked at fully-hadronic and semi-hadronic decays. The $\nu$-momentum was reconstructed by looking at $\vec{ \slashed E}$
+  \end{itemize}
+  \item $m_W$ was also measured at the Tevatron, using $p \bar p \rightarrow WX$, where $X$ is ISR
+  \begin{itemize}
+    \item Was measured in hadronic and leptonic channels
+    \item In the leptonic case, the fit was done to the $m_W^T$ (transverse mass), not $m_W$ shape
+    \item $\Gamma_W$ was also extracted from the width of the $m_W^T$ shape
+  \end{itemize}
+  \item The measured properties (LEP+Tevatron) are:
+  \begin{equation}
+    m_W = 80.376 \pm 0.033~\gev, \quad \Gamma_W = 2.195 \pm 0.083~\gev
+  \end{equation}
+\end{itemize}
+
+\subsubsection{Measurement of $t$-quark properties}
+\begin{itemize}
+  \item Discovered in $q\bar q \rightarrow t\bar t$ channel at Tevatron, where $t\rightarrow b W^+$
+  \embedimgw{figs/ttbar.png}{.3}
+  \begin{itemize}
+    \item Branching fraction is $\sim 1$ because $|V_{tb}|\sim 1$
+    \item Lowest-order width is $\Gamma_t = 1.5~\gev$
+  \end{itemize}
+  \item Mass was measured in three channels: fully-hadronic, semi-leptonic, and fully-leptonic
+  \item Measured values:
+  \begin{equation}
+    m_t = 173.5\pm 1.0~\gev, \quad \Gamma_t = 2.0 \pm 0.6~\gev
+  \end{equation}
+  \item Using these measured values and $m_W$, restrictions can be made on the Higgs mass
+  \begin{itemize}
+    \item Because loop corrections involving Higgses will affect measured values of $m_t,m_W$
+    \item Constraints from LEP and Tevatron are $50 \leq m_H \leq 150~\gev$
+  \end{itemize}
+\end{itemize}
+
+\section{The Higgs boson}
+\begin{itemize}
+  \item Cannot add mass terms for gauge bosons or fermions in the Standard Model Lagrangian
+  \item Adding a mass term of the form $m_W^2 W^\mu W_\mu$ is not gauge-invariant
+  \item Similarly, a fermion mass term does not respect $\SU(2)_L$:
+  \begin{equation}
+    m^2 \psibar \psi = \frac{m^2}{2} (\psibar_R \psi_L + \psibar_L\psi_R )
+  \end{equation}
+  \item Therefore, need an alternative way to generate masses
+\end{itemize}
+
+\subsection{The Higgs mechanism in the Standard Model}
+\begin{itemize}
+  \item We add two complex scalars $\phi^+$ and $\phi^0$ to the SM Lagrangian. They reside in a $\SU(2)_L$ doublet:
+  \begin{equation}
+    \phi = \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix} \equiv \frac{1}{\sqrt2}\begin{pmatrix} \phi_1+i\phi_2 \\ \phi_3 + i\phi_4 \end{pmatrix}
+  \end{equation}
+  where $\phi_i$ are real. 
+  \item The Higgs potential is:
+  \begin{equation}
+     V(\phi) = \mu^2 \phi^\dag \phi + \lambda (\phi^\dag \phi)^2
+   \end{equation} 
+   As a function of just two components, the potential is:
+   \embedimgw{figs/higgspot.png}{.3}
+   Note that there are an infinite set of momenta
+   \item The kinetic term for this new field is:
+   \begin{equation}
+     \La_\text{kin} = (D_\mu\phi)^\dag(D^\mu\phi), \quad D_\mu = \partial_\mu + i g_W T^a W^a_\mu + i g' \frac{Y}{2} B_\mu
+   \end{equation}
+   \item Without loss of generality, we define the vacuum state to be:
+   \begin{equation}
+     \la 0 | \phi| 0 \ra = \begin{pmatrix} 0 \\ v/\sqrt2 \end{pmatrix}
+   \end{equation}
+   where $v = -\mu^2/\lambda = 246~\gev$ (from experiment). 
+   \item We can expand the Higgs field around this vacuum state and choose the unitary gauge to remove the $\phi_{1,2,4}$ degrees of freedom. These dof go into the longitudinal polarizations of $W^\pm,Z$ (which will be necessary once they get mass). The Higgs field is then written as:
+   \begin{equation}
+     \phi(x) = \frac{1}{\sqrt2} \begin{pmatrix} 0 \\ v+h(x) \end{pmatrix}
+   \end{equation}
+   \item If we expand the kinetic term, we see that the $W$ bosons naturally get a mass term (i.e. terms quadratic in $W_\mu^\pm$):
+   \begin{equation}
+     m_W = \frac{1}{2} g_W v
+   \end{equation}
+   \item If we collect the terms quadratic in $W^3,B$:
+   \begin{equation}
+     \frac{v^2}{8} \begin{pmatrix} W^3 & B \end{pmatrix} \begin{pmatrix} g_W^2 & - g_W g' \\ -g_W g' & g'^2 \end{pmatrix} \begin{pmatrix} W^3 \\ B \end{pmatrix}
+   \end{equation}
+   Diagonalizing the matrix gives the physical $A,Z$ states (eigenvectors) and their masses (eigenvalues):
+   \begin{gather*}
+    A = \frac{g' W^3 + g_W B}{\sqrt{g_W^2 + g'^2}}, \quad m_A = 0\\
+    Z = \frac{g_W W^3 - g' B}{\sqrt{g_W^2 + g'^2}}, \quad m_Z = \frac{v}{2}\sqrt{g_W^2+g'^2}\numberthis
+   \end{gather*}
+   \item We can define the weak mixing angle as $\tan\theta_W = g'/g_W$. In terms of this:
+   \begin{equation}
+     m_Z = \frac{g_Wv}{2\cos\theta_W} = \frac{m_W}{\cos\theta_W}
+   \end{equation}
+   \item The Higgs boson mass (corresponding to the $h$ field) is $m_H^2 =2\lambda v^2$
+\end{itemize}
+
+\subsection{Gauge boson masses and interactions}
+\begin{itemize}
+  \item As mentioned above, $m_W,m_Z,m_A$ are generated through Higgs mechanism:
+  \begin{equation}
+    m_W = \frac{g_W v}{2}, \quad m_Z = \frac{g_W v}{2\cos\theta_W}, \quad m_A = 0
+  \end{equation}
+  \item In the Lagrangian, we can replace $v$ with $h(x)$ in the above mass terms to get $H\rightarrow W^+ W^-$ and $H\rightarrow ZZ$ vertices. The strength of the interaction is obviously proportional to $m_W$ and $m_Z$, respectively. Note there is no $H\rightarrow \gamma\gamma$ vertex because $m_A = 0$
+  \embedimgw{figs/hVV.png}{.4}
+  \item There are also quartic $HH\rightarrow VV$ interactions for $V=W,Z$
+\end{itemize}
+
+\subsection{Fermion masses and interactions}
+\begin{itemize}
+  \item Let us first consider a left-handed doublet $L$. Let $R$ be the right-handed singlet corresponding to the $I^3_W = -1/2$ (i.e. bottom) component of $L$.
+  \item The term combination $\bar L \phi$ is invariant under $\SU(2)_L$
+  \item If we write $\phi(x)$ in the unitary gauge after breaking the symmetry (i.e. $\frac{1}{\sqrt2}(0,v+h(x))^T$), then $\bar L \phi R$ and $\bar R \phi L$ are invariant under $\SU(2)_L$ and $\U(1)_Y$
+  \item This allows us to write mass terms (say for the electron) as:
+  \begin{equation}
+    - g_e \left[\begin{pmatrix} \nubar_e & \bar e \end{pmatrix}_L \phi e_R + \text{h.c.}\right] = - \frac{g_e v}{\sqrt2} \bar e e - \frac{g_e}{\sqrt2} h\bar e e 
+  \end{equation}
+  where $g_e$ is the Yukawa coupling. The value of $g_e$ is chosen so that $m_e = g_e v /\sqrt2$. Note that as a consequence of this mass term, we also get a $H\rightarrow ee$ interaction whose strength is $m_e/v$.
+  \item The above mechanism gives masses (and $H\rightarrow ff$ interactions) for all fermions with $I_W^3 = -1/2$. For $I_W^3 = +1/2$ fermions, we use the same type of interaction, but make the replacement:
+  \begin{equation}
+    \phi \rightarrow \phi_C = C \phi = -i\sigma_2 \phi^*
+  \end{equation}
+  which selects the top component of the left-handed doublets. Then, we may write:
+  \begin{equation}
+    - g_u \left[\begin{pmatrix} \ubar & \dbar \end{pmatrix}_L \phi_C u_R+ \text{h.c.}\right] = - m_u \bar u u - \frac{m_u}{v} h \bar u u
+  \end{equation}
+\end{itemize}
+
+\subsection{Decays of the Higgs boson}
+\begin{itemize}
+  \item Because of the Yukawa coupling $g_b \propto m_b$, the decay $H\rightarrow b\bbar$ is dominant:
+  \begin{equation}
+    \Gamma(H\rightarrow b\bbar) = 3 \frac{m_b^2(q^2) m_H}{8\pi v^2}
+  \end{equation}
+  where we have to take into account the running of $\alpha_S(q^2)$. $m_b(m_H^2) \sim 3~\gev$. We can get the other fermion decays by:
+  \begin{equation}
+    \Gamma(H\rightarrow f\bar f) = \Gamma(H\rightarrow b\bbar) \times\frac{N_{C}^f}{N_{C}^b}\times\frac{m_f^2(m_H^2)}{m_b^2(m_H^2)}
+  \end{equation}
+  where $N_C^f$ are the number of colors of fermion $f$.
+  \item The next largest decay is to $WW$. Although $m_H < 2m_W$ (implying at least one of the $W$s will be off-shell), the large $g_W m_W$ coupling makes this BR large
+  \item There can also be effective couplings for $H\rightarrow gg,\gamma\gamma$, despite these bosons being massless:
+  \embedimgw{figs/h2gg.png}{.6}
+  Despite being loop-suppressed, these decays are significant because $g_t$ and $g_Wm_W$ are large.
+  \item The leading decay modes are:
+  \begin{center}
+  \begin{tabular}{l|ccccccc}
+    Decay mode & $b\bbar$ & $W^+W^-$ & $\tau^+ \tau^-$ & $gg$ & $c\cbar$ & $ZZ$ & $\gamma\gamma$\\ \hline
+    BR & 57.8\% & 21.6\% & 6.4\% & 8.6\% & 2.9\% & 2.7\% & 0.2 \%
+  \end{tabular}
+  \end{center}
+\end{itemize}
+
+\subsection{Experimental discovery}
+\begin{itemize}
+  \item LHC used $p\bar p$ collisions at $\sqrt{s} = 7,8~\tev$
+  \item Dominant production mechanism is gluon fusion, but vector boson fusion is easy to identify due to two jets at high $|\eta|$:
+  \embedimgw{figs/higgsprod.png}{.5}
+  \item Gluon fusion is sensitive to the gluon PDFs
+  \item Sensitive channels during discovery where $\gamma\gamma$, $ZZ\rightarrow 4\ell$, $WW\rightarrow 2\ell 2\nu$, $\tau\tau$ (hadronic and leptonic), and $b\bbar$
+  \item The measured mass is:
+  \begin{equation}
+    m_H = 125.7 \pm 0.5~\gev
+  \end{equation}
+\end{itemize}
 
 \begin{appendices}
 \section{Bibliography}

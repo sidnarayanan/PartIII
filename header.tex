@@ -1,0 +1,197 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb,amsmath,lmodern,slashed,cancel}
+\usepackage{array}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage[toc,page]{appendix}
+\usepackage{footnote,url}
+\usepackage{calc}
+\usepackage{caption}
+\usepackage{xspace}
+\usepackage[export]{adjustbox}
+\usepackage{subcaption}
+\usepackage[margin=.5in,top=1in]{geometry}
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newlength\dlf
+\newcommand\alignboxed[2]{
+  &
+  \begingroup
+  \settowidth\dlf{$\displaystyle #1$}
+  \addtolength\dlf{\fboxsep+\fboxrule}
+  \hspace{-\dlf}
+  \boxed{#1 #2}
+  \endgroup
+}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand{\ve}{\mathbf{v}}
+\newcommand{\Se}{\mathbf{S}}
+\newcommand{\kk}{\vec{k}}
+\newcommand{\ue}{\bm{u}}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\p}{\mathbf{p}}
+\newcommand{\vr}{\mathbf{r}}
+\newcommand{\pop}{\hat{p}}
+\newcommand{\vq}{\mathbf{q}}
+\newcommand{\x}{\vec{x}}
+\newcommand{\xop}{\hat{x}}
+\newcommand{\w}{\mathbf{w}}
+\newcommand{\z}{\mathbf{z}}
+\newcommand{\y}{\vec{y}}
+\newcommand{\qq}{\vec{q}}
+\newcommand{\tv}{\tilde{\ve}}
+\newcommand{\vL}{\vec{L}}
+\newcommand{\vS}{\vec{S}}
+\newcommand{\vso}{\vec{S}^{(1)}}
+\newcommand{\vst}{\vec{S}^{(2)}}
+\newcommand{\so}{S^{(1)}}
+\newcommand{\st}{S^{(2)}}
+\newcommand{\vJ}{\vec{J}}
+\newcommand{\vl}{\vL}
+\newcommand{\vj}{\vJ}
+\newcommand{\vjo}{\vec{J}^{(1)}}
+\newcommand{\vjt}{\vec{J}^{(2)}}
+\newcommand{\jo}{J^{(1)}}
+\newcommand{\jt}{J^{(2)}}
+\newcommand{\vs}{\vS}
+\newcommand{\proj}{\text{\proj}}
+\newcommand{\psibar}{\bar{\psi}}
+\newcommand{\Psibar}{\bar{\Psi}}
+\newcommand{\ubar}{\bar{u}}
+\newcommand{\sbar}{\bar{s}}
+\newcommand{\nubar}{{\bar{\nu}}}
+\newcommand{\vbar}{\bar{v}}
+\newcommand{\qbar}{{\bar{q}}}
+\newcommand{\fbar}{\bar{f}}
+\newcommand{\dbar}{\bar{d}}
+\newcommand{\bbar}{\bar{b}}
+\newcommand{\cbar}{\bar{c}}
+\newcommand{\ebar}{\bar{e}}
+\newcommand{\tr}{\text{Tr}}
+\newcommand{\spane}{\text{span}}
+\newcommand{\ra}{\rangle}
+\newcommand{\la}{\langle}
+\newcommand{\plus}{|+\ra}
+\newcommand{\sulp}{\la+|}
+\newcommand{\minu}{|-\ra}
+\newcommand{\unim}{\la-|}
+\newcommand{\pp}[2]{\dfrac{\partial #1}{\partial #2}}
+\newcommand{\ppt}[2]{\dfrac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\dd}[2]{\dfrac{d #1}{d #2}}
+\newcommand{\fdd}[2]{\dfrac{\delta #1}{\delta #2}}
+\newcommand{\fddt}[2]{\dfrac{\delta^2 #1}{(\delta #2)^2}}
+\newcommand{\ddt}[2]{\dfrac{d^2 #1}{d #2^2}}
+\newcommand{\dre}{\dot{\re}}
+\newcommand{\vmu}{\vec{\mu}}
+\newcommand{\inv}{^{-1}}
+\newcommand{\Mme}{\mathcal{M}}
+\newcommand{\La}{\mathcal{L}}
+\newcommand{\Jc}{\mathcal{J}}
+\newcommand{\E}{\ensuremath{\vec{E}}}
+\newcommand{\B}{\ensuremath{\vec{B}}}
+\newcommand{\Dp}{\frac{d^3p}{(2\pi)^3}}
+\newcommand{\Dk}{\frac{d^3k}{(2\pi)^3}}
+\newcommand{\Lv}{\mathbf{L}}
+\newcommand{\Kv}{\mathbf{K}}
+\newcommand{\Lambdahalf}{\Lambda_{\frac{1}{2}}}
+\newcommand{\laout}{_\text{out}\la}
+\newcommand{\rain}{\ra_\text{in}}
+\newcommand{\bv}{\mathbf{b}}
+\newcommand{\ddk}{\dfrac{d^d k}{(2\pi)^d}}
+\newcommand{\dk}[1]{\dfrac{d^{#1} k}{(2\pi)^{#1}}}
+\newcommand{\ddl}{\dfrac{d^d l}{(2\pi)^d}}
+\newcommand{\dl}[1]{\dfrac{d^{#1} l}{(2\pi)^{#1}}}
+\newcommand{\kslash}{\slashed k}
+\newcommand{\nslash}{\slashed n}
+\newcommand{\pslash}{\slashed p}
+\newcommand{\qslash}{\slashed q}
+\newcommand{\lslash}{\slashed l}
+\newcommand{\vslash}{\slashed v}
+\newcommand{\Dslash}{\slashed D}
+\newcommand{\Aslash}{\slashed A}
+\newcommand{\eslash}{\slashed \epsilon}
+\newcommand{\cf}[2]{c_{#1}^{(#2)}}
+\newcommand{\gs}{\text{g.s.}}
+\newcommand{\g}[1]{\gamma^{#1}}
+\newcommand{\vac}{\text{vac}}
+\newcommand{\thetabar}{\bar{\theta}}
+\newcommand{\etabar}{\bar{\eta}}
+\newcommand{\hov}{\bar{h}}
+\newcommand{\Pv}{P_\vslash}
+\newcommand{\phicl}{\phi_\text{cl}}
+\newcommand{\Veff}{V_\text{eff}}
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Trd}{tr} %dirac trace
+\DeclareMathOperator{\Li}{Li}
+\DeclareMathOperator{\U}{U}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\su}{\mathfrak{su}}
+\DeclareMathOperator{\hc}{h.c.}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\SO}{SO}
+\newcommand{\LIPS}{\mathrm{LIPS}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\bigv}{\vphantom{\begin{pmatrix}a\\b\end{pmatrix}^T}}
+\newcommand{\fd}[1]{\left[d#1\right]}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\dop}[1]{\Delta_{#1}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Op}{\mathcal{O}}
+\newcommand{\chibar}{\bar{\chi}}
+\newcommand{\Ham}{\mathcal{H}}
+\newcommand{\bipartial}{\barerset\leftrightarrow{\partial}}
+\newcommand{\diff}[1]{\dfrac{d^3#1}{(2\pi)^{3/2}(2\omega_{#1})^{1/2}}}
+\newcommand{\difft}[2]{\dfrac{d^3#1~d^3#2}{(2\pi)^{3}(2\omega_{#1})^{1/2}(2\omega_{#2})^{1/2}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\df}[2]{\dfrac{\delta #1}{\delta #2}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\magpi}{|\vec p_i|}
+\newcommand{\magpf}{|\vec p_f|}
+\newcommand{\gev}{\text{GeV}}
+\newcommand{\ev}{\text{eV}}
+\newcommand{\nm}{\text{nm}}
+\newcommand{\fm}{\text{fm}}
+\newcommand{\ns}{\text{ns}}
+\newcommand{\ps}{\text{ps}}
+\newcommand{\s}{\text{s}}
+\newcommand{\mum}{\mu\text{m}}
+\newcommand{\mus}{\mu\text{s}}
+\newcommand{\mm}{\text{mm}}
+\newcommand{\cm}{\text{cm}}
+\newcommand{\m}{\text{m}}
+\newcommand{\km}{\text{km}}
+\newcommand{\kev}{\text{keV}}
+\newcommand{\mev}{\text{MeV}}
+\newcommand{\tev}{\text{TeV}}
+\newcommand{\ba}{\text{b}}
+\newcommand{\nb}{\text{nb}}
+\newcommand{\pb}{\text{pb}}
+\newcommand{\gevp}{\text{GeV}/c}
+\newcommand{\gevm}{\text{GeV}/c^2}
+\newcommand{\msw}{\text{MSW}}
+\newcommand{\cnub}{\text{C$\nu$B}}
+\newcommand{\sun}{\text{Sun}}
+\newcommand{\earth}{\text{Earth}}
+\newcommand{\pow}[1]{\times 10^{#1}}
+\newcommand{\theend}[1]{
+    \begin{center}
+    \vspace{#1mm}
+    $\mathfrak{THE~END}$
+    \end{center}
+}
+\newcommand{\CP}{\ensuremath{CP}\xspace}
+\newcommand{\el}{\ensuremath{e^{-}}\xspace}
+\newcommand{\pos}{\ensuremath{e^{+}}\xspace}
+\newcommand{\ord}[1]{\ensuremath{\mathcal{O}(#1)}}
+\newcommand{\thus}{\ensuremath{~\Rightarrow~}}
+\newcommand{\embedimg}[1]{\begin{center}\includegraphics[width=0.48\textwidth]{#1}\end{center}}
+\newcommand{\embedimgw}[2]{\begin{center}\includegraphics[width=#2\textwidth]{#1}\end{center}}
+\newcommand{\lrad}{\ensuremath{L_\text{rad}}}
+\newcommand{\bibspace}{\vspace{5mm}\\\noindent}
+
+\nonstopmode
