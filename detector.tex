@@ -32,6 +32,9 @@ The probability-per-unit length for an interaction in matter is:
 where $A$ is the atomic mass
 \noindent The natural lifetime is $\tau = \tau_{1/2}/\ln 2$.
 
+\noindent Timing resolution of various detector types:
+\embedimgw{figs/timingresolution.png}{.7}
+
 \section{Basic radiation sources}
 \begin{itemize}
   \item $\alpha$-decay: $(Z,A)\rightarrow(Z-2,A-4)+\alpha$
@@ -130,7 +133,13 @@ where $A$ is the atomic mass
       \item $\delta$ is the density correction (at high $\beta$). Corrects for the charged particle polarizing the medium as it travels through (stronger effect for high density). This cancels the quadratic rise from the $\beta^2$ term
       \item $C/Z$ is the shell-effect. Corrects for case when the incident particle is slow relative to the electron orbital velocity
     \end{itemize}
-    \item Minimum ionizing particle occurs at $\beta \sim 0.96 \Rightarrow \gamma \sim 3.6$ (independent of the particle)
+    \item Important features:
+    \begin{itemize}
+      \item Minimum ionizing particle occurs at $\beta \sim 0.96 \Rightarrow \gamma \sim 3.6$ (independent of the particle)
+      \item $dE/dx$ goes down as a function of $\beta$ at low energies: slow particles feel atomic electric field for longer
+      \item But then the $\beta^2$ relativistic effect causes a rise at high energies: Lorentz contraction of $\E$-field makes transverse component (wrt particle motion) larger. 
+      \item The quadratic rise in $\beta$ is canceled by the $\delta$ ionization term. Cancellation is stronger for denser materials.
+    \end{itemize}
     \begin{center}
       \includegraphics[width=0.8\textwidth]{figs/dEdx_bbPDG.png}
       \includegraphics[width=0.8\textwidth]{figs/dEdx_bethebloch.png}
@@ -170,13 +179,15 @@ where $A$ is the atomic mass
   \begin{equation}
     E_c = \frac{800~\mev}{Z+1.2}
   \end{equation}
+  \item For muons, $E_c$ is $\sim \tev$ (for low $Z$) to $\sim 100~\gev$  (high $Z$)
   \item Radiation length: distance over a particle's energy is reduced by $1/e$. Call it $\lrad$
   \begin{itemize}
     \item $E=E_0 \exp[-x/\lrad]$
   \end{itemize}
   \begin{center}
-    \includegraphics[width=0.45\textwidth]{figs/ecrit_table.png}
-    \includegraphics[width=0.45\textwidth]{figs/radlength_table.png}
+    \includegraphics[width=0.45\textwidth,valign=t]{figs/ecrit_table.png}
+    \includegraphics[width=0.45\textwidth,valign=t]{figs/radlength_table.png}\\
+    \includegraphics[width=0.6\textwidth,valign=t]{figs/tab_ecritxo.png}
   \end{center}
   \item Because of low mass, variance in $dE/dx$ is larger for $e^\pm$ than for heavier particles (long tail from large energy transfers)
 \end{itemize}
@@ -263,6 +274,10 @@ where $A$ is the atomic mass
     \item $E(x)\sim E_0/2^{x/L}$, where $E$ is the energy per particle in the shower at distance $x$
     \item Obviously has to truncate when $E(x)\leq m_e$, but actually stops at $E<E_c$ (no more brem)
     \item Let $t=x/L$. Then, $t_{\max} = \ln(E_0/E_c)/\ln2$ and $N_{\max}\approx E_0/E_c$
+    \begin{itemize}
+      \item Need to add correction for particle that induces shower: $t_{\max} = \log_2 (E_0/E_c) - C$
+      \item $C = 0.5$ if $\gamma$, else $C = 1$ 
+    \end{itemize}
   \end{itemize}
 \end{itemize}
 
@@ -356,6 +371,12 @@ where $A$ is the atomic mass
     \item Observed signal is a function of $V_0$:
     \embedimgw{figs/ionization_voltage}{0.8}
   \end{itemize}
+\end{itemize}
+\subsubsection{Resistive plate chamber}
+\begin{itemize}
+  \item Two resistive plates with small gas gap ($\sim 2~\mm$) and large voltage on electrodes outside of the plates ($\sim 10~\text{kV}$)
+  \item Advantage: good time resolution $\sim 50-100~\ps$
+  \item Disadvantage: bad signal quality, dark rates
 \end{itemize}
 \subsubsection{Ionization chamber}
 \begin{itemize}
@@ -551,7 +572,7 @@ where $A$ is the atomic mass
   \item Cylindrical drift chambers used at collider detectors
   \item Drift chamber is much more sensitive to gas composition, pressure, impurities, because all these things affect constant drift velocity assumption
   \item Correction needs to be made to account for presence of a $\B$-field
-  \item Drift velocity of $\el$ is $\sim 5~\cm/\mus$ in Ar
+  \item Drift velocity of $\el$ is $\sim \ord{10}~\mum/\ns$ in Ar
   \item Higher drift velocity \thus lower uncertainty from diffusion
 \end{itemize}
 
@@ -971,6 +992,10 @@ Imposing $\phi(-x_p)=0$ and $\phi(x_n)=V_0$ allows us to solve for the depths.
 \begin{itemize}
   \item Fano factor is $\sim 0.12$ \thus energy resolution for a $5~\mev$ particle is $\sim 0.07\%$
   \item Response is very fast $\sim 10~\ns$, and timing resolution can get down to $\sim 10~\ps$
+  \begin{itemize}
+    \item Drift time is $\sim 10~\text{ps}/\mum$ in silicon
+  \end{itemize}
+  \item Dimensions are typically $\sim 100~\mum$ \thus spatial resolution is dimension divided by $\sqrt{12}$
 \end{itemize}
 
 \subsection{Silicon strip detectors}

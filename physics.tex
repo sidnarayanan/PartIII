@@ -318,8 +318,8 @@
   \item Hadronization
   \begin{itemize}
     \item If two quarks are produced (say $\gamma\rightarrow q\qbar$) and the quarks have high energy, they will fly apart
-    \item However, the interaction of the gluon field between them has a high energy density ($1~\gev/fm$), and so the gluons split into quarks
-    \item This process repeats until all of the quarks are bound in, color singlet states
+    \item However, the interaction of the gluon field between them has a high energy density ($1~\gev/\fm$), and so the gluons split into quarks
+    \item This process repeats until all of the quarks are bound in color singlet states
   \end{itemize}
 \end{itemize}
 
@@ -549,7 +549,7 @@
       (\xi p)^2 =  m_q^2
     \end{equation}
     \begin{equation}
-      (\xi p + q)^2 = \xi p^2 + 2\xi p\cdot q + q^2 = m_q^2
+      (\xi p + q)^2 = \xi^2 p^2 + 2\xi p\cdot q + q^2 = m_q^2
     \end{equation}
     \item Equating and solving for $\xi$ gives:
     \begin{equation}
@@ -699,7 +699,7 @@
       \begin{equation}
         \frac{G_F}{\sqrt2} = \frac{g_W^2}{8 m_W^2}
       \end{equation}
-      \item Numerically, $G_F = 1.17 \times 10^{-5}~\gev^2$
+      \item Numerically, $G_F = 1.17 \times 10^{-5}~\gev^{-2}$
   \end{itemize}
   \item The dimensionless coupling strength of the weak interaction is:
   \begin{equation}
@@ -760,6 +760,7 @@
     \dd{}{\Omega} \sigma_{\nu \qbar},\sigma_{\nubar q} \sim (1+\cos\theta)^2\numberthis
   \end{gather*}
   \item The $\nu$-$X$ interaction cross-section is always $\sigma\propto s \approx 2 m_X E_\nu$ (where the last approximation is in the limit $m_X\ll E_\nu$ and the target is at rest)
+  \item At $E_\nu = 1~\gev$, $\sigma\sim 10~\text{fb}$
   \item $\sigma_{\nu q} /\sigma_{\nubar q} = 3$ (from integrating the angular dependence)
   \item Note $1-y = \frac{1}{2}(1+\cos\theta)$
 \end{itemize}
@@ -1000,8 +1001,8 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
   \item Large-scale structure and measurement of C$\nu$B limit $\sum_k m_{k} \lesssim 1~\ev$
   \item Best measurements of mass differences are:
   \begin{gather*}
-    \Delta m_{21}^2 \sim 10^-4~\ev^2\\
-    \Delta m_{32}^2 \sim 10^-3~\ev^2\numberthis
+    \Delta m_{21}^2 \sim 10^{-4}~\ev^2\\
+    \Delta m_{32}^2 \sim 10^{-3}~\ev^2\numberthis
   \end{gather*}
   \begin{itemize}
     \item The sign of $\Delta m_{32}^2$ is unknown. $m_3>m_2$ is the normal hierarchy; the inverse is the inverted hierarchy.
@@ -1128,7 +1129,7 @@ In the last line, we assume $\beta \approx 1$ and $p\approx E_\nu$.
   \begin{itemize}
     \item $\sin^2(2\theta_{12}) = 0.87$
     \item $\sin^2(2\theta_{23}) > 0.92$
-    \item $\sin^2(2\theta_{13}) > 0.10$
+    \item $\sin^2(2\theta_{13}) = 0.10$
   \end{itemize}
   \item The CP violating phase $\delta$ is not constrained at all
   \item Best measurement is:
@@ -1890,6 +1891,400 @@ The values of $c_V,c_A$ depend on the particle:
   \end{equation}
 \end{itemize}
 
+\section{Dark matter}
+\subsection{Astrophysical evidence for DM}
+\begin{itemize}
+  \item We proceed in order of decreasing scale
+  \item Temperature anisotropies in CMB
+  \begin{itemize}
+    \item Measured by WMAP, Planck
+    \item CMB arises from $4\times 10^5$ years after Big Bang
+    \item Power spectrum of fluctuations is sensitive to amount of dark matter and dark energy at this time
+    \item $\Lambda$CDM is the cosmological model that fits the data the best, predicting a non-zero cosmological constant $\Lambda$ and dark matter with a small random velocity (i.e. cold)
+    \item From size of anisotropies, can estimate energy densities: 
+    \begin{equation}
+      \Omega_b \sim 0.05, \quad\Omega_\text{DM} \sim 0.25, \quad \Omega_{\Lambda} \sim 0.7
+    \end{equation}
+  \end{itemize}
+  \item Gravitational lensing
+  \begin{itemize}
+    \item For example: if a galaxy is between the Earth and an object being studied, the galaxy can bend spacetime so the shortest path between the Earth and the object is around the object
+    \item Can lead to deformations of the image (weak lensing) or multiple copies of the image (strong lensing)
+    \item Mass predicted from strength of lensing is $\sim 200\times $ the luminous mass
+  \end{itemize}
+  \item Bullet cluster
+  \begin{itemize}
+    \item Small cluster passing through larger cluster 3.7 billion light-years away
+    \item Can use weak lensing to map distribution of matter \thus consistent with a dark matter halo
+    \item In particular, the lensing does not follow the distribution of baryonic matter, indicating MOND is not correct
+  \end{itemize}
+  \item Rotational velocities of stars in galaxies
+  \begin{itemize}
+    \item Objects outside bulk of visible mass distribution should have velocities $v\propto r^{-1/2}$
+    \item Rubin found this was not the case: $v$ does not drop off after the end of the visible matter bulk
+    \item Can be solved by adding a dark matter halo around the galaxy
+    \item Similar results seen in velocities of clusters in nebulae by Zwicky
+    \begin{itemize}
+      \item First hint of DM
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+\subsection{Candidates}
+\begin{itemize}
+  \item MOND and relativistic extensions largely seen as insufficient to explain all observations or generate a stable Universe
+  \item MACHOs are things like neutron stars, brown dwarfs, black holes,\dots
+  \begin{itemize}
+    \item Searches using gravitational microlensing puts an upper limit on MACHOs comprising no more than $20\%$ of DM density
+    \item Measurements of light element abundances (e.g. deuterium, which is only produced during Big Bang nucleosynthesis), constrains $\Omega_b \sim 0.04$
+  \end{itemize}
+  \item Neutrino-related candidates
+  \begin{itemize}
+    \item Neutrinos are a candidate, but due to mass and relativistic velocity in early Universe, not consistent with clustering scale of galaxies
+    \item Sterile neutrinos are another candidate
+    \begin{itemize}
+      \item Right-handed, so does not affect $Z$-width. Can be used to generate neutrino masses through seesaw mechanism
+      \item Can be cold (non-relativistic) or warm (relativistic in early Universe)
+    \end{itemize}
+  \end{itemize}
+  \item Weakly interacting massive particles are a good candidate
+  \begin{itemize}
+    \item If we assume the DM particle interacts with the weak force (or has a weak-scale interaction), then the relic density mean the mass must be $\sim 0.1~\gev$ - $1~\tev$
+    \item Typically assume WIMPs and baryons were in equilibrium in early Universe
+    \item Universe temperature then fell below WIMP mass \thus baryons$\rightarrow$WIMP stops
+    \item Expansion stops WIMP$\rightarrow$baryons when the annihilation rate is less than the Hubble expansion rate
+    \item The WIMP density at this point is the relic density
+    \item Alternatively can phrase WIMP miracle as: if we assume the mass is $\sim 0.1~\gev$ - $1~\tev$, to reproduce the currently-observed dark matter density, the interaction must be weak-scale
+    \item Candidates:
+    \begin{itemize}
+      \item Neutralino from SUSY with $R$-parity (or other LSP)
+      \item Lightest Kaluza-Klein mode from compactified extra dimensions, if we impose a KK parity
+    \end{itemize}
+  \end{itemize}
+  \item Finally, axions
+  \begin{itemize}
+    \item Scalar massive particle used to solve strong CP problem 
+    \begin{itemize}
+      \item Quantize the $\Theta$ parameter in the QCD Lagrangian that controls CP violation
+      \item Break the symmetry of this field \thus pseudo-Nambu-Goldstone boson (axion)
+    \end{itemize}
+    \item Also a cold DM candidate
+  \end{itemize}
+\end{itemize}
+
+\subsection{Overview of searches}
+\embedimgw{figs/dm.png}{.5}
+\subsection{Direct detection}
+\begin{itemize}
+  \item Signature is nuclear recoil from $\chi N \rightarrow \chi N$
+  \item If we assume $10 < m_\chi < 10^3~\gev$, then the recoil is $1 < R < 100~\kev$. 
+  \item The recoil spectrum is:
+  \begin{equation}
+    \dd{R}{E}(E) = \frac{\rho_0}{m_\chi M_A} \int d^3 v \left[v f(\ve) \cdot \dd\sigma{E}(E)\right]
+  \end{equation}
+  where
+  \begin{itemize}
+    \item $E$ is the DM energy
+    \item $\rho_0$ is the local DM density and $f(\vec v)$ is the local DM velocity distribution
+    \item $M_A$ is the target nucleus mass
+  \end{itemize}
+  \item We can add an annual modulation to account for the Earth's motion:
+  \begin{equation}
+    \dd{R}{E}(E,t) \sim S_0(E) + S_m(E)\cdot \cos \left(\frac{2\pi}{T}(t-t_0)\right)
+  \end{equation}
+\end{itemize}
+\subsubsection{Cross-sections}
+\begin{itemize}
+  \item If the interaction is spin-independent (i.e. scalar or vector mediator), then isospin conservation \thus neutrons and protons contribute equally to $\sigma_{\chi N}$
+  \item For spin-dependent interactions, need unpaired nucleons \thus use odd-even or odd-odd nuclei
+  \item Let $\sigma_0$ and $F$ be the cross-section (at zero momentum transfer) and form factor, respectively. Then, the total cross-section is:
+  \begin{equation}
+    \dd{\sigma}{E} = \frac{M_A}{2\mu^2_A v^2} \cdot \left(\sigma_0^\text{SI} F_\text{SI}^2(E)+\sigma_0^\text{SD} F_\text{SD}^2(E)\right)
+  \end{equation}
+  where $\mu_A$ is the reduced mass of the $\chi$-nucleus system.
+  \begin{itemize}
+    \item We can write the spin-independent cross-section as:
+    \begin{equation}
+      \sigma_0^\text{SI} = \sigma_p \cdot \frac{\mu_A^2}{\mu_p^2} \cdot \left[Z f^p + (A-Z) f^n\right]^2
+    \end{equation}
+    where:
+    \begin{itemize}
+      \item $f^p$ ($f^n$) is the interaction strength with protons (neutrons) 
+      \item $\mu_p$ is the reduced mass of the $\chi$-nucleon system
+      \item Typically assume $f^p = f^n = 1$, so $\sigma_p$ controls the cross-section
+    \end{itemize}
+    \item The spin-dependent cross-section is:
+    \begin{equation}
+      \sigma_0^\text{SD} \propto  \mu_A^2 \left[a_p \la \mathbf{S}^p \ra + a_n \la \mathbf{S}^n \ra\right]^2 \frac{J+1}{J}
+    \end{equation}
+    where $J$ is the nucleus spin
+  \end{itemize}
+  \item If we assume a spin-independent interaction with $m_\chi = 100~\gev$ and $\sigma = 10^{-45}~\cm^2$:
+  \embedimgw{figs/dm_eventrates.png}{.5}
+  \item The local DM density is typically:
+  \begin{equation}
+    \rho_0 = 0.2\text{ - }0.6 \frac{\gev}{\cm^3}
+  \end{equation}
+  \item If we assume an isotropic Maxwell-Boltzmann distribution:
+  \begin{equation}
+    f(\ve) = \frac{1}{\sqrt{2\pi\sigma}} \exp \left[-\frac{v^2}{2\sigma^2}\right], \quad \sigma = \sqrt\frac{3}{2} v_c
+  \end{equation}
+  where $f$ is the velocity distribution in the rest frame of the galaxy, and $v_c = 220~\km/\s$ is the circular velocity of an object at this distance from the center of the galaxy. We find $v_\text{RMS} = 270~\km/s$.
+  \item The flux is therefore:
+  \begin{equation}
+    \Phi_\chi = \frac{\rho_0}{m_\chi} \la va \ra \sim \frac{0.4~\gev/\cm^3}{100~\gev} \times 270 \frac{\km}{\s} \sim 10^5 \cm^{-2}\s^{-1}
+  \end{equation}
+\end{itemize}
+
+\subsubsection{Backgrounds}
+\begin{itemize}
+  \item $\gamma$ decays
+  \begin{itemize}
+    \item Common isotopes in environment can give $\gamma$s with $E_\gamma \sim 10~\kev-2.6~\mev$
+    \item Can be limited by using active materials whose radioactive isotopes are rare (Ge or Xe, for example)
+    \item Can add shielding to prevent $\gamma$s from environment. 
+    \begin{itemize}
+      \item Something with high $Z$ and $\rho$ (i.e. Pb) to increase pair-production and photoelectric $\sigma$s in the shielding.
+      \item Can also use large water tank
+    \end{itemize}
+    \item Depending on the detector, offline discrimination can be done
+    \begin{itemize}
+      \item $\gamma$s more likely to interact multiple times in detector (i.e. through Compton or secondary interactions from $e$s from photoelectric or pair-production)
+      \item If a scintillator, can use pulse-shape discrimination
+    \end{itemize}
+  \end{itemize}
+  \item Neutrons
+  \begin{itemize}
+    \item From radioactive decay or cosmic ray $\mu$s spallation on surrounding material
+    \item Energies are from $\sim\mev$ (radiogenic) to $\sim\gev$ (cosmogenic)
+    \item High energy neutrons can be moderated in surrounding material to produce recoils of $\sim \kev$\thus same signal as DM
+    \item Cosmogenic neutrons can be limited by putting the detector deep underground (reduce flux to $10^{-6}-10^{-10}~\cm^{-2}\s^{-1}$)
+    \item Radiogenic neutrons can be limited by choosing materials with low radioactivity (including $\alpha$s, which can lead to $(\alpha,n)$). 
+    \item Can reduce neutron flux:
+    \begin{itemize}
+      \item Add shielding around detector
+      \item Active vetos: scintillator or water Cerenkov
+    \end{itemize}
+  \end{itemize}
+  \item Neutrinos
+  \begin{itemize}
+    \item Can produce signals through electron or nucleon interactions
+    \item Largest fluxes are solar neutrinos: $pp$ and $^7\text{Be}$ are biggest sources
+    \item CC and NC interactions with electrons and CC interactions with nucleons can be discriminated against
+    \begin{itemize}
+      \item Electron interactions where the recoil is $\sim\kev$ are ionizations
+      \item CC nucleon interactions will have different energy spectra
+    \end{itemize}
+    \item Coherent neutrino scattering off nucleons is \emph{irreducible background}
+    \begin{itemize}
+      \item Has never been measured
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Detector types}
+\begin{center}
+  \includegraphics[width=0.45\textwidth,valign=c]{figs/dd_signals1.png}\quad
+  \includegraphics[width=0.35\textwidth,valign=c]{figs/dd_signals2.png}
+\end{center}
+
+\subsubsection{Direct detection limits}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.35\textwidth]{figs/Limits_LowWIMPmass2015_v04.png}\quad\quad
+  \includegraphics[width=0.35\textwidth]{figs/Limits_HighWIMPmass2015_v03.png}\\
+  {Spin-independent limits (low and high $m_\chi$)}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.35\textwidth]{figs/Limits_SD_p_vs03.png}\quad\quad
+  \includegraphics[width=0.35\textwidth]{figs/Limits_SD_n_vs03.png}\\
+  Spin-dependent limits (assuming $p$- and $n$-only couplings)
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{figs/ddlimits.png}\\
+  This plot is old, but shows the spin-independent limits in comparison to the neutrino floor
+\end{center}
+\end{figure}
+
+\section{Large Underground Xenon experiment}
+\embedimgw{figs/luxcutaway.png}{.7}
+\begin{itemize}
+  \item 370 kg two-phase xenon TPC ($\sim118~\kg$ fiducial volume)
+  \item Located 1 mile underground in Homestake
+  \item Placed inside large water tank to block $\gamma$ and $n$ backgrounds
+  \item $\chi +\Xe \rightarrow \chi+\Xe^*$ interactions generate $175~\nm$ photons and electrons from ionization
+  \begin{itemize}
+    \item Prompt photons are picked up by PMTs
+    \item Electrons drift in \E-field up to Xe gas, where they are accelerated
+    \item Accelerated electrons brem, photons are picked up by PMTs
+  \end{itemize}
+  \item Expected sensitivity was spin-independent cross section of $2\times10^{-46}~\cm^2$ or $\sim 0.5$ events/100 kg/month
+\end{itemize}
+
+\subsection{Signal signature}
+\embedimgw{figs/LUXEvent.pdf}{.5}
+\begin{itemize}
+  \item $\chi+\Xe\rightarrow \chi+\Xe$ event generates photons and electrons
+  \item Photons are from scintillation: $\Xe$ atom is excited and then de-excites. 
+  \item Characteristic 175~\nm photons are pick up by PMTs. This signal is mostly used for figuring out $t_0$, as the radiation is isotropic and does not specify position. Order of 50 photoelectrons
+  \item Electrons drift upwards towards gaseous region
+  \item Electrons are accelerated due to stronger \E-field in gaseous part of the TPC. They release photons due to acceleration, which are roughly aligned with direction of motion
+  \item These photons are picked up by top PMTs. Time light reaches PMTs is $t_1$. Localization of light specifies position in $x\textto y$ plane. Typically release $\sim4.5\times 10^3$ photoelectrons
+  \item Use $(t_1-t_0)/v$ to determine position of interaction along $z$ axis.
+  \item Look for events whose deposited energy (from the scintillation + electons released) is in the range $3.4\textto25~\kev_\text{NR}$ (where the NR subscript refers to the energy reconstructed assuming a nuclear recoil)
+  \item Position accuracy is $\sim 1~\cm$ ($x\textto y$) and $\sim~\mm$ ($z$)
+\end{itemize}
+
+\subsection{Detector components}
+\subsubsection{Water tank and muon tagging}
+\begin{itemize}
+  \item $7\times 6$ m water tank to shield from:
+  \begin{itemize}
+    \item $\gamma$s
+    \item Neutrons from cavern radioactivity
+    \item High-energy neutrons from $\mu$ interactions
+  \end{itemize}
+  \item Instrumented with 20 large PMTs to identify $\gamma$s from muons (Cerenkov radiation or hadronic showers)
+  \begin{itemize}
+    \item Any TPC event that is simultaneous to a water tank event is rejected
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Cryogen}
+\begin{itemize}
+  \item Cools the entire detector (active volume, anode/cathode, PMTs)
+  \item Two phase system: gaseous and liquid N$_2$
+  \item 4 total cool heads:
+  \begin{itemize}
+    \item 2 bring the detector down to 175 K
+    \item 2 maintain a thermal gradient along vertical axis (to facilitate two states of Xe)
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Xenon}
+\begin{itemize}
+  \item Active area (liquid Xe) has a height of 49 cm and diameter of 50 cm. Above this is a 10 cm tall volume of Xe gas.
+  \item Density of liquid is $2.9~\gr/\cm^3$
+  \item Liquid Xe is continuously purified to maintain electron drift length
+  \item Use a purifier that requires gaseous Xe \thus use a dual-phase heat exchanger to evaporate and condense Xe
+\end{itemize}
+
+\subsubsection{TPC \E-field}
+\begin{itemize}
+  \item TPC is surrounded by polyethylene reflector panels that allow total internal reflection of scintillation
+  \item A copper disk is mounted on top of TPC. It is connected to the cryogen and serves as a heat sink for the cables, as well as a shield against $\gamma$s
+  \begin{itemize}
+    \item An additional copper structure is on the bottom of the TPC
+  \end{itemize}
+  \item 61 PMTs are mounted above and below TPC
+  \begin{itemize}
+    \item Areas between PMT faces are covered with polyethylene reflectors
+  \end{itemize}
+  \item 5 wire grids, in order from bottom to top:
+  \begin{enumerate}
+    \item 2 cm above bottom PMTs is a grid to shield the PMTs from the cathode grid. The voltage is tuned so that the \E-field at the PMT photocathode surface is zero
+    \item 4 cm above bottom PMTs is the cathode grid. It generates a 2 kV/cm drift field in the liquid
+    \item 5 mm below the liquid surface is the gate grid used to generate a 5 kV/cm \E-field (below liquid surface, used to extract electrons) and 10 kV/cm \E-field (in gas volume, used to accelerate electrons)
+    \item 1 cm above gate grid is the anode grid. 
+    \item 4 cm above anode and 2 cm below top PMTs is another shielding grid.
+  \end{enumerate}
+  \item Along the length of the TPC are copper rings (1 cm apart) that are held at voltages to maintain the drift field at a constant value
+\end{itemize}
+
+\subsubsection{PMTs and light collection}
+\begin{itemize}
+  \item Two arrays of 61 PMTs. 
+  \begin{itemize}
+    \item 12 stages
+    \item Gain: $\sim 10^6$
+    \item Rise time:  $\sim 3~\ns$
+    \item QE at 175 nm: $33\%$. collection efficiency: $90\%$
+    \item Operating voltage: $1.1$ kV
+    \item Peak QE is at 175 nm
+  \end{itemize}
+  \item Using likelihood pattern recognition techniques, position accuracy in $x\textto y$ plane of S2 signal is $\sim 1~\cm$ ($20\%$ of PMT diameter)
+  \item Significant source of background is PMT radioactivity
+  \begin{itemize}
+    \item Measured using a high-purity Ge detector. Biggest sources are $^{40}$K (65 mBq) and $^{238}$U (10 mBq)
+  \end{itemize}
+  \item Light collection efficiency
+  \begin{itemize}
+    \item High UV-reflective polyethylene panels surround TPC to minimize light leakage
+    \item The 5 grids are $88\textto99\%$ transparent and are slightly reflective
+    \item Used 662 keV photons from $^{137}$Cs to determine efficiency of 8 photoelectrons/$\kev_{ee}$
+    \begin{itemize}
+      \item $\kev_{ee}$ is the reconstructed energy assuming an electron event (i.e. electron-equivalent)
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Triggering}
+\begin{itemize}
+  \item Three modes: S1, S2, or S1\&S2
+  \item Trigger dead time is up to $8~\mus$
+\end{itemize}
+
+\subsection{Background sources and rejection}
+\begin{itemize}
+  \item As described above, cosmogenic backgrounds (i.e. cosmic ray $\mu$s) are shielded and identified using the instrumented water tank.
+  \item Here we discuss radiogenic backgrounds
+\end{itemize}
+\subsubsection{Electron recoils}
+\begin{itemize}
+  \item Dominant background
+  \item From photons or electrons (mostly photons)
+  \begin{itemize}
+    \item $\gamma$s or $\beta$s come from radioisotope decays in detector or Xe itself (although later is very rare)
+    \item Anything outside the water tank is heavily shielded against
+    \item Liquid Xe attenuates photons with $\lambda = \ord{1}~\cm$, so can reject events near edge of TPC
+    \begin{itemize}
+      \item Energies are $\ord{0.1}\textto\ord{1}~\mev$
+    \end{itemize}
+  \end{itemize}
+  \item LUX signal range (discussed above) corresponds to $0.9\textto5.3~\kev_\text{ee}$
+  \item ER events release many more electrons (increasing S2) than scintillation photons (which are from nuclear recoil)
+  \item Therefore, a 2D cut is applied on $\ln (\text{S2}/\text{S1})$ and S1
+  \item In the following plot, the data points are ER events (tritium $\beta$ decay) and the solid red curve is the mean of (simulated) NR events:
+  \embedimgw{figs/lux_er.png}{.4}
+\end{itemize}
+
+\subsubsection{Non-DM nuclear recoils}
+\begin{itemize}
+  \item From neutron scattering events
+  \item Neutrons typically come from $(\alpha,n)$ interactions in detector or $^{238}$U fission
+  \begin{itemize}
+     \item Energies are $\sim\mev$
+   \end{itemize} 
+  \item Can also come from cosmic muons
+  \begin{itemize}
+    \item These are $\sim\gev$ and have mean free path much longer than size of the detector
+  \end{itemize}
+  \item Difficult to discriminate against, as the signature is essentially identical to DM
+  \item If the energy is low enough, $\sigma_{nN}$ is large enough that multiple scatterings expected
+  \begin{itemize}
+    \item So reject events with multiple displaced signals
+  \end{itemize}
+\end{itemize}
+
+\subsection{2013 results}
+\begin{itemize}
+  \item Did a unblinded run of 85.3 live-days
+  \item Set limits on spin-independent $\sigma_{\chi N}$ as a function of $m_\chi$
+  \item Best current limits for $6 < m_\chi < 10^3~\gev$
+  \begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=0.5\textwidth]{figs/lux_results.png}\\
+    {LUX (blue curve) limits compared to XENON100 (red and orange) and other experiments}
+    \end{center}
+  \end{figure}
+\end{itemize}
+
 \begin{appendices}
 \section{Bibliography}
 ~
@@ -1903,6 +2298,7 @@ The values of $c_V,c_A$ depend on the particle:
 \bibspace Tapper A., \emph{High $Q^2$ neutral current cross sections in $\el p$ DIS}. \url{http://www.hep.ph.imperial.ac.uk/~tapper/talks/dis04.pdf}
 \bibspace Thomson M., \emph{Modern Particle Physics}
 \bibspace Thomson M., \emph{Online lecture notes} (\url{http://www.hep.phy.cam.ac.uk/~thomson/partIIIparticles/welcome.html})
+\bibspace Undagoitia T., Ludwig R., \emph{Dark matter direct-detection experiments}.  \verb|arXiv:1509.08767 [physics.ins-det]|
 \bibspace Universitat Heidelberg, \emph{Solar neutrino problem}. \url{http://www.kip.uni-heidelberg.de/tt_detektoren/neutrinos.php?lang=en}
 
 \end{appendices}
