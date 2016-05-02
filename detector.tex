@@ -35,6 +35,29 @@ where $A$ is the atomic mass
 \noindent Timing resolution of various detector types:
 \embedimgw{figs/timingresolution.png}{.7}
 
+\subsection{Momentum measurement of charged particles}
+\begin{itemize}
+  \item Typically done by bending the particle in a \B-field perpendicular to the direction of motion
+  \item CMS, for example, has a solenoid that causes helical paths
+  \item In general, the path of a particle looks like:
+  \embedimgw{figs/momentum.png}{0.5}
+  \item We can estimate $R \approx L^2/2s$. 
+  \item The momentum is then $p_T~[\gev] = 0.3 \times B~[\text{T}] \times R~[\text{m}]$
+  \item There are two sources of uncertainty: measurement and multiple scattering
+  \begin{itemize}
+    \item Measurement is:
+    \begin{equation}
+      \frac{\sigma_\text{meas.}}{p_T} = \frac{8 \sigma_s}{0.3 BL^2} p_T, \quad \sigma_s \propto \sigma_{r\phi}
+    \end{equation}
+    In CMS, the relative uncertainty is $0.0015 p_T$. Note the uncertainty is larger for high-momentum particles (the track is straighter)
+    \item Multiple scattering is:
+    \begin{equation}
+      \frac{\sigma_\text{MS}}{p_T} = \frac{0.045}{B\sqrt{L X_0}}
+    \end{equation}
+    \item The use of denser materials and a shorter tracker increases the MS component of the uncertainty
+  \end{itemize}
+\end{itemize}
+
 \section{Basic radiation sources}
 \begin{itemize}
   \item $\alpha$-decay: $(Z,A)\rightarrow(Z-2,A-4)+\alpha$

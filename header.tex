@@ -14,6 +14,7 @@
 \usepackage[margin=.5in,top=1in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
+\usepackage{rotating}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \newlength\dlf
@@ -27,9 +28,10 @@
   \endgroup
 }
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand{\met}{\ensuremath{\slashed E_T}}
 \newcommand{\ve}{\mathbf{v}}
 \newcommand{\Se}{\mathbf{S}}
-\newcommand{\kk}{\vec{k}}
+\newcommand{\ke}{\mathbf{k}}
 \newcommand{\ue}{\bm{u}}
 \newcommand{\sgn}{\text{sgn}}
 \newcommand{\p}{\mathbf{p}}
@@ -62,6 +64,7 @@
 \newcommand{\Psibar}{\bar{\Psi}}
 \newcommand{\ubar}{\bar{u}}
 \newcommand{\sbar}{\bar{s}}
+\newcommand{\tbar}{\bar{t}}
 \newcommand{\nubar}{{\bar{\nu}}}
 \newcommand{\vbar}{\bar{v}}
 \newcommand{\qbar}{{\bar{q}}}
@@ -192,6 +195,7 @@
 \newcommand{\CP}{\ensuremath{CP}\xspace}
 \newcommand{\el}{\ensuremath{e^{-}}\xspace}
 \newcommand{\pos}{\ensuremath{e^{+}}\xspace}
+\newcommand{\is}[2]{\ensuremath{^{#1}\text{#2}\xspace}}
 \newcommand{\ord}[1]{\ensuremath{\mathcal{O}(#1)}}
 \newcommand{\thus}{\ensuremath{~\Rightarrow~}}
 \newcommand{\embedimg}[1]{\begin{center}\includegraphics[width=0.48\textwidth]{#1}\end{center}}
