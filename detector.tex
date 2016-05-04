@@ -49,7 +49,7 @@ where $A$ is the atomic mass
     \begin{equation}
       \frac{\sigma_\text{meas.}}{p_T} = \frac{8 \sigma_s}{0.3 BL^2} p_T, \quad \sigma_s \propto \sigma_{r\phi}
     \end{equation}
-    In CMS, the relative uncertainty is $0.0015 p_T$. Note the uncertainty is larger for high-momentum particles (the track is straighter)
+    Note the uncertainty is larger for high-momentum particles (the track is straighter)
     \item Multiple scattering is:
     \begin{equation}
       \frac{\sigma_\text{MS}}{p_T} = \frac{0.045}{B\sqrt{L X_0}}
@@ -302,6 +302,10 @@ where $A$ is the atomic mass
       \item $C = 0.5$ if $\gamma$, else $C = 1$ 
     \end{itemize}
   \end{itemize}
+  \item Define the Moli\`ere radius as the radius of the cylinder surrounding the primary particle that contains $90\%$ of the energy deposited by an EM shower. It satisfies:
+  \begin{equation}
+    R_M = X_0 \frac{2.12~\mev}{E_c}
+  \end{equation}
 \end{itemize}
 
 \subsection{Interactions of neutrons in matter}
@@ -1030,7 +1034,384 @@ Imposing $\phi(-x_p)=0$ and $\phi(x_n)=V_0$ allows us to solve for the depths.
   \item Spatial resolution is better than spacing of strips: can use the amount of charge deposited on each strip to interpolate where the ionization happened
   \begin{itemize}
     \item \thus $\sigma \sim 5~\mum$ if the spacing is $20~\mum$
+    \item Typically factor of $3\textto7\times$ improvement
   \end{itemize}
+\end{itemize}
+
+\subsection{Silicon photomultipliers}
+\begin{itemize}
+  \item Like with PMTs, the photon hits a semiconductor (such as silicon dioxide) and ejects a photoelectron
+  \item If the bias voltage is large enough, the pair can cause secondary ionizations\thus avalanche
+  \item In Geiger mode, can get gains of $\sim 10^8$
+  \item CMS ECAL avalanche photodiodes have a total efficiency (quantum times collection) of $70\%$
+  \item A SiPM is a large array of APDs in Geiger mode
+  \begin{itemize}
+    \item Downside is large dark rate
+  \end{itemize}
+\end{itemize}
+
+\section{Compact Muon Solenoid}
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{figs/cms_xphi.png}
+  \includegraphics[width=0.7\textwidth]{figs/cms_etaz.png}
+\end{center}
+\subsection{Silicon tracker}
+\embedimgw{figs/cmstracker.png}{.5}
+\begin{itemize}
+  \item Reasons to use a silicon tracker:
+  \begin{itemize}
+    \item Fine granularity and fast response time
+    \item Radiation resistant
+    \item $\sim1\%$ resolution at $p_T = 100~\gev$
+    \item Can measure impact parameter of tracks (i.e. vertexing) very well: $\sigma_\text{IP}\sim 20~\mum$
+  \end{itemize}
+  \item Lorentz drift of charges
+  \begin{itemize}
+    \item Drift of charges in detectors is affected by \B-field
+    \item Can lead to charge sharing: multiple pixels set off by a single hit
+    \item \emph{If reconstructed properly}, can actually improve spatial resolution (i.e. the amount of charge sharing can tell you how close to the edge of the pixel the interaction occurred)
+    \item The angle of deflection due to the Lorentz effect has been found to increase as a function of radiation damage
+  \end{itemize}
+  \item Hit reconstruction efficiency is very high: $99.5\%$ ($99\%$) in pixels (strips)
+  \item Total radiation length ranges from $0.5\times$ to $2\times X_0$
+  \begin{itemize}
+    \item Lowest at low $\eta$
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Inner pixel detector}
+  \begin{itemize}
+    \item Detector specification:
+    \begin{itemize}
+      \item 66 million silicon pixels
+      \item $100~\mum \times 150~\mum \times 285~\mum$ pixels
+      \item Three barrel layers at radii of 4.3, 7.2, and 11 cm
+      \item Two endcap disk layers at $z$ of 35 and 46 cm
+      \item Position of layers guarantees at least 3 hits (not accounting for detector efficiency) for $|\eta|<2.5$
+    \end{itemize}
+    \item Flux of particles is $10^6~\cm^{-2}\s^{-1}$
+    \item Hit reconstruction
+    \begin{itemize}
+      \item Readout threshold is 3.2k electron-equivalent charges
+      \item Offline, define a pixel cluster as adjacent (either sharing a side or corner) pixels containing at least 4k electrons
+      \item MIP typically deposits 20k electrons
+      \item Position of particle within cluster determined by using charge distribution
+      \item Resolution of hit is $\sigma_{r\phi} \sim 10~\mum$ and $\sigma_z \sim 30~\mum$
+    \end{itemize}
+    \item Radiation damage can be assessed and corrected for by looking at the mean response as a function of time
+    \item Occupancy is typically $10^{-4}\textto10^{-3}$ per channel
+    \begin{itemize}
+      \item Particle density is higher than in the outer detector, but occupancy  is lower because of granularity
+    \end{itemize}
+  \end{itemize}
+\subsubsection{Outer strip detector}
+\begin{itemize}
+  \item Detector specification:
+  \begin{itemize}
+    \item 9 million p-type strips embedded into a n-type bulk (thickness $\sim320\textto500~\mum$)
+    \item Like the inner detector, consists of multiple barrel and endcap disk layers
+    \item About half the layers are 1D (i.e. provide only $r\phi$ measurement) and the other half are 2D (giving 3D position measurement)
+    \item Ranges from 25 cm to 110 cm in $r$ and up to 120 cm (280 cm) in $z$ in the barrel (endcap)
+    \item Strip lengths are 10-20 cm. Strip pitch (spacing) is $80\textto205~\mum$
+    \begin{itemize}
+      \item Things are finer in the innermost layers
+    \end{itemize}
+  \end{itemize}
+  \item Occupancy ranges from $10^{-3}$ to $10^{-2}$
+  \item Use charge-weighted average to determine position of hit
+  \begin{itemize}
+      \item Spatial resolution is therefore $\sim 20\textto50~\mum$
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Track reconstruction}
+\begin{itemize}
+  \item Iteratively do pattern recognition and track fitting using a combinatorial Kalman filter
+  \begin{itemize}
+    \item First look for high $p_T$ tracks (easiest to reconstruct), then remove these hits and repeat until all hits are associated with a track or classified as noise
+    \item 6 such iterations are done at CMS
+  \end{itemize}
+  \item Each iteration does 4 things:
+  \begin{itemize}
+    \item First, generate track seeds using collections of 2-3 hits in the pixel detector and estimate trajectory parameters from this seed
+    \item Extrapolate the track from the seed using a Kalman filter and search for hits consistent with the extrapolation
+    \item Run a track fitting procedure to get best estimate of trajectory parameters and covariance matrix
+    \item Discard tracks that fail quality requirements (i.e. too many missing hits, bad $\chi^2$,\dots)
+  \end{itemize}
+  \item The trajectory parameters take into account several effects:
+  \begin{itemize}
+    \item Curvature due to \B-field
+    \item Change in path from multiple scattering (can be difficult to do if angle is large for a high $p_T$ track)
+    \item Change in curvature due to $dE/dx$
+  \end{itemize}
+  \item Electron tracking
+  \begin{itemize}
+    \item Electrons lose a lot of energy in tracker due to brem: up to $70\%$. Energy loss is very non-Gaussian
+    \item Use additional ECAL info to build electron tracks
+    \begin{itemize}
+      \item For example, look for ECAL clusters from the brem photons
+    \end{itemize}
+  \end{itemize}
+  \item Tracking efficiency is $\gtrsim90\%$ ($\gtrsim99\%$) for electrons and pions (muons) if $p_T>10~\gev$ is required
+  \item Resolution on $p_T$ ranges from $1\%$ to $10\%$, as a function of $p_T,\eta$:
+  \embedimg{figs/cmstrackpt.png}
+\end{itemize}
+
+\subsubsection{Vertex reconstruction}
+\begin{itemize}
+  \item Primary vertex resolution is $\sim \ord{10}~\mum$ and depends on the number of tracks:
+  \embedimgw{figs/cmspv.png}{.6}
+  \begin{itemize}
+    \item Efficiency is $>0.995$ if at least 3 tracks are present
+  \end{itemize}
+  \item Similarly, can use tracks with high impact parameter to reconstruct secondary vertices (decays of $B$ mesons, $K^0$, $\gamma\rightarrow \el\pos$). Resolution is similar to PVs
+\end{itemize}
+
+\subsection{Electromagnetic calorimeter}
+\begin{itemize}
+  \item Two components: barrel ($|\eta|<1.479$) and endcap ($1.653<|\eta|<3.0$)
+  \begin{itemize}
+    \item Preshower coverage for endcap ends at $|\eta|<2.6$
+  \end{itemize}
+  \item Made out of lead-tungstate crystals (PbWO$_4$)
+  \begin{itemize}
+    \item $X_0 = 0.89~\cm$ and $R_M = 2.2~\cm$. These are quite small
+    \item Response times are $\tau_f = 10~\ns$ and $\tau_s = 25~\ns$
+    \begin{itemize}
+      \item This is an order of magnitude better than other inorganic scintillators
+    \end{itemize}
+    \item Emits light at 420 nm
+  \end{itemize}
+  \item ECAL is a homogeneous calorimeter: single crystals that act as the absorber and detector
+  \begin{itemize}
+    \item Advantage: very good energy resolution
+    \item Disadvantage: expensive and no longitudinal shower information
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Barrel configuration}
+\begin{itemize}
+  \item 61k crystals of dimension $R_M\times R_M\times 26X_0$
+  \item Each crystal has dedicated APD, operated in linear mode (gain of 50)
+  \item QE of APDs is $80\%$
+\end{itemize}
+
+\subsubsection{Endcap configuration}
+\begin{itemize}
+  \item 14k crystals of dimension $1.3R_M\times1.3R_M\times25X_0$
+  \item Each crystal has a dedicated vacuum phototriode, operated in linear mode (gain of 10)
+  \begin{itemize}
+    \item QE is $20\%$
+    \item Use VPT instead of Si APD because of radiation hardness requirements
+    \item Response is very fast: 1 ns
+    \item Honestly, there are some things about VPT operation that I do not understand. Yutaro was also unsure. Probably unimportant\dots
+  \end{itemize}
+  \item Preshower detector
+  \begin{itemize}
+    \item At high $\eta$, a $\pi^0\rightarrow\gamma\gamma$ decay might be boosted enough that the photons overlap in the ECAL
+    \item The preshower is two layers of Pb+Si detectors with a spatial resolution of 2 mm\thus can distinguish $\gamma$ from $\gamma\gamma$
+    \item This detector is right before endcap ECAL
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Electron and photon reconstruction}
+\begin{itemize}
+  \item Most particles deposit all energy within $3\times 3$ box of crystals
+  \item Particles are seeded using ECAL superclusters
+  \begin{itemize}
+    \item Start with some pre-defined seed of crystals (such as one high-energy crystal)
+    \item Then add adjacent crystals to the supercluster if they also have high energy
+  \end{itemize}
+  \item Center of the cluster is defined by log-weighting the energy
+  \item For photons, the energy is defined by looking at a $5\times5$ cluster
+  \item Electron-initiated showers are wider due to brem, so the energy is defined as the total energy of the supercluster
+  \item Distinguishing between a $e$ and $\gamma$ (or charged hadrons) can be done using the $\eta\textto\phi$ shape of the shower
+  \begin{itemize}
+    \item Also only an electron should have 1 track, conversion have 2 tracks, charged hadron have HCAL deposit, etc\dots
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Energy resolution}
+\begin{itemize}
+  \item The energy resolution in the barrel is:
+  \begin{equation}
+    \frac{\sigma_E}{E} = \frac{2.8\%}{\sqrt{E~[\gev]}}\oplus \frac{0.128}{E~[\gev]} \oplus 0.3\%
+  \end{equation}
+  It is slightly worse in the endcap
+  \item ECAL is instrumented with lasers of known energy to constantly monitor resolution
+  \item Photon energy resolution is $\sim1~\gev$ at $p_T = 100~\gev$
+  \item Resolution of $m_{\gamma\gamma}$ in Higgs discovery was $\sim\gev$. This is determined by:
+  \begin{itemize}
+    \item Energy resolution of each photon
+    \item Position resolution of superclusters (so opening angle can be measured)
+  \end{itemize}
+\end{itemize}
+
+\subsection{Hadron calorimeter} 
+\begin{itemize}
+  \item 4 components:
+  \begin{itemize}
+    \item $|\eta|<1.39$: Barrel
+    \item $1.30 < |\eta| < 3.00$: Endcap
+    \item $2.85 < |\eta| < 5.19$: Forward
+    \item $|\eta| < 1.30$: Outer
+  \end{itemize}
+  \item Note that, unlike the ECAL, there is no gap until the end of the detector
+  \begin{itemize}
+    \item Necessary for good $\met$ resolution, since most particles in an event are hadrons
+  \end{itemize}
+  \item HO is outside the solenoid; other components are inside
+  \begin{itemize}
+    \item Inside solenoid reduces material budget before detector\thus better energy resolution
+    \item However, limited size of solenoid\thus thickness of HB is only $\sim 6 \lambda_I$ (where $\lambda_I$ is the nuclear interaction mean free path)
+    \item HO is used to extend this
+  \end{itemize}
+  \item Light collection done using hybrid photodiodes
+\end{itemize}
+
+\subsubsection{HCAL Barrel}
+\begin{itemize}
+  \item Consists of 1 steel layer, 14 brass layers, and another steel layer
+  \begin{itemize}
+    \item $\lambda_I$ for brass is 16.4 cm
+    \item Total depth is equivalent to $5.9\lambda_I$
+    \item Each brass layer is $\sim$ 50 mm thick
+    \item Absorber layers are interleaved with plastic scintillator
+  \end{itemize}
+  \item Segmented into $\eta\textto\phi$ towers of $0.087\times0.087$ radians
+  \item Small thickness\thus stochastic term dominates energy resolution:
+  \begin{equation}
+    \left(\dd{\sigma_E}{E}\right)_{\pi^0} \approx \frac{0.9}{\sqrt{E~[\gev]}}
+  \end{equation}
+\end{itemize}
+
+\subsubsection{HCAL Endcap}
+\begin{itemize}
+  \item Also brass and steel
+  \begin{itemize}
+    \item Total depth is equivalent to $10\lambda_I$
+  \end{itemize}
+  \item Also segmented into $\eta\textto\phi$ towers of $0.087\times0.087$ radians
+  \item Pion energy resolution:
+  \begin{equation}
+    \left(\dd{\sigma_E}{E}\right)_{\pi^0} \approx \frac{1}{\sqrt{E~[\gev]}}
+  \end{equation}
+\end{itemize}
+
+
+\subsubsection{HCAL Forward}
+\begin{itemize}
+  \item Iron absorbers interleaved with quartz
+  \begin{itemize}
+    \item Total depth is equivalent to $10\lambda_I$
+    \item Collect Cerenkov light from quartz
+  \end{itemize}
+  \item Segmented into $36\times13$ towers in the $\phi\times\eta$ plane
+\end{itemize}
+
+\subsubsection{HCAL Outer}
+\begin{itemize}
+  \item Uses the solenoid and first yoke layer (mostly iron) as absorbers 
+  \begin{itemize}
+    \item Total depth is equivalent to $10\lambda_I$
+    \item Layer of scintillator after each absorber
+  \end{itemize}
+  \item Pion energy resolution:
+  \begin{equation}
+    \left(\dd{\sigma_E}{E}\right)_{\pi^0} \approx \frac{1.2}{\sqrt{E~[\gev]}}
+  \end{equation}
+\end{itemize}
+
+\subsubsection{Jet energy resolution}
+\begin{itemize}
+  \item The reconstructed objects of the HCAL are jets
+  \begin{itemize}
+    \item Reconstruction uses tracking and ECAL information as well
+  \end{itemize}
+  \item Uncertainty in $p_T$ is at worst $7\%$ and is better than $1\%$ for central, high $p_T$ jets:
+  \embedimgw{figs/cms_jec.png}{.8}
+\end{itemize}
+
+\subsection{Magnet and return yokes}
+\begin{itemize}
+  \item Magnet is a solenoid generating a 3.8 T field inside
+  \item Coil is a superconducting alloy. Maintained at 4 K using LiHe
+  \item It uses a lot of aluminum to stabilize the superconducting coil
+  \item Maybe I'm bad at reading, but the 300-page solenoid TDR doesn't actually mention what the coil is made out of\dots
+  \item Radius of solenoid is 3 m
+  \item Outside the solenoid:
+  \begin{itemize}
+    \item \B-field is in the opposite direction and has strength $\sim 2~\text{T}$
+    \item \B-field is guided using 4 iron return yokes
+  \end{itemize}
+\end{itemize}
+
+\subsection{Muon detectors}
+\begin{itemize}
+  \item Magnet return yokes are used to shield muon detectors from punch-through hadrons
+  \item Three components:
+  \begin{itemize}
+    \item Drift tubes: $\abseta<1.2$
+    \item Cathode strip chambers: $0.9<\abseta<2.4$
+    \item Resistive plate chambers: $\abseta<2.1$
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Drift tubes}
+\begin{itemize}
+  \item 240 drift tube chambers over $|\eta|<1.2$
+  \item Organized radially in 4 stations, with the return yoke interspersed
+  \begin{itemize}
+    \item Each station has multiple drift tubes in it
+    \item Note these station also have RPC detectors (discussed below)
+  \end{itemize}
+  \item Each station has three superlayers of DTs:
+  \begin{itemize}
+    \item 2 superlayers consisting of 4 layers each that the $\phi$ position
+    \item 1 superlayer consisting of 4 layers that gives the $z$ position
+  \end{itemize}
+  \item Drift gas is argon (85\%) and CO$_2$ (15\%)
+  \item Maximum drift time is 400 ns
+  \begin{itemize}
+    \item Resolution on drift time is $1~\ns$
+  \end{itemize}
+  \item Each chamber (i.e. layer) has a spatial resolution $100~\mum$ in the value of $\phi\textto z$  plane
+\end{itemize}
+
+\subsubsection{Resistive plate chambers}
+\begin{itemize}
+  \item 612 RPCs 
+  \begin{itemize}
+    \item 6 stations in the barrel
+    \item 4 stations in the endcaps
+  \end{itemize}
+  \item Operated in avalanche mode
+  \item Gap width is 2 mm
+  \item Gas is mostly C$_2$H$_2$F$_4$
+  \item Timing resolution is very good: 3 ns
+\end{itemize}
+
+\subsubsection{Cathode strip chambers}
+\begin{itemize}
+  \item Used in the barrel because it can handle higher fluxes
+  \item Total of 6 endcap stations
+  \item Essentially a proportional counter, except each chamber is instrumented with multiple anode wires and cathode strips
+  \begin{itemize}
+    \item Anodes and cathodes are perpendicular to each other
+  \end{itemize}
+  \item Muon creates a primary ionization which induces an avalanche. Ions move to cathode and electrons to anode, giving 2D spatial reconstruction
+  \item Spatial resolution os $100~\mum$ and timing resolution is $3~\ns$
+\end{itemize}
+
+\subsubsection{Muon reconstruction}
+\begin{itemize}
+  \item Can identify a standalone muon (using just the muon chambers) or a global muon (adding tracker info)
+  \begin{itemize}
+    \item Note tracker gives complementary information, since \B-field changes direction
+  \end{itemize}
+  \item Global muon reconstruction efficiency is $\gtrsim 97\%$
+  \item Global muon $p_T$ uncertainty is less than $1\%$ for $p_T>100~\gev$:
+  \embedimgw{figs/cms_muon.png}{.7}
 \end{itemize}
 
 \begin{appendices}
