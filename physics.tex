@@ -7,11 +7,16 @@
 \setcounter{section}{-1}
 \begin{document}
 
-\title{Notes for MIT NUPAX Oral Exam}
+\title{Notes for the MIT NUPAX Oral Exam: Particle Physics}
 \date{Last modified: \today}
 \author{Siddharth Narayanan, MIT}
 
 \maketitle
+
+\vspace{20mm}
+\centering
+Disclaimer: the author of these notes makes no guarantee that anything in here is remotely correct. 
+
 \clearpage
 \tableofcontents
 \clearpage
@@ -95,9 +100,9 @@ $\rho^0(u\ubar-d\dbar)$ & $1^-$  &$775~\mev$&$4.5\times10^{-24}~\s$& \\ \hline
 $\rho^\pm(u\dbar)$ & $1^-$  &$775~\mev$&$4.5\times10^{-24}~\s$& \\ \hline
 $J/\psi$ & $1^-$ &$3.1~\gev$&$7.2\times 10^{-21}~\s$& At BNL: using 28 GeV $p$ beam on a Be target, using $\el\pos$ final state. \newline At SLAC: using $\el\pos$ collisions, using hadrons/$\el\pos$/$\mu^+\mu^-$ final states\\ \hline
 $\Upsilon(1S)$ & $1^-$ & $9.5~\gev$ &$1.2\times10^{-20}~\s$& At Fermilab using $p$-nucleus collisions \\ \hline
-$B^0(d\bbar)$ & $0^-$ & $5~\gev$ &$10^{-12}~\s$&  \\ \hline
-$B^\pm(u\bbar)$ & $0^-$ & $5~\gev$ &$10^{-12}~\s$&  \\ \hline
-$B^0_s(s\bbar)$ & $0^-$ & $5~\gev$ &$10^{-12}~\s$&  \\ \hline
+$B^0(d\bbar)$ & $0^-$ & $5.3~\gev$ &$1.5\times 10^{-12}~\s$&  \\ \hline
+$B^\pm(u\bbar)$ & $0^-$ & $5.3~\gev$ &$1.6\times10^{-12}~\s$&  \\ \hline
+$B^0_s(s\bbar)$ & $0^-$ & $5.4~\gev$ &$1.5\times 10^{-12}~\s$&  \\ \hline
 \end{tabular}
 
 \end{center}
@@ -2628,7 +2633,7 @@ The values of $c_V,c_A$ depend on the particle:
   \end{itemize}
   \item The full mass-formula is:
   \begin{equation}
-    E_B(Z,N) = \alpha_1 A_1 - \alpha_2 A^{2/3} - \alpha_4 \frac{(N-Z)^2}{A} = \alpha_5 \Delta
+    E_B(Z,N) = \alpha_1 A_1 - \alpha_2 A^{2/3} - \alpha_3 A^{-1/3} - \alpha_4 \frac{(N-Z)^2}{A} + \alpha_5 \Delta
   \end{equation}
   \begin{itemize}
     \item The first two terms are due to the liquid drop model
@@ -2703,7 +2708,7 @@ The values of $c_V,c_A$ depend on the particle:
   \item PPII ($20~\mev$ released)
   \begin{enumerate}
     \item[3.] $\is{3}{He}+\is{4}{He}\rightarrow\is{7}{Be}+\gamma$
-    \item[4.] $\is{7}{Be}\rightarrow\is{7}{Li}+\pos+\nu_e$
+    \item[4.] $\is{7}{Be}+\el\rightarrow\is{7}{Li}+\nu_e$
     \item[5.] $p+\is{7}{Li}\rightarrow\is{4}{He}+\is{4}{He}$
   \end{enumerate}
   \item PPIII ($18~\mev$ released)
@@ -2770,12 +2775,12 @@ The values of $c_V,c_A$ depend on the particle:
   \item Can be studied at heavy-ions collisions (first at SPS, then RHIC and LHC)
   \item Centrality is a function of the impact parameter of the collision. $0\%$ refers to $b=0$ and $100\%$ refers to the ions missing each other. 
 \end{itemize}
-\subsection{RHIC}
+\subsubsection{RHIC}
 \begin{itemize}
   \item Polarized protons and ions (Cu, Au, U) with $\sqrt{s_NN} \leq 200~\gev$
   \item Evidence for QGP:
   \begin{itemize}
-    \item Perfect fluid with zero shear velocity $\Leftrightarrow$ elliptic flow
+    \item Perfect fluid with near-zero shear velocity $\Leftrightarrow$ elliptic flow
     \item Jet quenching: high $p_T$ partons scatter in QGP before escaping \thus lower $p_T$
     \begin{itemize}
       \item Find that:
@@ -2802,18 +2807,24 @@ The values of $c_V,c_A$ depend on the particle:
 \begin{appendices}
 \section{Bibliography}
 ~
+\bibspace Bettini A., \emph{Introduction to elementary particle physics}
 \bibspace The BaBar Collaboration, \emph{The BABAR Physics Book}. \url{https://www.slac.stanford.edu/pubs/slacreports/reports19/slac-r-504.pdf}
 \bibspace The CPLEAR Collaboration, \emph{The CPLEAR-Experiment at CERN}. Nucl. Phys. B. 59 (1997) 76-100
 \bibspace The CPLEAR Collaboration, \emph{The CPLEAR detector at CERN}. Nucl. Inst. and Meth. 379 (1997) 182-191
 \bibspace The CPLEAR Collaboration, \emph{The CPLEAR Experiment}, \\ \url{https://cplear.web.cern.ch/cplear/cplear/newtransparencies/}
+\bibspace The LUX Collaboration, \emph{The Large Underground Xenon (LUX) Experiment}.\\ \verb|arXiv:1211.3788 [physics.ins-det]|
+\bibspace The LUX Collaboration, \emph{Radiogenic and Muon-Induced Backgrounds in the LUX Dark Matter Detector}.\\ \verb|arXiv:1403.1299 [astro-ph.IM]|
+\bibspace The LUX Collaboration, \emph{First results from the LUX dark matter experiment at the Sanford Underground Research Facility}. \verb|arXiv:1310.8213 [astro-ph.CO]|
 \bibspace Klute M., \emph{Lecture notes from 8.811}. Fall 2015
 \bibspace PDG Particle Review, \emph{Plots of cross sections and related quantities}. 2015
 \bibspace PDG Particle Review, \emph{CKM quark-mixing matrix}. 2015
+\bibspace Smirnov A. Y., \emph{The MSW effect and Solar Neutrinos}. \verb|arXiv:hep-ph/0305106|
 \bibspace Tapper A., \emph{High $Q^2$ neutral current cross sections in $\el p$ DIS}. \url{http://www.hep.ph.imperial.ac.uk/~tapper/talks/dis04.pdf}
 \bibspace Thomson M., \emph{Modern Particle Physics}
 \bibspace Thomson M., \emph{Online lecture notes} (\url{http://www.hep.phy.cam.ac.uk/~thomson/partIIIparticles/welcome.html})
 \bibspace Undagoitia T., Ludwig R., \emph{Dark matter direct-detection experiments}.  \verb|arXiv:1509.08767 [physics.ins-det]|
 \bibspace Universitat Heidelberg, \emph{Solar neutrino problem}. \url{http://www.kip.uni-heidelberg.de/tt_detektoren/neutrinos.php?lang=en}
+\bibspace Wong S. S. M., \emph{Introductory Nuclear Physics}.
 
 \end{appendices}
 

@@ -7,13 +7,20 @@
 \setcounter{section}{-1}
 \begin{document}
 
-\title{Notes for MIT NUPAX Oral Exam}
+\title{Notes for the MIT NUPAX Oral Exam: Detector Physics}
 \date{Last modified: \today}
 \author{Siddharth Narayanan, MIT}
 
 \maketitle
 
+\vspace{20mm}
+\centering
+Disclaimer: the author of these notes makes no guarantee that anything in here is remotely correct. 
+
+\clearpage
 \tableofcontents
+\clearpage
+
 
 \section{General information}
 
@@ -33,7 +40,7 @@ where $A$ is the atomic mass
 \noindent The natural lifetime is $\tau = \tau_{1/2}/\ln 2$.
 
 \noindent Timing resolution of various detector types:
-\embedimgw{figs/timingresolution.png}{.7}
+\embedimgw{figs/timingresolution.png}{.5}
 
 \subsection{Momentum measurement of charged particles}
 \begin{itemize}
@@ -47,12 +54,12 @@ where $A$ is the atomic mass
   \begin{itemize}
     \item Measurement is:
     \begin{equation}
-      \frac{\sigma_\text{meas.}}{p_T} = \frac{8 \sigma_s}{0.3 BL^2} p_T, \quad \sigma_s \propto \sigma_{r\phi}
+      \frac{\sigma_\text{meas.}}{p_T} = \frac{8 \sigma_s}{0.3 BL^2} p_T, \quad \sigma_s \propto \frac{\sigma_{r\phi}}{\sqrt{N+4}}
     \end{equation}
     Note the uncertainty is larger for high-momentum particles (the track is straighter)
     \item Multiple scattering is:
     \begin{equation}
-      \frac{\sigma_\text{MS}}{p_T} = \frac{0.045}{B\sqrt{L X_0}}
+      \frac{\sigma_\text{MS}}{p_T} = \frac{0.045}{B}\sqrt{\frac{L}{X_0}}
     \end{equation}
     \item The use of denser materials and a shorter tracker increases the MS component of the uncertainty
   \end{itemize}
@@ -75,6 +82,7 @@ where $A$ is the atomic mass
     \begin{itemize}
       \item Observed by looking for $\gamma$ from $\el$ filling hole left by captured $\el$
     \end{itemize}
+    \item For tritium, the beta particle energy is $<20~\kev$
   \end{itemize}
   \item $\gamma$-emission: nucleus de-excites, emitting a $\gamma$
   \begin{itemize}
@@ -120,7 +128,7 @@ where $A$ is the atomic mass
 \begin{itemize}
   \item The probability of at least one interaction over a distance $x$ is $P(x) = 1-\exp[-n\sigma x]$, where $n$ is the number density of targets
   \begin{itemize}
-    \item $\Rightarrow$ mean free path $\lambda = 1/N\sigma$
+    \item $\Rightarrow$ mean free path $\lambda = 1/n\sigma$
   \end{itemize}
 \end{itemize}
 \subsection{Energy loss of heavy charged particles in matter}
@@ -304,7 +312,7 @@ where $A$ is the atomic mass
   \end{itemize}
   \item Define the Moli\`ere radius as the radius of the cylinder surrounding the primary particle that contains $90\%$ of the energy deposited by an EM shower. It satisfies:
   \begin{equation}
-    R_M = X_0 \frac{2.12~\mev}{E_c}
+    R_M = X_0 \frac{21.2~\mev}{E_c}
   \end{equation}
 \end{itemize}
 
@@ -1042,7 +1050,7 @@ Imposing $\phi(-x_p)=0$ and $\phi(x_n)=V_0$ allows us to solve for the depths.
 \begin{itemize}
   \item Like with PMTs, the photon hits a semiconductor (such as silicon dioxide) and ejects a photoelectron
   \item If the bias voltage is large enough, the pair can cause secondary ionizations\thus avalanche
-  \item In Geiger mode, can get gains of $\sim 10^8$
+  \item In Geiger mode, can get gains of $\sim 100$
   \item CMS ECAL avalanche photodiodes have a total efficiency (quantum times collection) of $70\%$
   \item A SiPM is a large array of APDs in Geiger mode
   \begin{itemize}
@@ -1311,7 +1319,7 @@ Imposing $\phi(-x_p)=0$ and $\phi(x_n)=V_0$ allows us to solve for the depths.
 
 \subsubsection{HCAL Outer}
 \begin{itemize}
-  \item Uses the solenoid and first yoke layer (mostly iron) as absorbers 
+  \item Uses the solenoid and first yoke layer (mostly aluminum and iron, respectively) as absorbers 
   \begin{itemize}
     \item Total depth is equivalent to $10\lambda_I$
     \item Layer of scintillator after each absorber
@@ -1330,6 +1338,7 @@ Imposing $\phi(-x_p)=0$ and $\phi(x_n)=V_0$ allows us to solve for the depths.
   \end{itemize}
   \item Uncertainty in $p_T$ is at worst $7\%$ and is better than $1\%$ for central, high $p_T$ jets:
   \embedimgw{figs/cms_jec.png}{.8}
+  \item Calibrating jet energy scale is very important as it controls the uncertainty on the $\met$
 \end{itemize}
 
 \subsection{Magnet and return yokes}
@@ -1337,7 +1346,7 @@ Imposing $\phi(-x_p)=0$ and $\phi(x_n)=V_0$ allows us to solve for the depths.
   \item Magnet is a solenoid generating a 3.8 T field inside
   \item Coil is a superconducting alloy. Maintained at 4 K using LiHe
   \item It uses a lot of aluminum to stabilize the superconducting coil
-  \item Maybe I'm bad at reading, but the 300-page solenoid TDR doesn't actually mention what the coil is made out of\dots
+  \item Superconducting coil is NbTi
   \item Radius of solenoid is 3 m
   \item Outside the solenoid:
   \begin{itemize}
@@ -1408,19 +1417,79 @@ Imposing $\phi(-x_p)=0$ and $\phi(x_n)=V_0$ allows us to solve for the depths.
   \item Can identify a standalone muon (using just the muon chambers) or a global muon (adding tracker info)
   \begin{itemize}
     \item Note tracker gives complementary information, since \B-field changes direction
+    \item Below $200~\gev$, tracker dominates accuracy, since multiple scattering in solenoid and yoke messes up measurement in muon chambers
   \end{itemize}
   \item Global muon reconstruction efficiency is $\gtrsim 97\%$
-  \item Global muon $p_T$ uncertainty is less than $1\%$ for $p_T>100~\gev$:
+  \item Global muon $p_T$ uncertainty is less than $1\%$ for $p_T<100~\gev$:
   \embedimgw{figs/cms_muon.png}{.7}
+\end{itemize}
+
+\subsection{Triggering and DAQ}
+\begin{itemize}
+  \item LHC Run II luminosity is $10^{34}~\cm^{-2}\s^{-1}$ and inelastic $pp$ scattering cross section is 70 mb, so the event rate is $\sim 10^9/\s$
+  \item Each bunch crossing has an average of 22 overlaid events. Bunch crossing rate is 40 MHz
+  \item If each event is $\sim$ 1 MB, then the data output is over 1 TB each second
+  \begin{itemize}
+    \item Way too high to write out using existing implementations (although I believe DarkLight is aiming for this order of magnitude)
+  \end{itemize}
+  \item Two stages: L1 and HLT
+  \item Level 1 trigger system
+  \begin{itemize}
+    \item Uses muon and calorimeter information to select interesting events
+    \item Can construct primitives like muons, electrons, photons; can also measure global variables like $E_T$, $H_T$, $\met$
+    \begin{itemize}
+      \item Use faster, but less accurate, reconstruction methods than what is used offline
+    \end{itemize}
+    \item Three components:
+    \begin{itemize}
+      \item Global calorimeter trigger
+      \item Global muon trigger
+      \item Global trigger (takes info from GCT and GMT)
+    \end{itemize}
+    \item Reduces event rate from 40 MHz to 50 kHz
+    \item Functions by keeping events in buffer (``front-end pipeline'') for a few microseconds. Event processing time is about 1 microsecond
+    \item Calculation is done online using FPGAs
+    \item Proposals for future is to add tracking information to L1 trigger: use fast pattern recognition to reconstruct track primitives for triggering
+  \end{itemize}
+  \item High Level Trigger system
+  \begin{itemize}
+    \item Each HLT path is ``seeded'' by a L1 trigger
+    \begin{itemize}
+      \item For example, a HLT path that looks for $b$-tagged jets would be seeded by an L1 trigger with requirements on $H_T $
+    \end{itemize}
+    \item Reduces event rate down to $\ord{100}$ Hz
+    \begin{itemize}
+      \item At most $90\%$ is used for actual physics; rest is dedicated for detector calibration
+    \end{itemize}
+    \item Decisions are made using information from all detector components
+    \item However, reconstruction is only partial, to reduce CPU time
+    \begin{itemize}
+      \item Objects are reconstructed following objects that are identified by corresponding L1 trigger
+    \end{itemize}
+    \item Three levels within HLT:
+    \begin{itemize}
+      \item Level 2.0: still no tracking information. Does stuff like construct ECAL superclusters. $\ord{100}$ ms
+      \item Level 2.5: primitive tracking and vertexing using only pixels. $\ord{10}$ ms
+      \item Level 3.0: using full tracker. $\ord{100}$ ms
+    \end{itemize}
+    \item Average processing time ranges from 50 ms (jets+$\met$) to 700 ms (muons)
+  \end{itemize}
 \end{itemize}
 
 \begin{appendices}
 \section{Bibliography}
-
-Leo, W. R., \emph{Techniques for Nuclear and Particle Physics Experiments}. Second Revised Edition
-\vspace{5mm}
-
-\noindent PDG Particle Review, \emph{Passage of Particles Through Matter}. 2014 edition
+~
+\bibspace The CMS Collaboration, \emph{Description and performance of track and primary-vertex reconstruction with the CMS tracker}. \verb|arXiv:1405.6569|
+\bibspace The CMS Collaboration, \emph{The Magnet Project Technical Design Report}. \verb|CERN/LHCC 97-10|
+\bibspace The CMS Collaboration, \emph{Performance of CMS muon reconstruction in pp collision events at $\sqrt{s}= 7~\tev$}. \verb|arXiv:1206.4071|
+\bibspace The CMS Collaboration, \emph{Energy calibration and resolution of the CMS electromagnetic calorimeter in pp collisions at $\sqrt{s}=7~\tev$}. \verb|arXiv:1206.2016|
+\bibspace The CMS Collaboration, \emph{Performance of jets at CMS}. 2015 J. Phys.: Conf. Ser. 587 012004
+\bibspace The CMS Collaboration, \emph{Operation and performance of the CMS tracker}. \verb|arXiv:1402.0675|
+\bibspace The CMS Collaboration, \emph{The CMS High Level Trigger}.
+\bibspace The CMS Collaboration, \emph{The CMS ECAL performance with examples}. 2014 JINST 9 C02008
+\bibspace Leo, W. R., \emph{Techniques for Nuclear and Particle Physics Experiments}. Second Revised Edition
+\bibspace PDG Particle Review, \emph{Passage of Particles Through Matter}. 2014 edition
+\bibspace PDG Particle Review, \emph{Particle Detectors at Accelerators}. 2015 edition
 
 \end{appendices}
 
